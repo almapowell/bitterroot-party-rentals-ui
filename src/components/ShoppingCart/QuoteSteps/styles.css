@@ -1,0 +1,22 @@
+.primary-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.steps-action {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nextBtn {
+  border-radius: 1000px;
+  color: red;
+}

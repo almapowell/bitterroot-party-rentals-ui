@@ -1,0 +1,33 @@
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-container button {
+  background: none;
+  outline: none;
+  border-radius: 3px;
+  padding: 7px;
+}
+
+.btn-container button:hover {
+  cursor: pointer;
+}
+
+.btn-container button:first-child {
+  color: red;
+  border: 1px solid red;
+}
+
+.btn-container button:nth-child(2) {
+  color: green;
+  border: 1px solid green;
+}
+
+.btn-container button:first-child:hover {
+  background-color: rgb(255, 211, 211);
+}
+
+.btn-container button:nth-child(2):hover {
+  background-color: rgb(182, 233, 182);
+}
