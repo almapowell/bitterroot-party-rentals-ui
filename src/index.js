@@ -10,10 +10,7 @@ import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { categories } from "./shared/utils";
-import ShoppingCart from "./components/ShoppingCart";
 import Admin from "./components/Admin";
-import QuoteSteps from "./components/ShoppingCart/QuoteSteps";
-import Footer from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,7 +24,6 @@ root.render(
             <Route path="/" element={<App />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/landing-page" element={<LandingPage />} />
-            <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/finalize-quote" element={<QuoteSteps />} />
             <Route path="/jordy" element={<Admin />} />
 
@@ -48,7 +44,6 @@ root.render(
               element={<SelectedCategory items={categories[3]} />}
             />
           </Routes>
-          <Footer />
         </div>
       </BrowserRouter>
     </Provider>
