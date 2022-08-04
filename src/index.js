@@ -24,7 +24,6 @@ root.render(
             <Route path="/" element={<App />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/landing-page" element={<LandingPage />} />
-            <Route path="/finalize-quote" element={<QuoteSteps />} />
             <Route path="/jordy" element={<Admin />} />
 
             <Route
