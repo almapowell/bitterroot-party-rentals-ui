@@ -1,0 +1,26 @@
+/* .title {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  font-size: 50px;
+  font-weight: 500;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, transparent, #852b97, transparent) 1;
+  padding: 20px 20%;
+  font-family: cursive;
+} */
+
+.sections {
+  height: 300px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 50px;
+}
