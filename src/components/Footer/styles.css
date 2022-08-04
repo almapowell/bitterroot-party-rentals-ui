@@ -1,8 +1,7 @@
 .footerContainer {
   position: sticky;
   top: 100vh;
-  margin-top: 1rem;
-  height: 200px;
+  height: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
