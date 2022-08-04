@@ -1,0 +1,55 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.logo {
+  font-family: cursive;
+  font-size: 40px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.contactBtn {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1em;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.contactBtn:after {
+  transition: all ease-in-out 0.2s;
+  background: none repeat scroll 0 0 black;
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0;
+}
+
+.contactBtn:hover:after {
+  width: 100%;
+}
+
+.shoppingCart {
+  font-size: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  transition: all ease-in-out 0.2s;
+  padding: 5px;
+  margin: 10px;
+}
+
+.shoppingCart svg {
+  fill: "white";
+}
+.shoppingCart:hover {
+  cursor: pointer;
+  background: rgb(104, 104, 104);
+  transition: all ease-in-out 0.2s;
+}
