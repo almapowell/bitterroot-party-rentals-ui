@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "antd/dist/antd.min.css";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -9,16 +9,21 @@ import { useNavigate } from "react-router";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const imageRef = useRef(null);
+  const [backgroundHeight, setBackgroundHeight] = useState(0);
+
+  useEffect(() => {
+    setBackgroundHeight(imageRef.current.offsetWidth * 0.6);
+  }, [imageRef]);
+
   return (
     <div>
-      <div className="background">
-        <img
-          src={
-            "https://cpartyrentals.com/wp-content/uploads/2021/11/ALI_6713.jpg"
-          }
-          alt="backgroundImg"
-        />
-        <div class="overlay">
+      <div
+        style={{ height: backgroundHeight }}
+        className="background"
+        ref={imageRef}
+      >
+        <div className="overlay">
           <span className="welcome">Welcome to</span>
           <span className="company-name">Bitterroot Party Rentals</span>
           <div class="shop-btn-wrapper">
@@ -52,7 +57,7 @@ const LandingPage = () => {
           <ImageListItem key={item.img}>
             <Image
               src={`${item.img}?w=248&fit=crop&auto=format`}
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
               alt={item.title}
               loading="lazy"
             />

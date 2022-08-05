@@ -1,3 +1,9 @@
+@media (max-width: 665px) {
+  .contactBtn {
+    font-size: 12px;
+  }
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -10,13 +16,14 @@
   font-size: 40px;
   text-decoration: none;
   color: var(--primary-color);
+  font-size: calc(15px + 2vmin);
 }
 
 .contactBtn {
   border: none;
   outline: none;
   background: transparent;
-  font-size: 1em;
+  font-size: 14px;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
