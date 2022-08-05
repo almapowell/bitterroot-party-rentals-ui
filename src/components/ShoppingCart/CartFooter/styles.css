@@ -8,7 +8,17 @@
 .cart-summary {
   border-top: 1px solid rgb(187, 187, 187);
   padding-top: 2rem;
+  font-size: 14px;
 }
+
+.cart-items {
+  font-size: 14px;
+}
+
+.cart-item .cart-product-total-price {
+  font-size: 17px;
+}
+
 .cart-summary .clear-btn {
   width: 130px;
   height: 40px;
