@@ -11,9 +11,9 @@ const Header = () => {
     <div>
       <div className="header-container">
         <Link to="/">
-          <span className="logo">Bitterroot Party Rentals</span>
+          <span className="logo">Bitterroot Party Rentals Yeee</span>
         </Link>
-        <div>
+        <div style={{ display: "flex" }}>
           <button
             className="contactBtn"
             onClick={() => setIsModalVisible(true)}
