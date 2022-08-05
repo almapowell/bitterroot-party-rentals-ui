@@ -36,6 +36,10 @@
   font-family: "Andale Mono, monospace";
 }
 
+.masonry-image {
+  font-size: 14px;
+}
+
 /* ----- BUTTON ----- */
 
 .shop-btn-container {

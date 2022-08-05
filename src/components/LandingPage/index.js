@@ -43,7 +43,7 @@ const LandingPage = () => {
 
       <div className="banner">
         <span>Free Quotes</span>
-        <span>Setup & Takedown</span>
+        <span>Delivery Service</span>
         <span>Fast Reply</span>
       </div>
 
@@ -56,6 +56,7 @@ const LandingPage = () => {
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <Image
+              rootClassName="masonry-image"
               src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
               alt={item.title}
