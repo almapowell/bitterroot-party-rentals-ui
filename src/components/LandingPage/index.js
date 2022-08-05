@@ -2,15 +2,7 @@ import React from "react";
 import RentalForm from "./RentalForm";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import ImageOne from "../../shared/images/image1.jpg";
-import ImageTwo from "../../shared/images/image2.jpg";
-import ImageThree from "../../shared/images/image3.jpg";
-import ImageFour from "../../shared/images/image4.jpg";
-import ImageFive from "../../shared/images/image5.jpg";
-import ImageSix from "../../shared/images/image6.jpg";
-import ImageSeven from "../../shared/images/image7.jpg";
-import ImageEight from "../../shared/images/image8.png";
-import ImageNine from "../../shared/images/image9.png";
+
 import { Image } from "antd";
 import "./styles.css";
 import { useNavigate } from "react-router";
@@ -50,7 +42,7 @@ const LandingPage = () => {
         <span>Fast Reply</span>
       </div>
 
-      <ImageList
+      {/* <ImageList
         sx={{ width: "100%", height: "auto" }}
         variant="masonry"
         cols={3}
@@ -66,48 +58,9 @@ const LandingPage = () => {
             />
           </ImageListItem>
         ))}
-      </ImageList>
+      </ImageList> */}
     </div>
   );
 };
 
 export default LandingPage;
-
-const itemData = [
-  {
-    img: ImageOne,
-    title: "Bed",
-  },
-  {
-    img: ImageTwo,
-    title: "Kitchen",
-  },
-  {
-    img: ImageThree,
-    title: "Sink",
-  },
-  {
-    img: ImageFour,
-    title: "Books",
-  },
-  {
-    img: ImageFive,
-    title: "Chairs",
-  },
-  {
-    img: ImageSix,
-    title: "Candle",
-  },
-  {
-    img: ImageSeven,
-    title: "Laptop",
-  },
-  {
-    img: ImageEight,
-    title: "Doors",
-  },
-  {
-    img: ImageNine,
-    title: "Coffee",
-  },
-];
