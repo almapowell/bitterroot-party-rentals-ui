@@ -11,7 +11,7 @@ const Header = () => {
     <div>
       <div className="header-container">
         <Link to="/">
-          <span className="logo">Bitterroot Party Rentals Yeee</span>
+          <span className="logo">Bitterroot Party Rentals</span>
         </Link>
         <div style={{ display: "flex" }}>
           <button

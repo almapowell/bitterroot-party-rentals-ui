@@ -4,11 +4,8 @@ import "./styles.css";
 
 const ContactModal = ({ isModalVisible, setIsModalVisible }) => {
   const layout = {
-    labelCol: {
-      span: 8,
-    },
     wrapperCol: {
-      span: 16,
+      span: 25,
     },
   };
 
@@ -17,10 +14,6 @@ const ContactModal = ({ isModalVisible, setIsModalVisible }) => {
     required: "${label} is required!",
     types: {
       email: "${label} is not a valid email!",
-      number: "${label} is not a valid number!",
-    },
-    number: {
-      range: "${label} must be between ${min} and ${max}",
     },
   };
 
@@ -45,7 +38,6 @@ const ContactModal = ({ isModalVisible, setIsModalVisible }) => {
         <strong>406-360-5555</strong>
       </div>
       <Form
-        className="form-group"
         {...layout}
         layout="vertical"
         name="nest-messages"

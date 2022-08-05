@@ -13,12 +13,12 @@ const VenueInformation = ({
   return (
     <Form
       labelCol={{
-        span: 4,
+        span: 3,
       }}
       wrapperCol={{
-        span: 19,
+        span: 25,
       }}
-      layout="vertical"
+      layout="horizontal"
     >
       <Form.Item
         name="Venue Address"
