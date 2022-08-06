@@ -1,15 +1,25 @@
 import { FacebookFilled, InstagramFilled } from "@ant-design/icons";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 export default function Footer() {
-  const navigate = useNavigate();
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
 
   return (
     <div className="footerContainer">
       <div className="social-media-container">
-        <FacebookFilled />
-        <InstagramFilled />
+        <FacebookFilled
+          onClick={() =>
+            openInNewTab("https://www.facebook.com/sunnysideeventsmt")
+          }
+        />
+        <InstagramFilled
+          onClick={() =>
+            openInNewTab("https://www.instagram.com/sunnysideeventsmt/")
+          }
+        />
       </div>
       <div
         style={{ border: "1px solid #faf9fa", width: "100%", marginTop: 30 }}
