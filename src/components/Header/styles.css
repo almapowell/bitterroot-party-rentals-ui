@@ -11,6 +11,12 @@
   padding: 25px 0;
 }
 
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+  }
+}
+
 .logo {
   font-family: cursive;
   font-size: 40px;
