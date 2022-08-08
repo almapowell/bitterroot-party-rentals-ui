@@ -27,7 +27,6 @@
 
 .social-media-container span:hover {
   cursor: pointer;
-  font-size: 32px;
   color: rgba(255, 255, 255, 0.664);
   border-radius: 10px;
   overflow: hidden;
