@@ -1,8 +1,8 @@
 import React from "react";
 import { Card } from "antd";
 import "./styles.css";
-import "../../shared/styles.css";
-import { categories } from "../../shared/utils";
+import "../../../shared/styles.css";
+import { categories } from "../../../shared/utils";
 import { Link } from "react-router-dom";
 
 const Categories = () => {

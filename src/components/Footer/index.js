@@ -22,14 +22,13 @@ export default function Footer() {
         />
       </div>
       <div
-        style={{ border: "1px solid #faf9fa", width: "100%", marginTop: 30 }}
+        style={{ border: "1px solid #faf9fa", width: "100%", margin: "15px 0" }}
       />
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           width: "100%",
-          marginTop: 30,
           color: "#faf9fa",
           fontSize: 12,
         }}

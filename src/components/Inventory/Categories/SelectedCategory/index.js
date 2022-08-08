@@ -1,8 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { Card } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
-import { addToCart } from "../../../redux/cartSlice";
+import { addToCart } from "../../../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom";

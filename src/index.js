@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import Header from "./components/Header";
-import Categories from "./components/Categories";
-import SelectedCategory from "./components/Categories/SelectedCategory";
+import Categories from "./components/Inventory/Categories";
+import SelectedCategory from "./components/Inventory/Categories/SelectedCategory";
 import LandingPage from "./components/LandingPage";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
@@ -14,6 +14,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import Admin from "./components/Admin";
 import QuoteSteps from "./components/ShoppingCart/QuoteSteps";
 import Footer from "./components/Footer";
+import Inventory from "./components/Inventory";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,6 +31,8 @@ root.render(
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/finalize-quote" element={<QuoteSteps />} />
             <Route path="/jordy" element={<Admin />} />
+
+            <Route path="/inventory" element={<Inventory />} />
 
             <Route
               path={`/${categories[0].link}`}
