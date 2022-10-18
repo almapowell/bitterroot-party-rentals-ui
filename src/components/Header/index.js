@@ -3,13 +3,16 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import ContactModal from "./ContactModal";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import Navbar from "./navbar";
 
 const Header = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <div>
-      <div className="header-container">
+      <Navbar />
+
+      {/* <div className="header-container">
         <Link to="/">
           <span className="logo">Bitterroot Party Rentals</span>
         </Link>
@@ -32,7 +35,7 @@ const Header = () => {
       <ContactModal
         setIsModalVisible={setIsModalVisible}
         isModalVisible={isModalVisible}
-      />
+      /> */}
     </div>
   );
 };

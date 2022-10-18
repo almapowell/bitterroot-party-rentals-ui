@@ -9,7 +9,7 @@ export const categories = [
         image:
           "https://cdnimg.webstaurantstore.com/images/products/large/524156/1966886.jpg",
         title: "6' Round Folding Table",
-        price: "8.00",
+        price: "15.00",
       },
     ],
     icon: "https://wp.catalog.d.cpartyrentals.com/itemimages/SUPERCAT15.jpg",
@@ -52,7 +52,13 @@ export const categories = [
         id: 4,
         image: "https://wp.catalog.d.cpartyrentals.com/itemimages/12157t.jpg",
         title: "Giant Jenga",
-        price: "1.75",
+        price: "50",
+      },
+      {
+        id: 5,
+        image: "https://wp.catalog.d.cpartyrentals.com/itemimages/12157t.jpg",
+        title: "Corn Hole",
+        price: "50",
       },
     ],
     icon: "https://wp.catalog.d.cpartyrentals.com/itemimages/SUPERCAT6.jpg",
@@ -65,7 +71,7 @@ export const products = [
     image:
       "https://cdnimg.webstaurantstore.com/images/products/large/524156/1966886.jpg",
     title: "6' Round Folding Table",
-    price: "8.00",
+    price: "15.00",
   },
   {
     id: 2,
@@ -84,7 +90,13 @@ export const products = [
     id: 4,
     image: "https://wp.catalog.d.cpartyrentals.com/itemimages/12157t.jpg",
     title: "Giant Jenga",
-    price: "1.75",
+    price: "50.00",
+  },
+  {
+    id: 5,
+    image: "https://m.media-amazon.com/images/I/41CFULBJ+fL._AC_SY1000_.jpg",
+    title: "Corn Hole",
+    price: "50.00",
   },
 ];
 

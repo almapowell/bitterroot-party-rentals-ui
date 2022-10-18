@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,7 +6,7 @@
   padding: 0 1rem;
   list-style: none;
   height: 50px;
-}
+} */
 
 .btn {
   text-decoration: none;

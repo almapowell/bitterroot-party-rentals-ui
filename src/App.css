@@ -7,8 +7,12 @@
   flex-direction: column;
   color: black;
   font-size: calc(10px + 2vmin);
+  font-family: var(--primary-font-family);
 }
 
 :root {
   --primary-color: #343434;
+  --primary-font-family: Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  --secondary-font-family: fantasy;
 }

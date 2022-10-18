@@ -18,7 +18,7 @@
 }
 
 .logo {
-  font-family: cursive;
+  font-family: "Trattatello, fantasy	";
   font-size: 40px;
   text-decoration: none;
   color: var(--primary-color);
@@ -50,19 +50,20 @@
 }
 
 .shoppingCart {
-  font-size: 24px;
+  font-size: 28px;
   border-radius: 50%;
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
   transition: all ease-in-out 0.2s;
   padding: 5px;
-  margin: 10px;
+  color: rgb(204, 204, 204);
 }
 
 .shoppingCart svg {
   fill: "white";
 }
-.shoppingCart:hover {
+.shoppingCart:hover svg {
   cursor: pointer;
-  background: rgb(104, 104, 104);
+  /* background: rgb(104, 104, 104); */
   transition: all ease-in-out 0.2s;
+  fill: #fff;
 }

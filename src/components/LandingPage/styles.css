@@ -12,8 +12,6 @@
 
   display: flex;
   justify-content: center;
-
-  margin-bottom: 100px;
 }
 
 .background .overlay {
@@ -174,8 +172,8 @@
   background: var(--primary-color);
   color: white;
   font-size: calc(10px + 2vmin);
-  margin-bottom: 100px;
-  height: 100px;
+  margin: 4vh 0;
+  height: 8vh;
   align-items: center;
   font-family: cursive;
 }
