@@ -32,7 +32,7 @@ const LandingPage = () => {
         <div className="overlay">
           <span className="welcome">Welcome to</span>
           <span className="company-name">Bitterroot Party Rentals</span>
-          <div class="shop-btn-wrapper">
+          <div className="shop-btn-wrapper">
             <button onClick={() => navigate("/inventory")} className="shop-btn">
               Shop Rentals
               <span></span>

@@ -19,16 +19,20 @@ const Inventory = ({ items }) => {
     <div className="category-container">
       <div className="pageTitle">Inventory</div>
       <div className="category-wrapper">
-        {products.map((product) => (
+        {products.map((product, index) => (
           <Card
-            key={product.productId}
+            key={index}
             title={product.title}
             style={{
               margin: "30px auto",
               textAlign: "center",
             }}
           >
-            <img className="productImage" src={product.image} />
+            <img
+              className="productImage"
+              src={product.image}
+              alt={product.title}
+            />
             <div className="priceWrapper">
               <h2 className="product-price">$ {product.price}</h2>
               <div className="addToCartBtn">
