@@ -8,7 +8,6 @@
   color: black;
   font-size: calc(15px + 2vmin);
   font-family: var(--primary-font-family);
-  border: 10px solid red;
 }
 
 @media screen and (max-width: 768px) {
