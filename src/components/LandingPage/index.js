@@ -7,11 +7,11 @@ import { Image } from "antd";
 import "./styles.css";
 import { useNavigate } from "react-router";
 import img1 from "../../shared/images/landing-page.jpg";
-import img2 from "../../shared/images/imageTwo.JPG";
-import img3 from "../../shared/images/imageThree.JPG";
-import img4 from "../../shared/images/imageFour.JPG";
-import img5 from "../../shared/images/imageFive.JPG";
-import img6 from "../../shared/images/imageSix.JPG";
+import img2 from "../../shared/images/imageTwo.jpg";
+import img3 from "../../shared/images/imageThree.jpg";
+import img4 from "../../shared/images/imageFour.jpg";
+import img5 from "../../shared/images/imageFive.jpg";
+import img6 from "../../shared/images/imageSix.jpg";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -56,13 +56,13 @@ const LandingPage = () => {
         cols={3}
         gap={8}
       >
-        {itemData.map((item) => (
+        {itemData.map((item, index) => (
           <ImageListItem key={item.img}>
             <Image
               rootClassName="masonry-image"
               src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
-              alt={item.title}
+              alt={"Image" + index}
               loading="lazy"
             />
           </ImageListItem>
@@ -77,27 +77,27 @@ export default LandingPage;
 const itemData = [
   {
     img: img1,
-    title: "Bed",
+    title: "",
   },
   {
     img: img2,
-    title: "Books",
+    title: "",
   },
   {
     img: img3,
-    title: "Sink",
+    title: "",
   },
   {
     img: img4,
-    title: "Kitchen",
+    title: "",
   },
   {
     img: img5,
-    title: "Blinds",
+    title: "",
   },
   {
     img: img6,
-    title: "Chairs",
+    title: "",
   },
   // {
   //   img: img7,

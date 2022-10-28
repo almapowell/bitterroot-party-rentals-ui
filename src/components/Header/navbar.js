@@ -21,7 +21,12 @@ function Navbar() {
       setIcon("nav__toggler toggle");
     } else setIcon("nav__toggler");
   };
-  console.log(location);
+
+  const handleNavClick = (path) => {
+    setActiveLink(path);
+    setActive("nav__menu");
+    setIcon("nav__toggler");
+  };
 
   return (
     <div>
@@ -31,7 +36,7 @@ function Navbar() {
         </Link>
         <ul className={active}>
           <li
-            onClick={() => setActiveLink("/")}
+            onClick={() => handleNavClick("/")}
             className={`nav__item ${activeLink === "/" && "activeLink"}`}
           >
             <Link to="/" className="nav__link">
@@ -40,7 +45,7 @@ function Navbar() {
           </li>
 
           <li
-            onClick={() => setActiveLink("/inventory")}
+            onClick={() => handleNavClick("/inventory")}
             className={`nav__item ${
               activeLink === "/inventory" && "activeLink"
             }`}
@@ -62,7 +67,7 @@ function Navbar() {
             </a>
           </li>
           <li
-            onClick={() => setActiveLink("/shopping-cart")}
+            onClick={() => handleNavClick("/shopping-cart")}
             className={`nav__item ${
               activeLink === "/shopping-cart" && "activeLink"
             }`}
