@@ -31,9 +31,7 @@ function Navbar() {
   return (
     <div>
       <nav className="nav">
-        <Link to="/" className="nav__brand">
-          Bitterroot Party Rentals
-        </Link>
+        <Link to="/">Bitterroot Party Rentals</Link>
         <ul className={active}>
           <li
             onClick={() => handleNavClick("/")}

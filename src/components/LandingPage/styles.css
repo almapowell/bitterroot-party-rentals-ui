@@ -4,6 +4,9 @@
   justify-content: space-between;
 }
 
+.img {
+}
+
 .background {
   background-image: url("https://cpartyrentals.com/wp-content/uploads/2021/11/ALI_6713.jpg");
   background-size: 100% 100%;
@@ -26,12 +29,7 @@
 }
 
 .welcome {
-  font-family: cursive;
   font-weight: 100;
-}
-
-.company-name {
-  font-family: "Andale Mono, monospace";
 }
 
 .masonry-image {
@@ -47,7 +45,6 @@
   transform: translate(-50%, -50%);
   width: fit-content;
   height: auto;
-  font-weight: bold;
 }
 .shop-btn {
   width: 200px;
@@ -64,11 +61,10 @@
   overflow: hidden;
   transition: all 0.5s;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  font-family: cursive;
   font-weight: 100;
   font-size: 18px;
   border: 1px solid var(--primary-color);
-  font-weight: bold;
+  font-weight: 800;
 }
 .shop-btn span {
   position: absolute;
@@ -175,7 +171,6 @@
   margin: 4vh 0;
   height: 8vh;
   align-items: center;
-  font-family: cursive;
 }
 
 @media (max-width: 700px) {

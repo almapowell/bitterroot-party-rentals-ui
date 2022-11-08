@@ -6,12 +6,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { Image } from "antd";
 import "./styles.css";
 import { useNavigate } from "react-router";
-import img1 from "../../shared/images/landing-page.jpg";
-import img2 from "../../shared/images/imageTwo.jpg";
-import img3 from "../../shared/images/imageThree.jpg";
-import img4 from "../../shared/images/imageFour.jpg";
-import img5 from "../../shared/images/imageFive.jpg";
-import img6 from "../../shared/images/imageSix.jpg";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -59,6 +53,26 @@ const LandingPage = () => {
         {itemData.map((item, index) => (
           <ImageListItem key={item.img}>
             <Image
+              className="img"
+              rootClassName="masonry-image"
+              src={`${item.img}`}
+              // srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
+              alt={"Image" + index}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+
+      {/* <ImageList
+        sx={{ width: "100%", height: "auto" }}
+        variant="masonry"
+        cols={3}
+        gap={8}
+      >
+        {itemData.map((item, index) => (
+          <ImageListItem key={item.img}>
+            <Image
               rootClassName="masonry-image"
               src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
@@ -67,7 +81,7 @@ const LandingPage = () => {
             />
           </ImageListItem>
         ))}
-      </ImageList>
+      </ImageList> */}
     </div>
   );
 };
@@ -76,51 +90,31 @@ export default LandingPage;
 
 const itemData = [
   {
-    img: img1,
-    title: "",
+    img:
+      "https://drive.google.com/uc?export=view&id=1S84VOzz3trPFshR7XFoS7QUO1TJ-yC0E",
   },
   {
-    img: img2,
-    title: "",
+    img:
+      "https://drive.google.com/uc?export=view&id=1cGTQBrLr4Aneh8CW4SE6g9WGoMZuvM5V",
   },
   {
-    img: img3,
-    title: "",
+    img:
+      "https://drive.google.com/uc?export=view&id=1aDKA5QoRBTHmOu5hgswcagDQ0iePKRNY",
   },
   {
-    img: img4,
-    title: "",
+    img:
+      "https://drive.google.com/uc?export=view&id=1viglfl2V1XKthyRFaFQhPahNExwUd-RX",
   },
   {
-    img: img5,
-    title: "",
+    img:
+      "https://drive.google.com/uc?export=view&id=1ck-euKuuFTgAL_RGY3x_zujBkKO3KPKN",
   },
   {
-    img: img6,
-    title: "",
+    img:
+      "https://drive.google.com/uc?export=view&id=1HisUWEJ2MQTl_YJCYQnBMwv5DD2qLicJ",
   },
-  // {
-  //   img: img7,
-  //   title: "Laptop",
-  // },
-  // {
-  //   img: "https://images.unsplash.com/photo-1481277542470-605612bd2d61",
-  //   title: "Doors",
-  // },
-  // {
-  //   img: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7",
-  //   title: "Coffee",
-  // },
-  // {
-  //   img: "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee",
-  //   title: "Storage",
-  // },
-  // {
-  //   img: "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62",
-  //   title: "Candle",
-  // },
-  // {
-  //   img: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
-  //   title: "Coffee table",
-  // },
+  {
+    img:
+      "https://drive.google.com/uc?export=view&id=17pf47SRWozmjLdN2Jl0KnMDwWXLHGqJo",
+  },
 ];

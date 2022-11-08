@@ -28,16 +28,11 @@ a {
   padding: 0 20px;
 }
 
-.nav__brand {
-  font-family: cursive;
-}
-
 .nav__menu {
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: 3rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 ul {
