@@ -58,7 +58,7 @@ const LandingPage = () => {
               src={`${item.img}`}
               // srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
               alt={"Image" + index}
-              loading="lazy"
+              // loading="lazy"
             />
           </ImageListItem>
         ))}
