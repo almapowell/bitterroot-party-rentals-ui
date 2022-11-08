@@ -18,6 +18,10 @@ a {
   color: rgb(204, 204, 204);
 }
 
+.main-title {
+  font-size: 30px;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -59,6 +63,7 @@ ul {
   display: inline-block;
   cursor: pointer;
   font-weight: 400;
+  font-size: 26px;
 }
 
 .nav__item:after {
