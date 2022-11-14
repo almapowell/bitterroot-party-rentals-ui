@@ -16,7 +16,7 @@ const ShoppingCart = () => {
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
           <div className="start-shopping">
-            <Link to="/">
+            <Link to="/inventory">
               {backArrow}
               <span>Start Shopping</span>
             </Link>

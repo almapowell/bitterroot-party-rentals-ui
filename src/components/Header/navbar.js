@@ -3,6 +3,7 @@ import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import ContactModal from "./ContactModal";
+import { useEffect } from "react";
 
 function Navbar() {
   const location = useLocation();
@@ -11,6 +12,11 @@ function Navbar() {
   const [activeLink, setActiveLink] = useState(location.pathname);
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [window.location.pathname]);
+
   const navToggle = () => {
     if (active === "nav__menu") {
       setActive("nav__menu nav__active");
