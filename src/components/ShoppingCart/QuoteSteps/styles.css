@@ -4,6 +4,10 @@
   margin-top: 60px;
 }
 
+.steps-container {
+  padding: 0 10%;
+}
+
 h2 {
   display: flex;
   justify-content: center;

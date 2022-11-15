@@ -15,6 +15,7 @@ const QuoteSteps = () => {
     phone: "",
     address: "",
     date: "",
+    dateValue: null,
     delivery: false,
     notes: "",
     referal: 0,
@@ -22,6 +23,7 @@ const QuoteSteps = () => {
   const [current, setCurrent] = useState(0);
 
   const next = () => {
+    console.log(state);
     setCurrent(current + 1);
   };
 
@@ -47,6 +49,7 @@ const QuoteSteps = () => {
     setState({
       ...state,
       date: dateString,
+      dateValue: date,
     });
   };
 
@@ -88,14 +91,10 @@ const QuoteSteps = () => {
   ];
 
   return (
-    <div>
+    <div className="steps-container">
       <Steps current={current}>
-        {steps.map((item) => (
-          <Step
-            style={{ marginBottom: 70 }}
-            key={item.title}
-            title={item.title}
-          />
+        {steps.map((item, index) => (
+          <Step style={{ marginBottom: 70 }} key={index} title={item.title} />
         ))}
       </Steps>
 
@@ -118,6 +117,7 @@ const QuoteSteps = () => {
             Next
           </Button>
         )}
+        <button onClick={() => console.log(state)}>Log State</button>
       </div>
     </div>
   );

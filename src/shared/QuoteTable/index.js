@@ -31,7 +31,7 @@ const QuoteTable = ({ cartItems }) => {
       dataSource={cartItems}
       pagination={false}
       bordered
-      summary={(pageData, index) => {
+      summary={(pageData) => {
         let totalCartPrice = 0;
         pageData.forEach((data) => {
           let itemSum = data.price * data.cartQuantity;

@@ -25,14 +25,24 @@ const VenueInformation = ({
         rules={[{ required: true }]}
         label="Venue Address"
       >
-        <Input value={state.address} name="address" onChange={onInputChange} />
+        <Input
+          value={state.address}
+          defaultValue={state.address}
+          name="address"
+          onChange={onInputChange}
+        />
       </Form.Item>
       <Form.Item
         label="Event Date"
         rules={[{ required: true }]}
         label="Event Date"
       >
-        <DatePicker onChange={onDateChange} name="date" />
+        <DatePicker
+          views={["year"]}
+          onChange={onDateChange}
+          value={state.dateValue}
+          name="date"
+        />
       </Form.Item>
 
       <Form.Item
@@ -42,12 +52,18 @@ const VenueInformation = ({
         }}
         label="Pickup / Deliver"
         valuePropName="checked"
+        checked={state.delivery}
       >
         <Switch onChange={onDeliveryChange} />
       </Form.Item>
 
       <Form.Item name="Additional Notes" label="Additional Notes">
-        <Input.TextArea onChange={onInputChange} name="notes" />
+        <Input.TextArea
+          value={state.notes}
+          defaultValue={state.notes}
+          onChange={onInputChange}
+          name="notes"
+        />
       </Form.Item>
       <Form.Item label="Referral">
         <Radio.Group onChange={onReferalChange} value={state.referal}>
