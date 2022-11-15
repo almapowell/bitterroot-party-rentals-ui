@@ -7,7 +7,21 @@
   list-style: none;
   height: 50px;
   font-weight: bold;
- 
+}
+
+@media screen and (max-width: 768px) {
+  .admin-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-weight: bold;
+    padding: 0;
+  }
+
+  .admin-nav button {
+    font-size: 12px;
+    padding: 5px;
+  }
 }
 
 .btn {

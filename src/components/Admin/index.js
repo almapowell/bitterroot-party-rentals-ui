@@ -5,7 +5,6 @@ import Dashboard from "./Dashboard";
 import Modifications from "./Modifications";
 import Pending from "./Pending";
 import "./styles.css";
-import PasswordCheck from "./PasswordCheck";
 
 const Admin = () => {
   const [navigationPage, setNavigationPage] = useState("dashboard");
