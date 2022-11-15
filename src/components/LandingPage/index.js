@@ -11,9 +11,11 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const imageRef = useRef(null);
   const [backgroundHeight, setBackgroundHeight] = useState(0);
+  const [cols, setCols] = useState(0);
 
   useEffect(() => {
     setBackgroundHeight(imageRef.current.offsetWidth * 0.6);
+    setCols(window.innerWidth < 786 ? 1 : 3);
   }, [imageRef]);
 
   return (
@@ -45,10 +47,10 @@ const LandingPage = () => {
       </div>
 
       <ImageList
-        sx={{ width: "100%", height: "auto" }}
+        sx={{ width: "100%", height: "auto", padding: "0 20px" }}
         variant="masonry"
-        cols={3}
-        gap={8}
+        cols={cols}
+        gap={20}
       >
         {itemData.map((item, index) => (
           <ImageListItem key={item.img}>
@@ -58,30 +60,10 @@ const LandingPage = () => {
               src={`${item.img}`}
               // srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
               alt={"Image" + index}
-              // loading="lazy"
             />
           </ImageListItem>
         ))}
       </ImageList>
-
-      {/* <ImageList
-        sx={{ width: "100%", height: "auto" }}
-        variant="masonry"
-        cols={3}
-        gap={8}
-      >
-        {itemData.map((item, index) => (
-          <ImageListItem key={item.img}>
-            <Image
-              rootClassName="masonry-image"
-              src={`${item.img}?w=248&fit=crop&auto=format`}
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
-              alt={"Image" + index}
-              loading="lazy"
-            />
-          </ImageListItem>
-        ))}
-      </ImageList> */}
     </div>
   );
 };

@@ -28,7 +28,7 @@ const ContactModal = ({ isModalVisible, setIsModalVisible }) => {
   return (
     <Modal
       title="Contact Us"
-      visible={isModalVisible}
+      open={isModalVisible}
       okText="Submit"
       onOk={handleSubmit}
       onCancel={() => setIsModalVisible(false)}
