@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import CustomerSummary from "../../../shared/CustomerSummary";
 import QuoteTable from "../../../shared/QuoteTable";
 
-const Accepted = () => {
+const Upcoming = () => {
   const accpeted = useSelector((state) => state.requests).rentalRequests.filter(
-    (r) => r.status === "Accepted"
+    (r) => r.status === "Upcoming"
   );
 
   return (
@@ -13,14 +13,13 @@ const Accepted = () => {
       {accpeted.map((request, index) => (
         <div
           style={{
-            paddingBottom: 50,
-            marginBottom: 50,
-            borderBottom: "1px solid #777",
+            padding: '50px 10%',
+            borderBottom: "2px solid #343434",
           }}
           key={request.id}
         >
           <h3 style={{ display: "flex", justifyContent: "center" }}>
-            Accepted #{index + 1}
+            Upcoming #{index + 1}
           </h3>
           <CustomerSummary info={request.customerInformation} />
           <div style={{ margin: "30px 0" }}>
@@ -35,4 +34,4 @@ const Accepted = () => {
   );
 };
 
-export default Accepted;
+export default Upcoming;

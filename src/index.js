@@ -15,6 +15,7 @@ import Admin from "./components/Admin";
 import QuoteSteps from "./components/ShoppingCart/QuoteSteps";
 import Footer from "./components/Footer";
 import Inventory from "./components/Inventory";
+import PasswordCheck from "./components/Admin/PasswordCheck";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,7 +31,7 @@ root.render(
             <Route path="/landing-page" element={<LandingPage />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/finalize-quote" element={<QuoteSteps />} />
-            <Route path="/jordy" element={<Admin />} />
+            <Route path="/jordy" element={<PasswordCheck />} />
 
             <Route path="/inventory" element={<Inventory />} />
 

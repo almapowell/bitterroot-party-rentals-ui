@@ -195,7 +195,7 @@ export const allRequests = [
       notes: "this is going to be a great day",
       referal: 1,
     },
-    status: "Accepted",
+    status: "Upcoming",
   },
   {
     id: 4,
@@ -219,6 +219,6 @@ export const allRequests = [
       notes: "this is going to be a great day",
       referal: 1,
     },
-    status: "Accepted",
+    status: "Upcoming",
   },
 ];

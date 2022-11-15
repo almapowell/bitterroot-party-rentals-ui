@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Accepted from "./Accepted";
+import Upcoming from "./Upcoming";
 import Completed from "./Completed";
 import Dashboard from "./Dashboard";
 import Modifications from "./Modifications";
 import Pending from "./Pending";
 import "./styles.css";
+import PasswordCheck from "./PasswordCheck";
 
 const Admin = () => {
   const [navigationPage, setNavigationPage] = useState("dashboard");
@@ -20,8 +20,8 @@ const Admin = () => {
         return <Dashboard />;
       case "pending":
         return <Pending />;
-      case "accepted":
-        return <Accepted />;
+      case "upcoming":
+        return <Upcoming />;
       case "completed":
         return <Completed />;
       case "modifications":
@@ -33,7 +33,7 @@ const Admin = () => {
 
   return (
     <div>
-      <nav className="nav">
+      <nav className="admin-nav">
         <button
           className={navigationPage === "dashboard" ? "active" : "btn"}
           onClick={() => updateNav("dashboard")}
@@ -47,10 +47,10 @@ const Admin = () => {
           Pending
         </button>
         <button
-          className={navigationPage === "accepted" ? "active" : "btn"}
-          onClick={() => updateNav("accepted")}
+          className={navigationPage === "upcoming" ? "active" : "btn"}
+          onClick={() => updateNav("upcoming")}
         >
-          Accepted
+          Upcoming
         </button>
         <button
           className={navigationPage === "completed" ? "active" : "btn"}

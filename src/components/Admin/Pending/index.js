@@ -9,16 +9,13 @@ const Pending = () => {
     (state) => state.requests
   ).rentalRequests.filter((r) => r.status === "Pending");
 
-  console.log(pendingRequests);
-
   return (
     <div>
       {pendingRequests.map((request, index) => (
         <div
           style={{
-            paddingBottom: 50,
-            marginBottom: 50,
-            borderBottom: "1px solid #777",
+            padding: '50px 10%',
+            borderBottom: "2px solid #343434",
           }}
           key={request.id}
         >

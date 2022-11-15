@@ -33,7 +33,7 @@ const Modifications = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: '50px 10%' }}>
       <Radio.Group
         defaultValue={1}
         onChange={onChange}
@@ -42,6 +42,7 @@ const Modifications = () => {
       >
         <Radio.Button value={1}>Add Category</Radio.Button>
         <Radio.Button value={2}>Add Product</Radio.Button>
+        <Radio.Button value={3}>Edit Order</Radio.Button>
       </Radio.Group>
 
       {value === 1 && (
