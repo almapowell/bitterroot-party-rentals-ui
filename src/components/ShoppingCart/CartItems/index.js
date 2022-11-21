@@ -5,7 +5,7 @@ import {
   getTotals,
   newCartValue,
 } from "../../../redux/cartSlice";
-import CounterInput from "react-counter-input";
+// import CounterInput from "react-counter-input";
 
 const CartItems = () => {
   const cart = useSelector((state) => state.cart);
@@ -39,11 +39,11 @@ const CartItems = () => {
               </div>
               <div className="cart-product-price">${cartItem.price}</div>
               <div className="cart-product-quantity">
-                <CounterInput
+                {/* <CounterInput
                   max={100}
                   count={cartItem.cartQuantity}
                   onCountChange={(count) => handleNewCartValue(count, cartItem)}
-                />
+                /> */}
               </div>
               <div className="cart-product-total-price">
                 ${(cartItem.price * cartItem.cartQuantity).toFixed(2)}
