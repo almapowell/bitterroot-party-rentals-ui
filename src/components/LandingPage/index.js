@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import "antd/dist/antd.min.css";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { Image, Carousel } from "antd";
+import { Image } from "antd";
 import "./styles.css";
 import { useNavigate } from "react-router";
 import WhyChooseUs from "./WhyChooseUs";
