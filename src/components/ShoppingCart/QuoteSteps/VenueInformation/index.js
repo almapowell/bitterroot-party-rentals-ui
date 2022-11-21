@@ -35,7 +35,7 @@ const VenueInformation = ({
       <Form.Item
         label="Event Date"
         rules={[{ required: true }]}
-        label="Event Date"
+        name="Event Date"
       >
         <DatePicker
           views={["year"]}

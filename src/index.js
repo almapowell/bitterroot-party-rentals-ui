@@ -11,7 +11,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { categories } from "./shared/utils";
 import ShoppingCart from "./components/ShoppingCart";
-import Admin from "./components/Admin";
 import QuoteSteps from "./components/ShoppingCart/QuoteSteps";
 import Footer from "./components/Footer";
 import Inventory from "./components/Inventory";

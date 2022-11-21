@@ -4,170 +4,70 @@
   justify-content: space-between;
 }
 
-.background {
-  background-image: url("https://cpartyrentals.com/wp-content/uploads/2021/11/ALI_6713.jpg");
-  background-size: 100% 100%;
+svg {
+  fill: white;
+}
+
+.first-page {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  height: 100vh;
+}
+
+.first-page img {
   width: 100%;
-  /* .6 of height */
-
-  display: flex;
-  justify-content: center;
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  height: 100%;
 }
 
-.background .overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  text-align: right;
-  flex-direction: column;
-  align-items: center;
-  color: var(--primary-color);
+.first-line {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: 700;
+  width: 100%;
 }
 
-.welcome {
-  font-weight: 100;
+.second-line {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: 700;
+  width: 100%;
+}
+
+.shop-button {
+  padding: 10px 30px;
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  background: transparent;
+  border: 1.5px solid black;
+}
+
+.shop-button:hover {
+  cursor: pointer;
+  background: rgb(14, 17, 23, 0.07);
 }
 
 .masonry-image {
   font-size: 14px;
 }
 
-/* ----- BUTTON ----- */
-
-.shop-btn-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  height: auto;
-}
-.shop-btn {
-  width: 200px;
-  height: 50px;
-  background: transparent;
-  border-style: none;
-  color: var(--primary-color);
-  letter-spacing: 3px;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  top: 20px;
-  padding: 0px;
-  overflow: hidden;
-  transition: all 0.5s;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  font-weight: 100;
-  font-size: 18px;
-  border: 1px solid var(--primary-color);
-  font-weight: 800;
-}
-.shop-btn span {
-  position: absolute;
-  display: block;
-}
-.shop-btn span:nth-child(1) {
-  height: 1px;
-  width: 200px;
-  top: 0px;
-  left: -200px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary-color));
-  border-top-right-radius: 1px;
-  border-bottom-right-radius: 1px;
-  animation: span1 2s linear infinite;
-  animation-delay: 1s;
-}
-
-@keyframes span1 {
-  0% {
-    left: -200px;
-  }
-  100% {
-    left: 200px;
-  }
-}
-.shop-btn span:nth-child(2) {
-  height: 70px;
-  width: 1px;
-  top: -70px;
-  right: 0px;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    var(--primary-color)
-  );
-  border-bottom-left-radius: 1px;
-  border-bottom-right-radius: 1px;
-  animation: span2 2s linear infinite;
-  animation-delay: 2s;
-}
-@keyframes span2 {
-  0% {
-    top: -70px;
-  }
-  100% {
-    top: 70px;
-  }
-}
-.shop-btn span:nth-child(3) {
-  height: 1px;
-  width: 200px;
-  right: -200px;
-  bottom: 0px;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0), var(--primary-color));
-  border-top-left-radius: 1px;
-  border-bottom-left-radius: 1px;
-  animation: span3 2s linear infinite;
-  animation-delay: 3s;
-}
-@keyframes span3 {
-  0% {
-    right: -200px;
-  }
-  100% {
-    right: 200px;
-  }
-}
-
-.shop-btn span:nth-child(4) {
-  height: 70px;
-  width: 1px;
-  bottom: -70px;
-  left: 0px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0), var(--primary-color));
-  border-top-right-radius: 1px;
-  border-top-left-radius: 1px;
-  animation: span4 2s linear infinite;
-  animation-delay: 4s;
-}
-@keyframes span4 {
-  0% {
-    bottom: -70px;
-  }
-  100% {
-    bottom: 70px;
-  }
-}
-
-.shop-btn:hover {
-  transition: all 0.5s;
-  transform: scale(1.1);
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-}
-.shop-btn:hover span {
-  animation-play-state: paused;
-}
-
-.banner {
+.reminder {
   display: flex;
-  justify-content: space-around;
-  background: var(--primary-color);
-  color: white;
-  font-size: calc(10px + 2vmin);
-  margin: 4vh 0;
-  height: 8vh;
-  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 700px) {

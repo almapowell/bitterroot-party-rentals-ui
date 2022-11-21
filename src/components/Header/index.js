@@ -15,7 +15,7 @@ function Navbar() {
 
   useEffect(() => {
     setActiveLink(location.pathname);
-  }, [window.location.pathname]);
+  }, [location.pathname]);
 
   const navToggle = () => {
     if (active === "nav__menu") {
