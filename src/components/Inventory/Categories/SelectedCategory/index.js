@@ -15,6 +15,7 @@ const SelectedCategory = ({ items }) => {
     navigate("/shopping-cart");
   };
 
+  console.log(items);
   return (
     <div className="category-container">
       <div className="pageTitle">{items.title}</div>
@@ -28,7 +29,11 @@ const SelectedCategory = ({ items }) => {
               textAlign: "center",
             }}
           >
-            <img className="productImage" src={product.image} />
+            <img
+              className="productImage"
+              src={product.image}
+              alt={product.title}
+            />
             <div className="priceWrapper">
               <h2 className="product-price">$ {product.price}</h2>
               <div className="addToCartBtn">

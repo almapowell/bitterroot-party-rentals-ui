@@ -2,52 +2,38 @@ import React, { useRef, useEffect, useState } from "react";
 import "antd/dist/antd.min.css";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-
 import { Image } from "antd";
 import "./styles.css";
 import { useNavigate } from "react-router";
+import WhyChooseUs from "./WhyChooseUs";
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const imageRef = useRef(null);
-  const [backgroundHeight, setBackgroundHeight] = useState(0);
   const [cols, setCols] = useState(0);
 
   useEffect(() => {
-    setBackgroundHeight(imageRef.current.offsetWidth * 0.6);
     setCols(window.innerWidth < 786 ? 1 : 3);
   }, [imageRef]);
 
   return (
     <div>
-      <div
-        style={{ height: backgroundHeight }}
-        className="background"
-        ref={imageRef}
-      >
-        <div className="overlay">
-          <span className="welcome">Welcome to</span>
-          <span className="company-name">Bitterroot Party Rentals</span>
-          <div className="shop-btn-wrapper">
-            <button onClick={() => navigate("/inventory")} className="shop-btn">
-              Shop Rentals
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <div className="first-page">
+        <img
+          alt="Buffet Stands For Rent"
+          src="https://cpartyrentals.com/wp-content/uploads/2021/11/ALI_6713.jpg"
+        ></img>
 
-      <div className="banner">
-        <span>Free Quotes</span>
-        <span>Delivery Service</span>
-        <span>Fast Reply</span>
+        <div class="first-line">Welcome to</div>
+        <div class="second-line">Bitterroot Party Rentals</div>
+        <button onClick={() => navigate("/inventory")} className="shop-button">
+          Shop Rentals
+        </button>
       </div>
+      <WhyChooseUs />
 
       <ImageList
-        sx={{ width: "100%", height: "auto", padding: "0 20px" }}
+        sx={{ width: "100%", height: "auto", padding: "0 21px" }}
         variant="masonry"
         cols={cols}
         gap={20}
@@ -64,6 +50,8 @@ const LandingPage = () => {
           </ImageListItem>
         ))}
       </ImageList>
+
+      <div className="reminder">Click SHOP RENTALS to get started today!</div>
     </div>
   );
 };
@@ -93,3 +81,15 @@ const itemData = [
     img: "https://drive.google.com/uc?export=view&id=17pf47SRWozmjLdN2Jl0KnMDwWXLHGqJo",
   },
 ];
+
+{
+  /* <div className="shop-btn-wrapper">
+  <button onClick={() => navigate("/inventory")} className="shop-btn">
+    Shop Rentals
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>; */
+}

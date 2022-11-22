@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import QuoteSummary from "./ReviewQuote";
 import "./styles.css";
 import CustomerInformation from "./CustomerInformation";
-import { Button, message, Steps } from "antd";
+import { Button, Steps } from "antd";
 import VenueInformation from "./VenueInformation";
 
 const { Step } = Steps;
