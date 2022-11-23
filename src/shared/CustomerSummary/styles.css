@@ -29,3 +29,9 @@
 
 .info-item:nth-child(odd) {
     background: #FAFAFA}
+
+@media screen and (max-width: 768px) {
+    .info-table-wrapper {
+        font-size: 12px;
+    }
+}
