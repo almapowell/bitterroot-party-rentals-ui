@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import "./styles.css";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Badge } from "antd";
 import ContactModal from "./ContactModal";
 import { useEffect } from "react";
 
 function Navbar() {
   const location = useLocation();
+  const windowWidth = window.innerWidth;
+  const shoppingCart = (
+    <svg
+      width="24"
+      height="24"
+      xmlns="http://www.w3.org/2000/svg"
+      fillRule="evenodd"
+      clipRule="evenodd"
+    >
+      <path d="M13.5 21c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5m0-2c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5m-6 2c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5m0-2c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5m16.5-16h-2.964l-3.642 15h-13.321l-4.073-13.003h19.522l.728-2.997h3.75v1zm-22.581 2.997l3.393 11.003h11.794l2.674-11.003h-17.861z" />
+    </svg>
+  );
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeLink, setActiveLink] = useState(location.pathname);
@@ -34,10 +46,41 @@ function Navbar() {
     setIcon("nav__toggler");
   };
 
+  const showCartOnLargeScreens = (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "flex-end",
+      }}
+    >
+      <div
+        onClick={() => handleNavClick("/shopping-cart")}
+        className={`shopping-cart ${
+          activeLink === "/shopping-cart" && "activeLink"
+        }`}
+      >
+        <Badge dot={true}>
+          <Link to="/shopping-cart">{shoppingCart}</Link>
+        </Badge>
+      </div>
+    </div>
+  );
+
+  const showCartOnSmallScreens = (
+    <li
+      onClick={() => handleNavClick("/shopping-cart")}
+      className={`nav__item ${activeLink === "/shopping-cart" && "activeLink"}`}
+    >
+      <Link to="/shopping-cart">{shoppingCart}</Link>
+    </li>
+  );
+
   return (
     <div>
       <nav className="nav">
-        <Link to="/">Bitterroot Party Rentals</Link>
+        <Link className="logo" to="/">
+          Bitterroot Party Rentals
+        </Link>
         <ul className={active}>
           <li
             onClick={() => handleNavClick("/")}
@@ -47,7 +90,6 @@ function Navbar() {
               Home
             </Link>
           </li>
-
           <li
             onClick={() => handleNavClick("/inventory")}
             className={`nav__item ${
@@ -58,34 +100,19 @@ function Navbar() {
               Inventory
             </Link>
           </li>
-
-          {/* <li className="nav__item">
-            <Link to="/portfolio" className="nav__link">
-              Portfolio
-            </Link>
-          </li> */}
-
           <li className="nav__item">
             <a onClick={() => setIsModalVisible(true)} className="nav__link">
               Contact Us
             </a>
           </li>
-          <li
-            onClick={() => handleNavClick("/shopping-cart")}
-            className={`nav__item ${
-              activeLink === "/shopping-cart" && "activeLink"
-            }`}
-          >
-            <Link to="/shopping-cart">
-              <ShoppingCartOutlined className="shoppingCart" />
-            </Link>
-          </li>
+          {windowWidth < 768 && showCartOnSmallScreens}
         </ul>
         <div onClick={navToggle} className={icon}>
           <div className="line1"></div>
           <div className="line2"></div>
           <div className="line3"></div>
         </div>
+        {windowWidth > 768 && showCartOnLargeScreens}
       </nav>
       <ContactModal
         setIsModalVisible={setIsModalVisible}

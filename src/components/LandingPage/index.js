@@ -24,8 +24,8 @@ const LandingPage = () => {
           src="https://cpartyrentals.com/wp-content/uploads/2021/11/ALI_6713.jpg"
         ></img>
 
-        <div class="first-line">Welcome to</div>
-        <div class="second-line">Bitterroot Party Rentals</div>
+        <div className="first-line">Welcome to</div>
+        <div className="second-line">Bitterroot Party Rentals</div>
         <button onClick={() => navigate("/inventory")} className="shop-button">
           Shop Rentals
         </button>
