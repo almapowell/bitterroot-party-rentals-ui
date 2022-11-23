@@ -46,6 +46,12 @@ function Navbar() {
     setIcon("nav__toggler");
   };
 
+  const handleCloseNavMenu = () => {
+    return active === "nav__menu nav__active" && setActive("nav__menu");
+  };
+
+  window.addEventListener("scroll", handleCloseNavMenu);
+
   const showCartOnLargeScreens = (
     <div
       style={{

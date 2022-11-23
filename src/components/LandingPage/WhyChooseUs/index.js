@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
               </div>
               <span className="title">Great Customer Service</span>
             </div>
-            <p>
+            <p className="subText">
               We offer personal contact information which allows a very direct
               and quick point of contact.
             </p>
@@ -28,7 +28,7 @@ const WhyChooseUs = () => {
               </div>
               <span className="title">Local Small Business</span>
             </div>
-            <p>
+            <p className="subText">
               Started in 2019, we are a family opporated business trying serving
               the Bitterroot/Missoula area.
             </p>
@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
               </div>
               <span className="title">We Do The Work For You</span>
             </div>
-            <p>
+            <p className="subText">
               We offer to set up and take down equipment for you so that your
               event can be as hassle free as possible.
             </p>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { products } from "../../shared/utils";
 import "./Categories/SelectedCategory/styles.css";
 
-const Inventory = ({ items }) => {
+const Inventory = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

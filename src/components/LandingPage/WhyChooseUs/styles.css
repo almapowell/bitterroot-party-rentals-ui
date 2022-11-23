@@ -12,7 +12,7 @@
   border-bottom: 1px solid black;
 }
 
-p {
+.subText {
   margin-top: 30px;
   font-size: 22px;
   padding-right: 10%;
@@ -28,7 +28,10 @@ p {
   padding: 15px;
   border-radius: 50%;
   background: black;
-  height: 30px;
+}
+
+.icon-container svg {
+  fill: white;
 }
 
 .title {
@@ -64,8 +67,9 @@ p {
   .title {
     font-size: 20px;
   }
-  p {
+  .subText {
     padding: 0 5%;
     padding-bottom: 50px;
+    font-size: 18px;
   }
 }
