@@ -18,10 +18,6 @@ a {
   color: black;
 }
 
-.main-title {
-  font-size: 30px;
-}
-
 .nav {
   display: grid;
   align-items: center;
