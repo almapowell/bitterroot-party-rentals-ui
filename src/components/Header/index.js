@@ -105,10 +105,15 @@ function Navbar() {
               Inventory
             </Link>
           </li>
-          <li className="nav__item">
-            <a className="nav__link">
+          <li
+              onClick={() => handleNavClick("/gallery")}
+              className={`nav__item ${
+                activeLink === "/gallery" && "activeLink"
+              }`}
+          >
+            <Link to="/gallery" className="nav__link">
               Gallery
-            </a>
+            </Link>
           </li>
           {windowWidth < 768 && showCartOnSmallScreens}
         </ul>

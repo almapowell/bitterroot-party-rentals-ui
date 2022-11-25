@@ -35,7 +35,7 @@ const ContactModal = ({ isModalVisible, setIsModalVisible }) => {
     >
       <div className="call">
         <span>Call Or Text:</span>
-        <strong>406-369-8129</strong>
+        <strong>406-360-5555</strong>
       </div>
       <Form
         {...layout}

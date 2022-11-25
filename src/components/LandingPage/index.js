@@ -1,20 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import "antd/dist/antd.min.css";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import { Image } from "antd";
+import React from "react";
 import "./styles.css";
 import { useNavigate } from "react-router";
 import WhyChooseUs from "./WhyChooseUs";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const imageRef = useRef(null);
-  const [cols, setCols] = useState(0);
-
-  useEffect(() => {
-    setCols(window.innerWidth < 786 ? 1 : 3);
-  }, [imageRef]);
 
   return (
     <div>
@@ -31,25 +21,6 @@ const LandingPage = () => {
         </button>
       </div>
       <WhyChooseUs />
-
-      {/* <ImageList
-        sx={{ width: "100%", height: "auto", padding: "0 21px" }}
-        variant="masonry"
-        cols={cols}
-        gap={20}
-      >
-        {itemData.map((item, index) => (
-          <ImageListItem key={item.img}>
-            <Image
-              className="img"
-              rootClassName="masonry-image"
-              src={`${item.img}`}
-              // srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2`}
-              alt={"Image" + index}
-            />
-          </ImageListItem>
-        ))}
-      </ImageList> */}
 
       <div className="reminder">Click SHOP RENTALS to get started today!</div>
     </div>

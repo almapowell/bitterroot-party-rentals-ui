@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "antd/dist/antd.min.css";
 import App from "./App";
 import Header from "./components/Header";
 import Categories from "./components/Inventory/Categories";
@@ -16,6 +17,7 @@ import Footer from "./components/Footer";
 import Inventory from "./components/Inventory";
 import PasswordCheck from "./components/Admin/PasswordCheck";
 import FAQ from "./components/Footer/FAQ";
+import Gallery from "./components/Header/Gallery";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -33,6 +35,7 @@ root.render(
             <Route path="/finalize-quote" element={<QuoteSteps />} />
             <Route path="/jordy" element={<PasswordCheck />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/gallery" element={<Gallery />} />
 
             <Route path="/inventory" element={<Inventory />} />
 
