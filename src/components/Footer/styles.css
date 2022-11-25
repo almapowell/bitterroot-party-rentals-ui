@@ -1,59 +1,70 @@
 .footerContainer {
   position: sticky;
   top: 100vh;
-  margin-top: 1rem;
-  height: 100px;
+  height: 200px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 5rem;
   background: black;
   flex-direction: column;
 }
 
-.social-media-container {
-  width: 100px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.social-media-container span {
-  font-size: 25px;
-  color: rgb(250, 249, 250);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.social-media-container span:hover {
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.664);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.linksContainer {
+.footerSection {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  gap: 1rem;
+  width: 100%;
+  color: white;
+}
+
+.socialIcons {
+  gap: 40px;
+}
+
+.socialIcons > span {
+  border: 1px solid grey;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.socialIcons > span:hover {
+  border: 1px solid #ccc;
+}
+
+.socialIcons > span:hover > svg *,
+.socialIcons > span:hover {
+  fill: #ccc;
+	transition: .3s ease;
 }
 
 .links {
-  text-decoration-color: black !important;
-  color: black !important;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.links:hover {
-  color: grey !important;
-  text-decoration-color: grey !important;
+.links a {
+  color: white;
+  font-size: 16px;
 }
 
-.iconsContainer {
-  margin: 1rem;
+.links a:hover {
+  color: #ccc;
+  font-size: 16px;
 }
 
-.icons {
-  fill: black !important;
+.footerContent {
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .footerContent {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
 }

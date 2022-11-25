@@ -1,7 +1,11 @@
 import { FacebookFilled, InstagramFilled } from "@ant-design/icons";
-import React from "react";
+import React, { useState } from "react";
+import ContactModal from "../Header/ContactModal";
 import "./styles.css";
 export default function Footer() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  
   const openInNewTab = (url) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
@@ -9,32 +13,41 @@ export default function Footer() {
 
   return (
     <div className="footerContainer">
-      <div className="social-media-container">
-        <FacebookFilled
-          onClick={() =>
-            openInNewTab("https://www.facebook.com/sunnysideeventsmt")
-          }
-        />
-        <InstagramFilled
-          onClick={() =>
-            openInNewTab("https://www.instagram.com/sunnysideeventsmt/")
-          }
-        />
+      <div className='footerContent'>
+        <section className="footerSection socialIcons">
+          <FacebookFilled
+            style={{fontSize: 25}}
+            onClick={() =>
+              openInNewTab("https://www.facebook.com/sunnysideeventsmt")
+            }
+          />
+          <InstagramFilled
+            style={{fontSize: 25}}
+            onClick={() =>
+              openInNewTab("https://www.instagram.com/sunnysideeventsmt/")
+            }
+          />
+        </section>
+
+         <section className="footerSection links">
+          <h5 style={{color: 'white', fontWeight: 'bold', margin: 0}}>Help</h5>
+          <a href="/faq">FAQ</a>
+          <a onClick={() => setIsModalVisible(true)} >Contact Us</a>
+        </section>
       </div>
-      <div
-        style={{ border: "1px solid #faf9fa", width: "100%", margin: "15px 0" }}
+  
+      <div>
+        <section
+          className="footerSection"
+          style={{fontSize: 13}}
+          >
+          Copyright &#169; 2022 Bitterroot Party Rentals
+        </section>
+      </div>
+      <ContactModal
+        setIsModalVisible={setIsModalVisible}
+        isModalVisible={isModalVisible}
       />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          color: "#faf9fa",
-          fontSize: 12,
-        }}
-      >
-        Copyright &#169; 2022 Bitterroot Party Rentals
-      </div>
     </div>
   );
 }

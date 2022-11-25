@@ -1,0 +1,49 @@
+.faq-title {
+    font-family: "Secular One", sans-serif;
+}
+
+.panel {
+    font-size: 18px;
+}
+         
+.ant-collapse-content>.ant-collapse-content-box {
+    color: grey;
+    padding-left: 50px; 
+}
+
+.accordion-container {
+    width: 50%;
+    margin: auto;
+}
+
+.panel-text {
+    margin: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .accordion-container {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .faq-title {
+        font-size: 20px;
+    }
+
+    .panel {
+        font-size: 14px;
+    }
+
+    .panel-text {
+        font-size: 12px;
+    }
+
+    .accordion-container {
+        width: 90%;
+    }
+
+    .ant-collapse-content>.ant-collapse-content-box {
+        padding-left: 16px; 
+    }
+}

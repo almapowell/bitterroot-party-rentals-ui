@@ -111,6 +111,15 @@ ul {
   fill: grey;
 }
 
+@media screen and (max-width: 1000px) {
+  .logo {
+    font-size: 20px;
+  }
+  .nav__item {
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .nav__toggler {
     display: block;

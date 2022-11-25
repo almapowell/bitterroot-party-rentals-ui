@@ -20,7 +20,6 @@ function Navbar() {
     </svg>
   );
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeLink, setActiveLink] = useState(location.pathname);
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
@@ -107,8 +106,8 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav__item">
-            <a onClick={() => setIsModalVisible(true)} className="nav__link">
-              Contact Us
+            <a className="nav__link">
+              Gallery
             </a>
           </li>
           {windowWidth < 768 && showCartOnSmallScreens}
@@ -120,10 +119,7 @@ function Navbar() {
         </div>
         {windowWidth > 768 && showCartOnLargeScreens}
       </nav>
-      <ContactModal
-        setIsModalVisible={setIsModalVisible}
-        isModalVisible={isModalVisible}
-      />
+      
     </div>
   );
 }
