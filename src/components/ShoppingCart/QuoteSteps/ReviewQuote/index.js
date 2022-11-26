@@ -1,7 +1,6 @@
 import React from "react";
+import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../../../redux/cartSlice";
 import { addRequest } from "../../../../redux/requestsSlice";
@@ -13,16 +12,17 @@ const ReviewQuote = ({ state }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const submitReview = (cartItems, state) => {
+  const submitReview = async (cartItems, state) => {
     const rentalRequest = {
       cartItems,
       customerInformation: state,
       status: "Pending",
     };
-    toast.success(
-      "Thank you for your request! We will reach out to you shortly with a response."
-    );
+    
     navigate("/");
+
+    
+    // await axios.get('/api/products/get-products');
 
     dispatch(clearCart());
     dispatch(addRequest(rentalRequest));
@@ -55,7 +55,6 @@ const ReviewQuote = ({ state }) => {
         I will be reaching out shortly to confirm your request before before
         anything is submitted.
       </p>
-      <ToastContainer />
     </>
   );
 };

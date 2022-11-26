@@ -117,7 +117,6 @@ const QuoteSteps = () => {
             Next
           </Button>
         )}
-        <button onClick={() => console.log(state)}>Log State</button>
       </div>
     </div>
   );

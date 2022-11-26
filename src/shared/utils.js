@@ -1,3 +1,6 @@
+// URI='mongodb+srv://almapowell:aWPYSxSewRXlbgLt@cluster0.wacp04q.mongodb.net/?retryWrites=true&w=majority'
+
+
 export const categories = [
   {
     id: 1,

@@ -23,16 +23,5 @@ async function run() {
     await client.close();
   }
 }
-run().catch(console.dir);
 
-// Select All
-// const result = await coll.find().toArray();
 
-// Insert/Post
-// const result = await coll.insertMany(products);
-
-// Edit/Update
-// const result = await coll.updateOne({ id: 6 }, { $set: { price: 50 } });
-
-// Delete
-// const result = await coll.deleteOne({ id: 7 });

@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import { Card } from "antd";
 import { addToCart } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { products } from "../../shared/utils";
+import { Space, Spin } from 'antd';
 import "./Categories/SelectedCategory/styles.css";
 
 const Inventory = () => {
+  const [products, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -15,9 +18,21 @@ const Inventory = () => {
     navigate("/shopping-cart");
   };
 
+  useEffect(() => {
+    if(!products.length) {
+      axios.get('/api/product/get-all').then(res => {
+        console.log(res.data.products)
+        setProducts(res.data.products);
+        setLoading(false);
+      })
+    }
+  }, [])
+
   return (
     <div className="category-container">
       <div className="pageTitle">Inventory</div>
+      {
+        !isLoading ? 
       <div className="category-wrapper">
         {products.map((product, index) => (
           <Card
@@ -47,6 +62,12 @@ const Inventory = () => {
           </Card>
         ))}
       </div>
+
+        : <div style={{width: '100%', height: '20vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Spin tip="Loading..." size="large" />
+          </div>
+      }
+      
     </div>
   );
 };
