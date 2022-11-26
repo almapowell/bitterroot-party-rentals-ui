@@ -68,7 +68,7 @@ export const categories = [
   },
 ];
 
-export const products = [
+export const mockProducts = [
   {
     id: 7,
     image:

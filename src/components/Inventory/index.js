@@ -4,8 +4,9 @@ import { Card } from "antd";
 import { addToCart } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Space, Spin } from 'antd';
+import { Spin } from 'antd';
 import "./Categories/SelectedCategory/styles.css";
+import { mockProducts } from "../../shared/utils";
 
 const Inventory = () => {
   const [products, setProducts] = useState([]);
@@ -34,7 +35,7 @@ const Inventory = () => {
       {
         !isLoading ? 
       <div className="category-wrapper">
-        {products.map((product, index) => (
+        {mockProducts.map((product, index) => (
           <Card
             key={index}
             title={product.title}
