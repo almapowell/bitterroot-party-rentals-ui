@@ -1,5 +1,4 @@
 import React from "react";
-import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../../../redux/cartSlice";
@@ -18,11 +17,8 @@ const ReviewQuote = ({ state }) => {
       customerInformation: state,
       status: "Pending",
     };
-    
-    navigate("/");
 
-    
-    // await axios.get('/api/products/get-products');
+    navigate("/");
 
     dispatch(clearCart());
     dispatch(addRequest(rentalRequest));
