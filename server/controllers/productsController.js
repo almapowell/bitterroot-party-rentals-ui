@@ -27,12 +27,11 @@ exports.getProducts = async (req, res, next) => {
 
 // Delete product -> /api/product/delete-product/:id
 exports.deleteProduct = async (req, res, next) => {
-  await Product.deleteOne({_id: req.params.id}, (error) => {
-    if(error) throw error;
+  await Product.deleteOne({ _id: req.params.id }, (error) => {
+    if (error) throw error;
   });
 
   res.status(200).json({
     success: true,
-    products: deletedProduct,
   });
 };

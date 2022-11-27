@@ -29,7 +29,7 @@ const Inventory = () => {
     }
   }, []);
 
-  console.log(3333, 'products', products);
+  console.log(3333, "products", products);
 
   return (
     <div className="category-container">
@@ -65,7 +65,7 @@ const Inventory = () => {
           ))}
         </div>
       ) : (
-       <LoadingIndicator />
+        <LoadingIndicator />
       )}
     </div>
   );

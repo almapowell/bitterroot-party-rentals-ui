@@ -14,7 +14,6 @@ exports.newRequest = async (req, res, next) => {
   }
 };
 
-
 // Get all requests -> /api/request/get-all-requests
 exports.getRequests = async (req, res, next) => {
   const allRequests = await Request.find();
@@ -28,7 +27,7 @@ exports.getRequests = async (req, res, next) => {
 
 // Get pending requests -> /api/request/get-pending-requests
 exports.getPendingRequests = async (req, res, next) => {
-  const pendingRequests = await Request.find({status: 'Pending'});
+  const pendingRequests = await Request.find({ status: "Pending" });
 
   res.status(200).json({
     success: true,
@@ -37,10 +36,9 @@ exports.getPendingRequests = async (req, res, next) => {
   });
 };
 
-
 // Get accepted requests -> /api/request/get-accepted-requests
 exports.getAcceptedRequests = async (req, res, next) => {
-  const acceptedRequests = await Request.find({status: 'Accpeted'});
+  const acceptedRequests = await Request.find({ status: "Accpeted" });
 
   res.status(200).json({
     success: true,
@@ -49,10 +47,12 @@ exports.getAcceptedRequests = async (req, res, next) => {
   });
 };
 
-
 // Set pending to accepted -> /api/request/accept-rental-request/:id
 exports.approveRequest = async (req, res, next) => {
-  const acceptedRequest = await Request.updateOne({_id: req.params.id}, {status: 'Accpeted'});
+  const acceptedRequest = await Request.updateOne(
+    { _id: req.params.id },
+    { status: "Accpeted" }
+  );
 
   res.status(200).json({
     success: true,
@@ -62,7 +62,7 @@ exports.approveRequest = async (req, res, next) => {
 
 // Delete request -> /api/request/delete-rental-request/:id
 exports.deleteRequest = async (req, res, next) => {
-  const deletedRequest = await Request.deleteOne({_id: req.params.id});
+  const deletedRequest = await Request.deleteOne({ _id: req.params.id });
 
   res.status(200).json({
     success: true,
