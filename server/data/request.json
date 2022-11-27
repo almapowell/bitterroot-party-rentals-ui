@@ -1,4 +1,4 @@
-{
+[{
   "cartItems": [
     {
       "image": "https://wp.catalog.d.cpartyrentals.com/itemimages/13664t.jpg",
@@ -19,4 +19,27 @@
     "referal": 1
   },
   "status": "Pending"
+},
+{
+  "cartItems": [
+   {
+      "image": "https://wp.catalog.d.cpartyrentals.com/itemimages/13664t.jpg",
+      "title": "Bunch and bunch of chairs",
+      "price": 10
+  }
+  ],
+  "customerInformation": {
+    "first": "Peter",
+    "last": "Penguin",
+    "email": "penguins4life@gmail.com",
+    "address": "801 North Pole",
+    "phone": "288321235",
+    "date": "2012-01-13",
+
+    "delivery": true,
+    "notes": "Girls just wanna have fun",
+    "referal": 3
+  },
+  "status": "Pending"
 }
+]

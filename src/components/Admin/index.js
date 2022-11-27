@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Upcoming from "./Upcoming";
+import Accepted from "./Accepted";
 import Completed from "./Completed";
 import Dashboard from "./Dashboard";
 import Modifications from "./Modifications";
@@ -19,8 +19,8 @@ const Admin = () => {
         return <Dashboard />;
       case "pending":
         return <Pending />;
-      case "upcoming":
-        return <Upcoming />;
+      case "accepted":
+        return <Accepted />;
       case "completed":
         return <Completed />;
       case "modifications":
@@ -46,10 +46,10 @@ const Admin = () => {
           Pending
         </button>
         <button
-          className={navigationPage === "upcoming" ? "active" : "btn"}
-          onClick={() => updateNav("upcoming")}
+          className={navigationPage === "accepted" ? "active" : "btn"}
+          onClick={() => updateNav("accepted")}
         >
-          Upcoming
+          Accepted
         </button>
         <button
           className={navigationPage === "completed" ? "active" : "btn"}

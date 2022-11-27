@@ -4,9 +4,9 @@ import { Card } from "antd";
 import { addToCart } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Spin } from "antd";
 import "./Categories/SelectedCategory/styles.css";
 import { mockProducts } from "../../shared/utils";
+import LoadingIndicator from "../../shared/LoadingIndicator";
 
 const Inventory = () => {
   const [products, setProducts] = useState([]);
@@ -27,7 +27,9 @@ const Inventory = () => {
         setLoading(false);
       });
     }
-  });
+  }, []);
+
+  console.log(3333, 'products', products);
 
   return (
     <div className="category-container">
@@ -63,17 +65,7 @@ const Inventory = () => {
           ))}
         </div>
       ) : (
-        <div
-          style={{
-            width: "100%",
-            height: "20vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Spin tip="Loading..." size="large" />
-        </div>
+       <LoadingIndicator />
       )}
     </div>
   );

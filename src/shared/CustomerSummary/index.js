@@ -1,4 +1,5 @@
 import React from "react";
+import moment from 'moment';
 import './styles.css';
 
 const CustomerSummary = ({ info }) => {
@@ -28,7 +29,7 @@ const CustomerSummary = ({ info }) => {
 
       <div className="info-item">
         <p>Date:</p>
-        <div>{info.date}</div>
+        <div>{moment(info.date).format('MMMM Do YYYY')}</div>
       </div>
 
       <div className="info-item">

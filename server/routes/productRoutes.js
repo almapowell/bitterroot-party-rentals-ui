@@ -2,14 +2,14 @@ const express = require("express");
 const {
   newProduct,
   getProducts,
+  deleteProduct
 } = require("../controllers/productsController");
 
 const router = express.Router();
 
+// ------- Routes --------
 router.route("/get-all").get(getProducts);
 router.route("/create-new").post(newProduct);
-
-// router.route('/get-products').get(getProducts);
-// router.route('/save-product').post(saveProduct);
+router.route("/delete-product/:id").delete(deleteProduct);
 
 module.exports = router;
