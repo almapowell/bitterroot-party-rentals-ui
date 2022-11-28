@@ -52,8 +52,6 @@ const AddProduct = ({ type, productToUpdate, setSelectedProduct }) => {
         }
     };
 
-    console.log(1111, newProduct)
-
   return (
     <div>
         <h2>{type === UPDATING ? 'Update' : 'New'} Product</h2>
@@ -61,7 +59,7 @@ const AddProduct = ({ type, productToUpdate, setSelectedProduct }) => {
              <div style={{width: '50%'}}>
                 <Form
                     initialValue={{
-                        title: 'newProduct.title',
+                        title: newProduct.title,
                         image: newProduct.image,
                         price: newProduct.price,
                     }}

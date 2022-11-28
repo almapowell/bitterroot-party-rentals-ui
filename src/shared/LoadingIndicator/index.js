@@ -4,24 +4,17 @@ import { Spin } from "antd";
 const LoadingIndicator = () => {
   return (
     <div
-        style={{
+      style={{
         width: "100%",
         height: "20vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        }}
+      }}
     >
-        <Spin tip="Loading..." size="large" />
+      <Spin tip="Loading..." size="large" />
     </div>
   );
 };
 
 export default LoadingIndicator;
-
-
-
-
-
-
-

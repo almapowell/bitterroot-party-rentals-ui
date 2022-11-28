@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Card } from "antd";
 import LoadingIndicator from "../../../../shared/LoadingIndicator";
 import { QuestionCircleOutlined } from '@ant-design/icons';
@@ -13,22 +13,22 @@ const UpdateProduct = () => {
     const [isLoading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState({});
 
-    const getAllProducts = async () => {
-        await axios.get("/api/product/get-all").then((res) => {
-            setProducts(res.data.products);
-            setLoading(false);
-        });
-    }
+  const getAllProducts = async () => {
+    await axios.get("/api/product/get-all").then((res) => {
+      setProducts(res.data.products);
+      setLoading(false);
+    });
+  };
 
-    useEffect(() => {
-        getAllProducts()
-    }, []);
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
   const handleDelete = async (id) => {
     await axios.delete(`/api/product/delete-product/${id}`).then(() => {
       getAllProducts();
     });
-  }
+  };
 
   return (
     <div style={{ padding: '50px 10%' }}>

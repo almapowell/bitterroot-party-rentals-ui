@@ -12,7 +12,7 @@ const Modifications = () => {
   };
 
   return (
-    <div style={{ padding: '50px 10%' }}>
+    <div style={{ padding: "50px 10%" }}>
       <Radio.Group
         defaultValue={1}
         onChange={onChange}
