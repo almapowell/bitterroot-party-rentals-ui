@@ -62,10 +62,19 @@ exports.approveRequest = async (req, res, next) => {
 
 // Delete request -> /api/request/delete-rental-request/:id
 exports.deleteRequest = async (req, res, next) => {
-  const deletedRequest = await Request.deleteOne({_id: req.params.id});
+  const request = await Request.findById(req.params.id);
+
+  if (!request) {
+    return res.status(404).json({
+      success: false,
+      message: 'Rental request not found'
+    })
+  };
+
+  await request.remove();
 
   res.status(200).json({
     success: true,
-    requests: deletedRequest,
+    message: 'Rental request is deleted',
   });
 };

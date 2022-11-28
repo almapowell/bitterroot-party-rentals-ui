@@ -14,11 +14,7 @@ const Categories = () => {
           <Link key={category.id} to={`/${category.link}`}>
             <Card
               title={category.title}
-              style={{
-                margin: "30px auto",
-                textAlign: "center",
-                width: 300,
-              }}
+              className="card-container"
             >
               <img alt={category.link} src={category.icon} className="icon" />
             </Card>

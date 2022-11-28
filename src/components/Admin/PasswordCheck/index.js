@@ -6,7 +6,7 @@ import './styles.css';
 
 const PasswordCheck = () => {
  const [password, setPassword] = useState("");
-  const correctPassword = "makebabieswithtaylor";
+  const correctPassword = "";
 
   return (
     <div>

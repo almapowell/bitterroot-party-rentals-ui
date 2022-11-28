@@ -12,3 +12,10 @@
 .icon {
   width: 250px;
 }
+
+.card-container {
+    margin: 30px auto;
+    text-align: center;
+    min-width: 250px;
+    max-width: 250px;
+}

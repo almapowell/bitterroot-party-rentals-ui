@@ -40,10 +40,7 @@ const Inventory = () => {
             <Card
               key={index}
               title={product.title}
-              style={{
-                margin: "30px auto",
-                textAlign: "center",
-              }}
+              className="card-container"
             >
               <img
                 className="productImage"
