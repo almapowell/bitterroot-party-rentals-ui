@@ -6,7 +6,7 @@ const QuoteTable = ({ cartItems }) => {
   const columns = [
     {
       title: "Quantity",
-      dataIndex: "cartQuantity",
+      dataIndex: "quantity",
       width: 150,
     },
     {
@@ -18,7 +18,7 @@ const QuoteTable = ({ cartItems }) => {
       render: (_, item) => {
         return (
           <Space size="middle">
-            <p>{item.price * item.cartQuantity}</p>
+            <p>{item.price * item.quantity}</p>
           </Space>
         );
       },
@@ -32,11 +32,12 @@ const QuoteTable = ({ cartItems }) => {
       pagination={false}
       bordered
       summary={(pageData) => {
+        console.log(pageData);
         let totalCartPrice = 0;
         pageData.forEach((data) => {
-          let itemSum = data.price * data.cartQuantity;
+          let itemSum = data.price * data.quantity;
           totalCartPrice += itemSum;
-        });
+        }, 0);
         return (
           <Table.Summary.Row>
             <Table.Summary.Cell index={0} colSpan={2}>

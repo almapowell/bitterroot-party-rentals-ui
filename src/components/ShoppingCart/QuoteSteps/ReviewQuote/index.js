@@ -1,10 +1,12 @@
 import React from "react";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../../../redux/cartSlice";
 import { addRequest } from "../../../../redux/requestsSlice";
 import QuoteTable from "../../../../shared/QuoteTable";
 import CustomerSummary from "../../../../shared/CustomerSummary";
+import { notification } from "antd";
 
 const ReviewQuote = ({ state }) => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -17,11 +19,19 @@ const ReviewQuote = ({ state }) => {
       customerInformation: state,
       status: "Pending",
     };
+    await axios.post("/api/request/create", rentalRequest).then(() => {
+      navigate("/");
+      successfulNotification();
+      dispatch(clearCart());
+      dispatch(addRequest(rentalRequest));
+    });
+  };
 
-    navigate("/");
-
-    dispatch(clearCart());
-    dispatch(addRequest(rentalRequest));
+  const successfulNotification = () => {
+    notification["success"]({
+      message: "Congradulations",
+      description: `We've received your request. We will get back to you as soon as possible. Thank you for booking with us.`,
+    });
   };
 
   return (

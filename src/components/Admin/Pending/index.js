@@ -5,10 +5,21 @@ import QuoteTable from "../../../shared/QuoteTable";
 import "./styles.css";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
 import { useSelector } from "react-redux";
+import { Modal, notification } from "antd";
+import moment from "moment";
 
 const Pending = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { confirm } = Modal;
+
+  const successfulNotification = ({ first, last }) => {
+    notification["success"]({
+      message: "Rental Request Updated",
+      description: `You have approved ${first} ${last}'s rental request.`,
+    });
+  };
 
   const getPendingRequests = async () => {
     await axios.get("/api/request/get-pending-requests").then((res) => {
@@ -23,15 +34,35 @@ const Pending = () => {
     });
   };
 
-  const handleConfirm = async (id) => {
-    await axios.put(`/api/request/accept-rental-request/${id}`).then(() => {
-      getPendingRequests();
-    });
+  const handleConfirm = async (request) => {
+    await axios
+      .put(`/api/request/accept-rental-request/${request._id}`)
+      .then(() => {
+        getPendingRequests();
+        successfulNotification(request.customerInformation);
+      });
   };
 
   useEffect(() => {
     getPendingRequests();
   }, []);
+
+  function showConfirm(request) {
+    confirm({
+      title: `Are you sure you want to approve ${request.customerInformation.first} ${request.customerInformation.last}?`,
+      content: `This rental request will move to Approved and the event date is   ${moment(
+        request.customerInformation.date
+      ).format("MMMM Do YYYY")}`,
+      async onOk() {
+        try {
+          return handleConfirm(request);
+        } catch (e) {
+          return console.log("Oops errors!");
+        }
+      },
+      onCancel() {},
+    });
+  }
 
   console.log(222, "pending requests:", pendingRequests);
   const mockPendingRequests = useSelector(
@@ -43,7 +74,7 @@ const Pending = () => {
       {isLoading ? (
         <LoadingIndicator />
       ) : (
-        mockPendingRequests.map((request, index) => (
+        pendingRequests.map((request, index) => (
           <div
             style={{
               padding: "50px 10%",
@@ -60,9 +91,7 @@ const Pending = () => {
             </div>
             <div className="btn-container">
               <button onClick={() => handleDeny(request._id)}>Deny</button>
-              <button onClick={() => handleConfirm(request._id)}>
-                Confirm
-              </button>
+              <button onClick={() => showConfirm(request)}>Confirm</button>
             </div>
           </div>
         ))

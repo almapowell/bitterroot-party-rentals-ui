@@ -41,12 +41,12 @@ const CartItems = () => {
               <div className="cart-product-quantity">
                 <CounterInput
                   max={100}
-                  count={cartItem.cartQuantity}
+                  count={cartItem.quantity}
                   onCountChange={(count) => handleNewCartValue(count, cartItem)}
                 />
               </div>
               <div className="cart-product-total-price">
-                ${(cartItem.price * cartItem.cartQuantity).toFixed(2)}
+                ${(cartItem.price * cartItem.quantity).toFixed(2)}
               </div>
             </div>
           ))}

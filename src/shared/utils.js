@@ -1,6 +1,5 @@
 // URI='mongodb+srv://almapowell:aWPYSxSewRXlbgLt@cluster0.wacp04q.mongodb.net/?retryWrites=true&w=majority'
 
-
 export const categories = [
   {
     id: 1,
@@ -142,7 +141,7 @@ export const allRequests = [
         image: "https://wp.catalog.d.cpartyrentals.com/itemimages/13664t.jpg",
         title: "Round Folding Table",
         price: "12.00",
-        cartQuantity: 5,
+        quantity: 5,
       },
     ],
     customerInformation: {
@@ -167,7 +166,7 @@ export const allRequests = [
         image: "https://wp.catalog.d.cpartyrentals.com/itemimages/13664t.jpg",
         title: "Round Folding Table",
         price: "12.00",
-        cartQuantity: 2,
+        quantity: 2,
       },
     ],
     customerInformation: {
@@ -191,7 +190,7 @@ export const allRequests = [
         image: "https://wp.catalog.d.cpartyrentals.com/itemimages/13664t.jpg",
         title: "Round Folding Table",
         price: "12.00",
-        cartQuantity: 2,
+        quantity: 2,
       },
     ],
     customerInformation: {
@@ -215,7 +214,7 @@ export const allRequests = [
         image: "https://wp.catalog.d.cpartyrentals.com/itemimages/13664t.jpg",
         title: "Round Folding Table",
         price: "12.00",
-        cartQuantity: 2,
+        quantity: 2,
       },
     ],
     customerInformation: {

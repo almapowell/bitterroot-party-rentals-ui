@@ -1,6 +1,7 @@
-import { Radio, Button, Form, Input } from "antd";
+import { Radio } from "antd";
 import React, { useState } from "react";
 import AddProduct from "./AddProduct";
+import EditRequests from "./EditRequests";
 import UpdateProduct from "./UpdateProduct";
 
 const Modifications = () => {
@@ -21,6 +22,7 @@ const Modifications = () => {
       >
         <Radio.Button value={1}>Add Product</Radio.Button>
         <Radio.Button value={2}>Edit Product</Radio.Button>
+        <Radio.Button value={3}>Edit Rental Request</Radio.Button>
         {/* <Radio.Button value={3}>Edit Order</Radio.Button>
         <Radio.Button value={4}>Edit Product</Radio.Button> */}
       </Radio.Group>
@@ -28,6 +30,8 @@ const Modifications = () => {
       {value === 1 && <AddProduct />}
 
       {value === 2 && <UpdateProduct />}
+
+      {value === 3 && <EditRequests />}
     </div>
   );
 };

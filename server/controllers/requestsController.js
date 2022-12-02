@@ -47,6 +47,17 @@ exports.getAcceptedRequests = async (req, res, next) => {
   });
 };
 
+// Get completed requests -> /api/request/get-completed-requests
+exports.getCompetedRequests = async (req, res, next) => {
+  const completedRequests = await Request.find({ status: "Completed" });
+
+  res.status(200).json({
+    success: true,
+    requests: completedRequests,
+    count: completedRequests.length,
+  });
+};
+
 // Set pending to accepted -> /api/request/accept-rental-request/:id
 exports.approveRequest = async (req, res, next) => {
   const acceptedRequest = await Request.updateOne(
@@ -60,6 +71,29 @@ exports.approveRequest = async (req, res, next) => {
   });
 };
 
+// Set accepted to complete -> /api/request/move-to-complete/:id
+exports.completeRequest = async (req, res, next) => {
+  const completeRequests = await Request.updateOne(
+    { _id: req.params.id },
+    { status: "Completed" }
+  );
+
+  res.status(200).json({
+    success: true,
+    requests: completeRequests,
+  });
+};
+
+// Update existing request with edited one -> /api/request/update-rental-request/:id
+exports.updateRequest = async (req, res, next) => {
+  const newRequests = await Request.updateOne({ _id: req.params.id }, req.body);
+
+  res.status(200).json({
+    success: true,
+    requests: newRequests,
+  });
+};
+
 // Delete request -> /api/request/delete-rental-request/:id
 exports.deleteRequest = async (req, res, next) => {
   const request = await Request.findById(req.params.id);
@@ -67,14 +101,14 @@ exports.deleteRequest = async (req, res, next) => {
   if (!request) {
     return res.status(404).json({
       success: false,
-      message: 'Rental request not found'
-    })
-  };
+      message: "Rental request not found",
+    });
+  }
 
   await request.remove();
 
   res.status(200).json({
     success: true,
-    message: 'Rental request is deleted',
+    message: "Rental request is deleted",
   });
 };

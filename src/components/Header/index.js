@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./styles.css";
 import { Link, useLocation } from "react-router-dom";
 import { Badge } from "antd";
-import ContactModal from "./ContactModal";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const location = useLocation();
@@ -23,6 +23,7 @@ function Navbar() {
   const [activeLink, setActiveLink] = useState(location.pathname);
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+  const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
     setActiveLink(location.pathname);
@@ -64,7 +65,7 @@ function Navbar() {
           activeLink === "/shopping-cart" && "activeLink"
         }`}
       >
-        <Badge dot={true}>
+        <Badge dot={cart.cartItems.length > 0}>
           <Link to="/shopping-cart">{shoppingCart}</Link>
         </Badge>
       </div>
@@ -106,10 +107,8 @@ function Navbar() {
             </Link>
           </li>
           <li
-              onClick={() => handleNavClick("/gallery")}
-              className={`nav__item ${
-                activeLink === "/gallery" && "activeLink"
-              }`}
+            onClick={() => handleNavClick("/gallery")}
+            className={`nav__item ${activeLink === "/gallery" && "activeLink"}`}
           >
             <Link to="/gallery" className="nav__link">
               Gallery
@@ -124,7 +123,6 @@ function Navbar() {
         </div>
         {windowWidth > 768 && showCartOnLargeScreens}
       </nav>
-      
     </div>
   );
 }

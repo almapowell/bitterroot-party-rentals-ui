@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "antd";
 import LoadingIndicator from "../../../../shared/LoadingIndicator";
-import { QuestionCircleOutlined } from '@ant-design/icons';
-import { Popconfirm } from 'antd';
-import '../../../Inventory/Categories/SelectedCategory/styles.css';
+import { QuestionCircleOutlined } from "@ant-design/icons";
+import { Popconfirm } from "antd";
+import "../../../Inventory/Categories/SelectedCategory/styles.css";
 import AddProduct from "../AddProduct";
 import { UPDATING } from "../../../../redux/constants";
 
 const UpdateProduct = () => {
-    const [products, setProducts] = useState([]);
-    const [isLoading, setLoading] = useState(true);
-    const [selectedProduct, setSelectedProduct] = useState({});
+  const [products, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState({});
 
   const getAllProducts = async () => {
     await axios.get("/api/product/get-all").then((res) => {
@@ -31,40 +31,55 @@ const UpdateProduct = () => {
   };
 
   return (
-    <div style={{ padding: '50px 10%' }}>
-        {Object.keys(selectedProduct).length ? <AddProduct type={UPDATING} productToUpdate={selectedProduct} setSelectedProduct={setSelectedProduct} /> : 
+    <div style={{ padding: "50px 10%" }}>
+      {Object.keys(selectedProduct).length ? (
+        <AddProduct
+          type={UPDATING}
+          productToUpdate={selectedProduct}
+          setSelectedProduct={setSelectedProduct}
+        />
+      ) : (
         <div className="category-wrapper">
-            {isLoading ? <LoadingIndicator /> :
+          {isLoading ? (
+            <LoadingIndicator />
+          ) : (
             products.map((product, index) => (
-                <Card
-                  key={index}
-                  title={product.title}
-                  className="card-container"
-                >
-                  <img
-                    className="productImage"
-                    src={product.image}
-                    alt={product.title}
-                  />
-                  <div className="priceWrapper">
-                    <Popconfirm onConfirm={() => handleDelete(product._id)} title="Are you sure？" icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
-                        <a style={{color: 'red'}} href="#">Delete</a>
-                    </Popconfirm>
+              <Card
+                key={index}
+                title={product.title}
+                className="card-container"
+              >
+                <img
+                  className="productImage"
+                  src={product.image}
+                  alt={product.title}
+                />
+                <div className="priceWrapper">
+                  <span>${product.price}</span>
+                  <Popconfirm
+                    onConfirm={() => handleDelete(product._id)}
+                    title="Are you sure？"
+                    icon={<QuestionCircleOutlined style={{ color: "red" }} />}
+                  >
+                    <a style={{ color: "red" }} href="#">
+                      Delete
+                    </a>
+                  </Popconfirm>
 
-                    <div className="addToCartBtn">
-                      <button
-                        onClick={() => setSelectedProduct(product)}
-                        className="secondary-button"
-                      >
-                        Select
-                      </button>
-                    </div>
+                  <div className="addToCartBtn">
+                    <button
+                      onClick={() => setSelectedProduct(product)}
+                      className="secondary-button"
+                    >
+                      Select
+                    </button>
                   </div>
-                </Card>
-              ))}
-              </div>
-          
-          }
+                </div>
+              </Card>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 };

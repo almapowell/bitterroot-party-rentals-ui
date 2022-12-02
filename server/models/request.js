@@ -15,6 +15,7 @@ const rentalRequestSchema = new mongoose.Schema({
     notes: String,
     referal: Number,
   },
+  totalCost: Number,
   status: String,
 });
 

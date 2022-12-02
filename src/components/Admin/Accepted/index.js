@@ -4,10 +4,29 @@ import { useSelector } from "react-redux";
 import CustomerSummary from "../../../shared/CustomerSummary";
 import QuoteTable from "../../../shared/QuoteTable";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
+import { Modal, notification } from "antd";
+import moment from "moment";
 
 const Accepted = () => {
   const [acceptedRequests, setAcceptedRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { confirm } = Modal;
+
+  function showConfirm(id) {
+    confirm({
+      title: `Are you sure?`,
+      content: `This rental request will move to Completed and this cannot be undone!!`,
+      async onOk() {
+        try {
+          return handleMoveToComplete(id);
+        } catch (e) {
+          return console.log("Oops errors!");
+        }
+      },
+      onCancel() {},
+    });
+  }
 
   const getAcceptedRequests = async () => {
     await axios.get("/api/request/get-accepted-requests").then((res) => {
@@ -22,6 +41,12 @@ const Accepted = () => {
     });
   };
 
+  const handleMoveToComplete = async (id) => {
+    await axios.put(`/api/request/move-to-complete/${id}`).then(() => {
+      getAcceptedRequests();
+    });
+  };
+
   useEffect(() => {
     getAcceptedRequests();
   }, []);
@@ -30,14 +55,12 @@ const Accepted = () => {
     (state) => state.requests
   ).rentalRequests.filter((r) => r.status === "Accepted");
 
-  console.log(111, "accepted requests", acceptedRequests);
-
   return (
     <div>
       {isLoading ? (
         <LoadingIndicator />
       ) : (
-        mockAcceptedRequests.map((request, index) => (
+        acceptedRequests.map((request, index) => (
           <div
             style={{
               padding: "50px 10%",
@@ -55,6 +78,9 @@ const Accepted = () => {
             <div className="btn-container">
               <button onClick={() => handleCancel(request._id)}>
                 Cancel Reservation
+              </button>
+              <button onClick={() => showConfirm(request._id)}>
+                Move to Completed
               </button>
             </div>
           </div>
