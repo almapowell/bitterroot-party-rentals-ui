@@ -4,10 +4,9 @@
 }
 
 .gallery-photo {
-  opacity: 1;
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
+  border: 0.5px solid black;
 }

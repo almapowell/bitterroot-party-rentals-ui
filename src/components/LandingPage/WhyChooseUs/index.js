@@ -50,15 +50,9 @@ const WhyChooseUs = () => {
 export default WhyChooseUs;
 
 const itemsImages = [
-  "https://drive.google.com/uc?export=view&id=1S84VOzz3trPFshR7XFoS7QUO1TJ-yC0E",
-  "https://drive.google.com/uc?export=view&id=1cGTQBrLr4Aneh8CW4SE6g9WGoMZuvM5V",
-  "https://drive.google.com/uc?export=view&id=1TmMjUi9Q56iDwvcvf1nhMaAqkrRvFi49",
-  "https://drive.google.com/uc?export=view&id=1XJwH1NnZ1645F_il5YYYFKntB2OLlNvv",
-  "https://drive.google.com/uc?export=view&id=1aDKA5QoRBTHmOu5hgswcagDQ0iePKRNY",
-  "https://drive.google.com/uc?export=view&id=1viglfl2V1XKthyRFaFQhPahNExwUd-RX",
-  "https://drive.google.com/uc?export=view&id=1ck-euKuuFTgAL_RGY3x_zujBkKO3KPKN",
-  "https://drive.google.com/uc?export=view&id=1HisUWEJ2MQTl_YJCYQnBMwv5DD2qLicJ",
-  "https://drive.google.com/uc?export=view&id=17pf47SRWozmjLdN2Jl0KnMDwWXLHGqJo",
+  "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5348.JPG",
+  "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG",
+  "https://bitterroot-party-rentals.s3.amazonaws.com/DSC00136.JPG",
 ];
 
 console.log(itemsImages[0]);

@@ -19,9 +19,9 @@ function Gallery() {
           <ImageListItem className="gallery-container" key={index}>
             <img
               className="gallery-photo"
-              src={item.img}
+              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
               alt={item.text}
-              loading="lazy"
             />
           </ImageListItem>
         ))}
@@ -32,31 +32,31 @@ function Gallery() {
 
 const itemsImages = [
   {
-    img: "https://drive.google.com/uc?export=view&id=1XJwH1NnZ1645F_il5YYYFKntB2OLlNvv",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/DSC00343.JPG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1aDKA5QoRBTHmOu5hgswcagDQ0iePKRNY",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5368.PNG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1viglfl2V1XKthyRFaFQhPahNExwUd-RX",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5341.JPG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1S84VOzz3trPFshR7XFoS7QUO1TJ-yC0E",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5348.JPG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1cGTQBrLr4Aneh8CW4SE6g9WGoMZuvM5V",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1TmMjUi9Q56iDwvcvf1nhMaAqkrRvFi49",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/DSC00136.JPG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1ck-euKuuFTgAL_RGY3x_zujBkKO3KPKN",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5369.PNG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=1HisUWEJ2MQTl_YJCYQnBMwv5DD2qLicJ",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5509.JPG",
   },
   {
-    img: "https://drive.google.com/uc?export=view&id=17pf47SRWozmjLdN2Jl0KnMDwWXLHGqJo",
+    img: "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5352.JPG",
   },
 ];
 
