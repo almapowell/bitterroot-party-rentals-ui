@@ -17,6 +17,10 @@ async function connectDB() {
 }
 connectDB();
 
+app.use("/", (req, res) => {
+  res.send("HELLO WORLD!");
+});
+
 // -------- Controllers -------- //
 app.use("/api/product", productRoutes);
 app.use("/api/request", requestRoutes);
