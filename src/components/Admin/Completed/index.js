@@ -4,13 +4,14 @@ import { useSelector } from "react-redux";
 import CustomerSummary from "../../../shared/CustomerSummary";
 import QuoteTable from "../../../shared/QuoteTable";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
+import { API } from "../../../shared/utils";
 
 const Completed = () => {
   const [completedRequests, setCompletedRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getCompletedRequests = async () => {
-    await axios.get("/api/request/get-completed-requests").then((res) => {
+    await axios.get(API + "/api/request/get-completed-requests").then((res) => {
       setCompletedRequests(res.data.requests);
       setIsLoading(false);
     });

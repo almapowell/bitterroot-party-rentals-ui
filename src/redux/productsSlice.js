@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { API } from "../shared/utils";
 
 const initialState = {
   items: [],
@@ -11,7 +12,7 @@ export const productsFetch = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "https://chaoo-online-shop.herokuapp.com/products"
+        API + "https://chaoo-online-shop.herokuapp.com/products"
       );
       return response.data;
     } catch (error) {

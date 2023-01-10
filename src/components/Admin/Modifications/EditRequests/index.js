@@ -3,13 +3,14 @@ import axios from "axios";
 import { Card } from "antd";
 import "./styles.css";
 import EditRequest from "./EditRequest";
+import { API } from "../../../../shared/utils";
 
 const EditRequests = () => {
   const [requests, setRequests] = useState([]);
   const [selectedRequest, setSelectedRequest] = useState({});
 
   const getAllRequests = async () => {
-    await axios.get("/api/request/get-all-requests").then((res) => {
+    await axios.get(API + "/api/request/get-all-requests").then((res) => {
       setRequests(res.data.requests);
     });
   };

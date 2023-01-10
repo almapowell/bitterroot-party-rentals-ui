@@ -5,7 +5,7 @@ import CustomerSummary from "../../../shared/CustomerSummary";
 import QuoteTable from "../../../shared/QuoteTable";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
 import { Modal, notification } from "antd";
-import moment from "moment";
+import { API } from "../../../shared/utils";
 
 const Accepted = () => {
   const [acceptedRequests, setAcceptedRequests] = useState([]);
@@ -29,20 +29,22 @@ const Accepted = () => {
   }
 
   const getAcceptedRequests = async () => {
-    await axios.get("/api/request/get-accepted-requests").then((res) => {
+    await axios.get(API + "/api/request/get-accepted-requests").then((res) => {
       setAcceptedRequests(res.data.requests);
       setIsLoading(false);
     });
   };
 
   const handleCancel = async (id) => {
-    await axios.delete(`/api/request/delete-rental-request/${id}`).then(() => {
-      getAcceptedRequests();
-    });
+    await axios
+      .delete(API + `/api/request/delete-rental-request/${id}`)
+      .then(() => {
+        getAcceptedRequests();
+      });
   };
 
   const handleMoveToComplete = async (id) => {
-    await axios.put(`/api/request/move-to-complete/${id}`).then(() => {
+    await axios.put(API + `/api/request/move-to-complete/${id}`).then(() => {
       getAcceptedRequests();
     });
   };

@@ -7,6 +7,7 @@ import { Popconfirm } from "antd";
 import "../../../Inventory/Categories/SelectedCategory/styles.css";
 import AddProduct from "../AddProduct";
 import { UPDATING } from "../../../../redux/constants";
+import { API } from "../../../../shared/utils";
 
 const UpdateProduct = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ const UpdateProduct = () => {
   const [selectedProduct, setSelectedProduct] = useState({});
 
   const getAllProducts = async () => {
-    await axios.get("/api/product/get-all").then((res) => {
+    await axios.get(API + "/api/product/get-all").then((res) => {
       setProducts(res.data.products);
       setLoading(false);
     });
@@ -25,7 +26,7 @@ const UpdateProduct = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    await axios.delete(`/api/product/delete-product/${id}`).then(() => {
+    await axios.delete(API + `/api/product/delete-product/${id}`).then(() => {
       getAllProducts();
     });
   };

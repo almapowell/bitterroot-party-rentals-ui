@@ -7,6 +7,7 @@ import { addRequest } from "../../../../redux/requestsSlice";
 import QuoteTable from "../../../../shared/QuoteTable";
 import CustomerSummary from "../../../../shared/CustomerSummary";
 import { notification } from "antd";
+import { API } from "../../../../shared/utils";
 
 const ReviewQuote = ({ state }) => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -19,7 +20,7 @@ const ReviewQuote = ({ state }) => {
       customerInformation: state,
       status: "Pending",
     };
-    await axios.post("/api/request/create", rentalRequest).then(() => {
+    await axios.post(API + "/api/request/create", rentalRequest).then(() => {
       navigate("/");
       successfulNotification();
       dispatch(clearCart());
