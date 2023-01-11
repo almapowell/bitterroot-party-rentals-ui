@@ -18,6 +18,7 @@ import Inventory from "./components/Inventory";
 import PasswordCheck from "./components/Admin/PasswordCheck";
 import FAQ from "./components/Footer/FAQ";
 import Gallery from "./components/Header/Gallery";
+import ComingSoon from "./components/ComingSoon";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,7 +29,8 @@ root.render(
           <Header />
 
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<ComingSoon />} />
+            <Route path="/main" element={<App />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/landing-page" element={<LandingPage />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
