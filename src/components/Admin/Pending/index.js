@@ -7,6 +7,7 @@ import LoadingIndicator from "../../../shared/LoadingIndicator";
 import { useSelector } from "react-redux";
 import { Modal, notification } from "antd";
 import moment from "moment";
+import { API } from "../../../shared/utils";
 
 const Pending = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
@@ -22,16 +23,18 @@ const Pending = () => {
   };
 
   const getPendingRequests = async () => {
-    await axios.get("/api/request/get-pending-requests").then((res) => {
+    await axios.get(API + "/api/request/get-pending-requests").then((res) => {
       setPendingRequests(res.data.requests);
       setIsLoading(false);
     });
   };
 
   const handleDeny = async (id) => {
-    await axios.delete(`/api/request/delete-rental-request/${id}`).then(() => {
-      getPendingRequests();
-    });
+    await axios
+      .delete(API + `/api/request/delete-rental-request/${id}`)
+      .then(() => {
+        getPendingRequests();
+      });
   };
 
   const handleConfirm = async (request) => {

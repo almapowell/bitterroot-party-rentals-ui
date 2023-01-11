@@ -5,7 +5,7 @@ import { addToCart } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Categories/SelectedCategory/styles.css";
-import { mockProducts } from "../../shared/utils";
+import { API, mockProducts } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
 
 const Inventory = () => {
@@ -21,7 +21,7 @@ const Inventory = () => {
 
   useEffect(() => {
     if (!products.length) {
-      axios.get("/api/product/get-all").then((res) => {
+      axios.get(API + "/api/product/get-all").then((res) => {
         console.log(res.data.products);
         setProducts(res.data.products);
         setLoading(false);
@@ -37,11 +37,7 @@ const Inventory = () => {
       {!isLoading ? (
         <div className="category-wrapper">
           {mockProducts.map((product, index) => (
-            <Card
-              key={index}
-              title={product.title}
-              className="card-container"
-            >
+            <Card key={index} title={product.title} className="card-container">
               <img
                 className="productImage"
                 src={product.image}
