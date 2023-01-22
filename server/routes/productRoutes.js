@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 // ------- Routes --------
-router.route("/get-all").get(getProducts);
+router.route("/get-all-products").get(getProducts);
 router.route("/create-new").post(newProduct);
 router.route("/delete-product/:id").delete(deleteProduct);
 

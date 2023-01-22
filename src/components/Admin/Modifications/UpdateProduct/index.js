@@ -15,7 +15,7 @@ const UpdateProduct = () => {
   const [selectedProduct, setSelectedProduct] = useState({});
 
   const getAllProducts = async () => {
-    await axios.get(API + "/api/product/get-all").then((res) => {
+    await axios.get(API + "/api/product/get-all-products").then((res) => {
       setProducts(res.data.products);
       setLoading(false);
     });

@@ -21,7 +21,7 @@ const Inventory = () => {
 
   useEffect(() => {
     if (!products.length) {
-      axios.get(API + "/api/product/get-all").then((res) => {
+      axios.get(API + "/api/product/get-all-products").then((res) => {
         console.log(res.data.products);
         setProducts(res.data.products);
         setLoading(false);
