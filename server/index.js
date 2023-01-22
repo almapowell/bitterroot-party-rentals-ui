@@ -7,7 +7,7 @@ const cors = require("cors");
 const serverless = require("serverless-http");
 const app = express();
 
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 
 // -------- Connect to Database -------- //
@@ -20,6 +20,10 @@ async function connectDB() {
   }
 }
 connectDB();
+
+app.get("/api", (req, res) => {
+  res.send("HELLO WORLD");
+});
 
 // -------- Controllers -------- //
 app.use("/api/product", productRoutes);
