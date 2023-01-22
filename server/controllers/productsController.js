@@ -14,7 +14,7 @@ exports.newProduct = async (req, res, next) => {
   }
 };
 
-// Get all products -> /api/product/get-all
+// Get all products -> /api/product/get-all-products
 exports.getProducts = async (req, res, next) => {
   const allProducts = await Product.find();
 
@@ -32,14 +32,14 @@ exports.deleteProduct = async (req, res, next) => {
   if (!product) {
     return res.status(404).json({
       success: false,
-      message: 'Product not found'
-    })
-  };
+      message: "Product not found",
+    });
+  }
 
   await product.remove();
 
   res.status(200).json({
     success: true,
-    message: 'Product is deleted',
+    message: "Product is deleted",
   });
 };
