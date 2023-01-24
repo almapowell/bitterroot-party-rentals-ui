@@ -92,11 +92,7 @@ const QuoteSteps = () => {
 
   return (
     <div className="steps-container">
-      <Steps current={current}>
-        {steps.map((item, index) => (
-          <Step style={{ marginBottom: 70 }} key={index} title={item.title} />
-        ))}
-      </Steps>
+      <Steps style={{ marginBottom: 70 }} current={current} items={steps} />
 
       <div className="steps-content">{steps[current].content}</div>
       <div className="steps-action">

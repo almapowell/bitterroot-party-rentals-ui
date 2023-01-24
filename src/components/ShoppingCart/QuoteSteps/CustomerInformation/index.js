@@ -2,7 +2,8 @@ import React from "react";
 import { Form, Input } from "antd";
 
 const CustomerInformation = ({ state, onInputChange }) => {
-  console.log(state);
+  const { first, last, email, phone } = state;
+
   return (
     <Form
       labelCol={{
@@ -19,8 +20,8 @@ const CustomerInformation = ({ state, onInputChange }) => {
         label="First Name"
       >
         <Input
-          defaultValue={state.first}
-          value={state.first}
+          defaultValue={first}
+          value={first}
           name="first"
           onChange={onInputChange}
         />
@@ -31,16 +32,16 @@ const CustomerInformation = ({ state, onInputChange }) => {
         label="Last Name"
       >
         <Input
-          value={state.last}
-          defaultValue={state.last}
+          value={last}
+          defaultValue={last}
           name="last"
           onChange={onInputChange}
         />
       </Form.Item>
       <Form.Item name="Email" rules={[{ required: true }]} label="Email">
         <Input
-          value={state.email}
-          defaultValue={state.email}
+          value={email}
+          defaultValue={email}
           name="email"
           onChange={onInputChange}
         />
@@ -48,8 +49,8 @@ const CustomerInformation = ({ state, onInputChange }) => {
       <Form.Item name="Phone" rules={[{ required: true }]} label="Phone Number">
         <Input
           name="phone"
-          defaultValue={state.phone}
-          value={state.phone}
+          defaultValue={phone}
+          value={phone}
           onChange={onInputChange}
         />
       </Form.Item>

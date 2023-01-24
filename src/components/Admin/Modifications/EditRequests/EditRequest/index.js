@@ -123,16 +123,16 @@ const EditRequest = ({ selectedRequest, setSelectedRequest }) => {
         <div>
           <h1 className="request-label">Cart Items</h1>
           {cartItems.map((item) => {
-            const itemCost = item.price * item.quantity;
+            const itemCost = item.price * item.cartQuantity;
             return (
               <Form.Item
-                initialValue={item.quantity}
+                initialValue={item.cartQuantity}
                 name={item.title}
                 label={`${item.title} - $${item.price} Each`}
               >
                 <span style={{ fontSize: 12 }}>Cost: ${itemCost}</span>
                 <Input
-                  value={item.quantity}
+                  value={item.cartQuantity}
                   name="title"
                   onChange={(e) => onCartItemChange(e, item._id)}
                 />

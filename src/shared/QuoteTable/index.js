@@ -18,7 +18,7 @@ const QuoteTable = ({ cartItems }) => {
       render: (_, item) => {
         return (
           <Space size="middle">
-            <p>{item.price * item.quantity}</p>
+            <p>${(item.price * item.quantity).toFixed(2)}</p>
           </Space>
         );
       },
@@ -32,7 +32,6 @@ const QuoteTable = ({ cartItems }) => {
       pagination={false}
       bordered
       summary={(pageData) => {
-        console.log(pageData);
         let totalCartPrice = 0;
         pageData.forEach((data) => {
           let itemSum = data.price * data.quantity;
@@ -45,7 +44,7 @@ const QuoteTable = ({ cartItems }) => {
             </Table.Summary.Cell>
 
             <Table.Summary.Cell index={1}>
-              <Text>{totalCartPrice}</Text>
+              <Text>${totalCartPrice.toFixed(2)}</Text>
             </Table.Summary.Cell>
           </Table.Summary.Row>
         );

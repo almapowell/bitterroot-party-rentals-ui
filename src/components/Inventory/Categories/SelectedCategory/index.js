@@ -15,7 +15,6 @@ const SelectedCategory = ({ items }) => {
     navigate("/shopping-cart");
   };
 
-  console.log(items);
   return (
     <div className="category-container">
       <div className="pageTitle">{items.title}</div>

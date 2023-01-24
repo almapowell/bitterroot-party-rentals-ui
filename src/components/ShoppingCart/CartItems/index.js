@@ -5,7 +5,6 @@ import {
   getTotals,
   newCartValue,
 } from "../../../redux/cartSlice";
-import CounterInput from "react-counter-input";
 
 const CartItems = () => {
   const cart = useSelector((state) => state.cart);
@@ -27,7 +26,7 @@ const CartItems = () => {
       <div className="cart-items">
         {cart.cartItems &&
           cart.cartItems.map((cartItem) => (
-            <div className="cart-item" key={cartItem.productId}>
+            <div className="cart-item" key={cartItem.id}>
               <div className="cart-product">
                 <img src={cartItem.image} alt={cartItem.title} />
                 <div>
@@ -38,12 +37,29 @@ const CartItems = () => {
                 </div>
               </div>
               <div className="cart-product-price">${cartItem.price}</div>
-              <div className="cart-product-quantity">
-                <CounterInput
-                  max={100}
-                  count={cartItem.quantity}
-                  onCountChange={(count) => handleNewCartValue(count, cartItem)}
+              <div className="cart-quantity">
+                <button
+                  onClick={() =>
+                    handleNewCartValue(Number(cartItem.quantity - 1), cartItem)
+                  }
+                >
+                  -
+                </button>
+                <input
+                  className="cart-input"
+                  type="number"
+                  value={cartItem.quantity}
+                  onChange={(e) =>
+                    handleNewCartValue(Number(e.target.value), cartItem)
+                  }
                 />
+                <button
+                  onClick={(e) =>
+                    handleNewCartValue(Number(cartItem.quantity) + 1, cartItem)
+                  }
+                >
+                  +
+                </button>
               </div>
               <div className="cart-product-total-price">
                 ${(cartItem.price * cartItem.quantity).toFixed(2)}

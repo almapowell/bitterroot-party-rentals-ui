@@ -10,6 +10,7 @@ const requestsSlice = createSlice({
   initialState,
   reducers: {
     addRequest(state, action) {
+      console.log({ state, action });
       state.rentalRequests.push(action.payload);
 
       localStorage.setItem(
