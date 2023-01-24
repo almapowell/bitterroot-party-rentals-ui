@@ -3,7 +3,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../../../redux/cartSlice";
-import { addRequest } from "../../../../redux/requestsSlice";
 import QuoteTable from "../../../../shared/QuoteTable";
 import CustomerSummary from "../../../../shared/CustomerSummary";
 import { notification } from "antd";
@@ -24,7 +23,6 @@ const ReviewQuote = ({ state }) => {
       navigate("/");
       successfulNotification();
       dispatch(clearCart());
-      dispatch(addRequest(rentalRequest));
     });
   };
 

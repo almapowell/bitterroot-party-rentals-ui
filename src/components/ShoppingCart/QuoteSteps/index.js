@@ -5,8 +5,6 @@ import CustomerInformation from "./CustomerInformation";
 import { Button, Steps } from "antd";
 import VenueInformation from "./VenueInformation";
 
-const { Step } = Steps;
-
 const QuoteSteps = () => {
   const [state, setState] = useState({
     first: "",
