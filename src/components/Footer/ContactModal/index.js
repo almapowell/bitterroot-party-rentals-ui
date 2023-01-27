@@ -27,7 +27,7 @@ const ContactModal = () => {
       if (data === "success") {
         successfulNotification();
         navigate("/");
-      } else if (data === "error") {
+      } else {
         failedNotification();
       }
     });

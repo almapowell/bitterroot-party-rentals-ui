@@ -28,11 +28,7 @@ const ReviewQuote = ({ state }) => {
 
     const { first, last, email } = rentalRequest.customerInformation;
     const name = first + " " + last;
-    console.log({
-      name,
-      email,
-      body: rentalRequest,
-    });
+
     await axios.post(API + "/api/email/request-form", {
       name,
       email,
@@ -42,8 +38,8 @@ const ReviewQuote = ({ state }) => {
 
   const successfulNotification = () => {
     notification["success"]({
-      message: "Congradulations",
-      description: `We've received your request. We will get back to you as soon as possible. Thank you for booking with us.`,
+      message: "We've recieved your request",
+      description: `We will get back to you as soon as possible. Thank you for booking with us.`,
     });
   };
 
