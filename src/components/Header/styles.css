@@ -23,6 +23,7 @@ a {
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   height: 10vh;
+  min-height: 80px;
   background: white;
   margin-bottom: 30px;
   padding: 0 5vw;

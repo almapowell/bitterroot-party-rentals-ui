@@ -19,10 +19,24 @@ const ReviewQuote = ({ state }) => {
       customerInformation: state,
       status: "Pending",
     };
+
     await axios.post(API + "/api/request/create", rentalRequest).then(() => {
       navigate("/");
       successfulNotification();
       dispatch(clearCart());
+    });
+
+    const { first, last, email } = rentalRequest.customerInformation;
+    const name = first + " " + last;
+    console.log({
+      name,
+      email,
+      body: rentalRequest,
+    });
+    await axios.post(API + "/api/email/request-form", {
+      name,
+      email,
+      body: rentalRequest,
     });
   };
 

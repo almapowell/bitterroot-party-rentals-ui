@@ -1,6 +1,7 @@
 require("dotenv").config();
 const productRoutes = require("./routes/productRoutes");
 const requestRoutes = require("./routes/requestRoutes");
+const emailRoutes = require("./routes/emailRoutes");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -28,6 +29,7 @@ app.get("/api", (req, res) => {
 // -------- Controllers -------- //
 app.use("/api/product", productRoutes);
 app.use("/api/request", requestRoutes);
+app.use("/api/email", emailRoutes);
 
 if (process.env.DEVELOPMENT) {
   const PORT = 8080;

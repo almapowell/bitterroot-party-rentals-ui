@@ -55,8 +55,6 @@ const itemsImages = [
   "https://bitterroot-party-rentals.s3.amazonaws.com/DSC00136.JPG",
 ];
 
-console.log(itemsImages[0]);
-
 const reasons = [
   {
     icon: phone,

@@ -19,6 +19,7 @@ import PasswordCheck from "./components/Admin/PasswordCheck";
 import FAQ from "./components/Footer/FAQ";
 import Gallery from "./components/Header/Gallery";
 import ComingSoon from "./components/ComingSoon";
+import ContactModal from "./components/Footer/ContactModal";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -40,6 +41,7 @@ root.render(
             <Route path="/gallery" element={<Gallery />} />
 
             <Route path="/inventory" element={<Inventory />} />
+            <Route path="/contact" element={<ContactModal />} />
 
             <Route
               path={`/${categories[0].link}`}

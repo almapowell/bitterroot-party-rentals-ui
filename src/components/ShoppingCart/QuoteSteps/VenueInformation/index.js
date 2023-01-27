@@ -66,8 +66,17 @@ const VenueInformation = ({
         />
       </Form.Item>
       <Form.Item label="Referral">
-        <Radio.Group onChange={onReferalChange} value={state.referal}>
-          <Space>
+        <Radio.Group
+          defaultValue={state.referal}
+          onChange={onReferalChange}
+          value={state.referal}
+        >
+          <Space
+            style={{
+              gap: 12,
+              flexWrap: "wrap",
+            }}
+          >
             <Radio value={1}>Word of Mouth</Radio>
             <Radio value={2}>Google</Radio>
             <Radio value={3}>Social Media</Radio>
