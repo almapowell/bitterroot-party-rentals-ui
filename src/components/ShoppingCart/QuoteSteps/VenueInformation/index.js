@@ -81,23 +81,7 @@ const VenueInformation = ({
             <Radio value={2}>Google</Radio>
             <Radio value={3}>Social Media</Radio>
             <Radio value={4}>Repeat Customer</Radio>
-            <Radio value={5}>
-              Other
-              {state.referal === 5 ? (
-                <Input
-                  style={{
-                    width: 100,
-                    marginLeft: 10,
-                  }}
-                  onChange={(e) =>
-                    setState({
-                      ...state,
-                      referal: e.target.value,
-                    })
-                  }
-                />
-              ) : null}
-            </Radio>
+            <Radio value={5}>Other</Radio>
           </Space>
         </Radio.Group>
       </Form.Item>

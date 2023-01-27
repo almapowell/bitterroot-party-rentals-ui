@@ -4,14 +4,14 @@ import CustomerSummary from "../../../shared/CustomerSummary";
 import QuoteTable from "../../../shared/QuoteTable";
 import "./styles.css";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
-import { useSelector } from "react-redux";
 import { Modal, notification } from "antd";
 import moment from "moment";
-import { API } from "../../../shared/utils";
+import { API, jordanError } from "../../../shared/utils";
 
 const Pending = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const { confirm } = Modal;
 
@@ -23,10 +23,17 @@ const Pending = () => {
   };
 
   const getPendingRequests = async () => {
-    await axios.get(API + "/api/request/get-pending-requests").then((res) => {
-      setPendingRequests(res.data.requests);
-      setIsLoading(false);
-    });
+    await axios
+      .get(API + "/api/request/get-pending-requests")
+      .then((res) => {
+        setPendingRequests(res.data.requests);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log("Screenshot this error here: " + err);
+        setIsError(true);
+        setIsLoading(false);
+      });
   };
 
   const handleDeny = async (id) => {
@@ -67,15 +74,14 @@ const Pending = () => {
     });
   }
 
-  console.log(222, "pending requests:", pendingRequests);
-  const mockPendingRequests = useSelector(
-    (state) => state.requests
-  ).rentalRequests.filter((r) => r.status === "Pending");
-
   return (
     <div>
       {isLoading ? (
         <LoadingIndicator />
+      ) : isError ? (
+        jordanError
+      ) : pendingRequests.length === 0 ? (
+        <h2>No pending requests</h2>
       ) : (
         pendingRequests.map((request, index) => (
           <div
@@ -83,7 +89,7 @@ const Pending = () => {
               padding: "50px 10%",
               borderBottom: "2px solid #343434",
             }}
-            key={request.id}
+            key={request._id}
           >
             <h3 style={{ display: "flex", justifyContent: "center" }}>
               Pending #{index + 1}

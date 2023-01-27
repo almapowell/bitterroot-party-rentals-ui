@@ -1,34 +1,41 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import CustomerSummary from "../../../shared/CustomerSummary";
 import QuoteTable from "../../../shared/QuoteTable";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
-import { API } from "../../../shared/utils";
+import { API, jordanError } from "../../../shared/utils";
 
 const Completed = () => {
   const [completedRequests, setCompletedRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const getCompletedRequests = async () => {
-    await axios.get(API + "/api/request/get-completed-requests").then((res) => {
-      setCompletedRequests(res.data.requests);
-      setIsLoading(false);
-    });
+    await axios
+      .get(API + "/api/request/get-completed-requests")
+      .then((res) => {
+        setCompletedRequests(res.data.requests);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log("Screenshot this error here: " + err);
+        setIsError(true);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
     getCompletedRequests();
   }, []);
 
-  const mockCompletedRequests = useSelector(
-    (state) => state.requests
-  ).rentalRequests.filter((r) => r.status === "Completed");
-
   return (
     <div>
       {isLoading ? (
         <LoadingIndicator />
+      ) : isError ? (
+        jordanError
+      ) : completedRequests === 0 ? (
+        <h2>No completed requests</h2>
       ) : (
         completedRequests.map((request, index) => (
           <div
@@ -36,7 +43,7 @@ const Completed = () => {
               padding: "50px 10%",
               borderBottom: "2px solid #343434",
             }}
-            key={request.id}
+            key={request._id}
           >
             <h3 style={{ display: "flex", justifyContent: "center" }}>
               Completed #{index + 1}

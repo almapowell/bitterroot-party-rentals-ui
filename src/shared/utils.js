@@ -1,9 +1,36 @@
 // URI='mongodb+srv://almapowell:aWPYSxSewRXlbgLt@cluster0.wacp04q.mongodb.net/?retryWrites=true&w=majority'
 
-// export const API =
-//   "https://3y12d1go0i.execute-api.us-east-1.amazonaws.com/prod";
+export const API =
+  "https://3y12d1go0i.execute-api.us-east-1.amazonaws.com/prod";
 
-export const API = "http://localhost:8080";
+// export const API = "http://localhost:8080";
+
+export const jordanError = (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}
+  >
+    <h1>Sorry there was an error.</h1>
+    <span>Try again and if it persists I want you to: </span>
+    <ol>
+      <li>
+        <b>1.</b> Right click the screen
+      </li>
+      <li>
+        <b>2.</b> Go to inspect
+      </li>
+      <li>
+        <b>3.</b> Accross the top bar, click on 'Console'
+      </li>
+      <li>
+        <b>4.</b> Send me a screenshot of the error
+      </li>
+    </ol>
+  </div>
+);
 
 export const categories = [
   {

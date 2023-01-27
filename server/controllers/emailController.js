@@ -1,5 +1,5 @@
 const aws = require("aws-sdk");
-
+const moment = require("moment");
 const ses = new aws.SES({ region: "us-east-1" });
 
 exports.contactForm = async (req, res) => {
@@ -74,7 +74,7 @@ const sesRequest = (emailTo, emailFrom, body, name) => {
       case 5:
         return "Other";
       default:
-        return "Couldnt find / Didnt answer";
+        return "Couldn't find / Didn't answer";
     }
   };
 
@@ -87,7 +87,7 @@ const sesRequest = (emailTo, emailFrom, body, name) => {
         Text: {
           Data: `
 Cart Items: \n
-  ${cartItems.map((item) => item.title + "-" + item.quantity + "\n")}
+  ${cartItems.map((item) => item.title + " - " + item.quantity + "\n")}
 \n
 
 Customer Information: \n
@@ -97,7 +97,7 @@ Customer Information: \n
   Deliver: ${delivery ? "Yes" : "No"}\n
   Referal: ${getReferal()}\n
   Notes: ${notes}\n
-  Date: ${date}\n
+  Date: ${moment(date).format("MMMM Do YYYY")}\n
 \n
 
 From: \n${emailFrom}`,
