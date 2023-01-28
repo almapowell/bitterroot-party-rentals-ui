@@ -5,12 +5,10 @@ import "antd/dist/antd.min.css";
 import App from "./App";
 import Header from "./components/Header";
 import Categories from "./components/Inventory/Categories";
-import SelectedCategory from "./components/Inventory/Categories/SelectedCategory";
 import LandingPage from "./components/LandingPage";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { categories } from "./shared/utils";
 import ShoppingCart from "./components/ShoppingCart";
 import QuoteSteps from "./components/ShoppingCart/QuoteSteps";
 import Footer from "./components/Footer";
@@ -18,8 +16,8 @@ import Inventory from "./components/Inventory";
 import PasswordCheck from "./components/Admin/PasswordCheck";
 import FAQ from "./components/Footer/FAQ";
 import Gallery from "./components/Header/Gallery";
-import ComingSoon from "./components/ComingSoon";
 import ContactModal from "./components/Footer/ContactModal";
+import InventoryItem from "./components/Inventory/Item";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,8 +28,7 @@ root.render(
           <Header />
 
           <Routes>
-            <Route path="/" element={<ComingSoon />} />
-            <Route path="/main" element={<App />} />
+            <Route path="/" element={<App />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/landing-page" element={<LandingPage />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
@@ -40,25 +37,9 @@ root.render(
             <Route path="/faq" element={<FAQ />} />
             <Route path="/gallery" element={<Gallery />} />
 
-            <Route path="/inventory" element={<Inventory />} />
             <Route path="/contact" element={<ContactModal />} />
-
-            <Route
-              path={`/${categories[0].link}`}
-              element={<SelectedCategory items={categories[0]} />}
-            />
-            <Route
-              path={`/${categories[1].link}`}
-              element={<SelectedCategory items={categories[1]} />}
-            />
-            <Route
-              path={`/${categories[2].link}`}
-              element={<SelectedCategory items={categories[2]} />}
-            />
-            <Route
-              path={`/${categories[3].link}`}
-              element={<SelectedCategory items={categories[3]} />}
-            />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/inventory/item/:itemId" element={<InventoryItem />} />
           </Routes>
           <Footer />
         </div>

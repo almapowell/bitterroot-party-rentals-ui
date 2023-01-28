@@ -14,6 +14,15 @@ exports.newProduct = async (req, res, next) => {
   }
 };
 
+exports.getProductById = async (req, res, next) => {
+  const product = await Product.find({ _id: req.params.id });
+
+  res.status(200).json({
+    success: true,
+    product: product[0],
+  });
+};
+
 // Get all products -> /api/product/get-all-products
 exports.getProducts = async (req, res, next) => {
   const allProducts = await Product.find();

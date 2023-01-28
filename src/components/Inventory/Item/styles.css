@@ -1,0 +1,27 @@
+.item-container {
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 10px;
+  width: 400px;
+  height: 500px;
+}
+
+.carousel .slider-wrapper {
+  border: 2px solid red;
+  width: 200px;
+}
+
+.carousel .slider .slide img {
+  /* height: auto;
+  width: auto; */
+  object-fit: contain;
+  object-position: center;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.carousel .thumb {
+  width: 5%;
+  height: auto;
+  border: 5px solid blue;
+}

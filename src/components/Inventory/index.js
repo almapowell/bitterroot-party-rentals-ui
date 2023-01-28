@@ -3,9 +3,9 @@ import axios from "axios";
 import { Card } from "antd";
 import { addToCart } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import "./Categories/SelectedCategory/styles.css";
-import { API, mockProducts } from "../../shared/utils";
+import { useNavigate, Link } from "react-router-dom";
+import "./styles.css";
+import { API } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
 
 const Inventory = () => {
@@ -21,22 +21,19 @@ const Inventory = () => {
 
   useEffect(() => {
     if (!products.length) {
-      axios.get(API + "/api/product/get-all-products").then((res) => {
-        console.log(res.data.products);
-        setProducts(res.data.products);
+      axios.get(API + "/api/product/get-all-products").then(({ data }) => {
+        setProducts(data.products);
         setLoading(false);
       });
     }
   }, []);
-
-  console.log(3333, "products", products);
 
   return (
     <div className="category-container">
       <div className="pageTitle">Inventory</div>
       {!isLoading ? (
         <div className="category-wrapper">
-          {mockProducts.map((product, index) => (
+          {products.map((product, index) => (
             <Card key={index} title={product.title} className="card-container">
               <img
                 className="productImage"
@@ -47,10 +44,10 @@ const Inventory = () => {
                 <h2 className="product-price">$ {product.price}</h2>
                 <div className="addToCartBtn">
                   <button
-                    onClick={() => handleAddToCart(product)}
+                    // onClick={() => handleAddToCart(product)}
                     className="secondary-button"
                   >
-                    Add to Cart
+                    <Link to={`/inventory/item/${product._id}`}>View</Link>
                   </button>
                 </div>
               </div>
