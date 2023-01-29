@@ -5,6 +5,16 @@
 
 export const API = "http://localhost:8080";
 
+export const quantityOptions = (num) => {
+  let result = [];
+
+  for (let i = 1; i <= num; i++) {
+    result.push({ value: i, label: `${i}` });
+  }
+
+  return result;
+};
+
 export const jordanError = (
   <div
     style={{
