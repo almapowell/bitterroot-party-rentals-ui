@@ -5,14 +5,26 @@
 
 .product-container {
   width: 60%;
-  padding: 50px;
-  border: 1px solid black;
+}
+
+.item-card {
+  padding: 30px;
+  width: 80%;
+  margin: auto;
+  border-radius: 2px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cart-actions {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   font-size: 18px;
+  gap: 20px;
+}
+
+.cart-actions button {
+  width: 40%;
 }
 
 .selector-container {
@@ -21,7 +33,6 @@
 }
 
 .carousel-container {
-  border: 2px solid orange;
   width: 40%;
   padding: 20px;
 }

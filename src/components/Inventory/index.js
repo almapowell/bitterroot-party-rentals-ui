@@ -21,8 +21,8 @@ const Inventory = () => {
 
   useEffect(() => {
     if (!products.length) {
-      axios.get(API + "/api/product/get-all-products").then(({ data }) => {
-        setProducts(data.products);
+      axios.get(API + "/api/inventory/all-inventory").then(({ data }) => {
+        setProducts(data.inventory);
         setLoading(false);
       });
     }
@@ -37,7 +37,7 @@ const Inventory = () => {
             <Card key={index} title={product.title} className="card-container">
               <img
                 className="productImage"
-                src={product.image}
+                src={product.images[0]}
                 alt={product.title}
               />
               <div className="priceWrapper">
@@ -47,7 +47,12 @@ const Inventory = () => {
                     // onClick={() => handleAddToCart(product)}
                     className="secondary-button"
                   >
-                    <Link to={`/inventory/item/${product._id}`}>View</Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "white" }}
+                      to={`/inventory/item/${product._id}`}
+                    >
+                      View
+                    </Link>
                   </button>
                 </div>
               </div>

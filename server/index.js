@@ -1,4 +1,5 @@
 require("dotenv").config();
+const inventoryRoutes = require("./routes/inventoryRoutes");
 const productRoutes = require("./routes/productRoutes");
 const requestRoutes = require("./routes/requestRoutes");
 const emailRoutes = require("./routes/emailRoutes");
@@ -27,6 +28,7 @@ app.get("/api", (req, res) => {
 });
 
 // -------- Controllers -------- //
+app.use("/api/inventory", inventoryRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/request", requestRoutes);
 app.use("/api/email", emailRoutes);
