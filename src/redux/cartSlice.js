@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { ConsoleSqlOutlined } from "@ant-design/icons";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
@@ -27,19 +28,24 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     addToCart(state, action) {
+      const { product, quantityValue } = action.payload;
       const existingIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === product._id
       );
 
       if (existingIndex >= 0) {
         state.cartItems[existingIndex] = {
           ...state.cartItems[existingIndex],
-          quantity: state.cartItems[existingIndex].quantity + 1,
+          quantity: state.cartItems[existingIndex].quantity + quantityValue,
         };
       } else {
-        let tempProductItem = { ...action.payload, quantity: 1 };
+        let tempProductItem = {
+          ...product,
+          quantity: quantityValue,
+        };
         state.cartItems.push(tempProductItem);
       }
+
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     decreaseCart(state, action) {
@@ -61,9 +67,9 @@ const cartSlice = createSlice({
     },
     removeFromCart(state, action) {
       state.cartItems.map((cartItem) => {
-        if (cartItem.id === action.payload.id) {
+        if (cartItem._id === action.payload._id) {
           const nextCartItems = state.cartItems.filter(
-            (item) => item.id !== cartItem.id
+            (item) => item._id !== cartItem._id
           );
 
           state.cartItems = nextCartItems;

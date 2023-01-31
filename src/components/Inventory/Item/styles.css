@@ -42,8 +42,6 @@
 }
 
 .carousel .slider .slide img {
-  /* height: auto;
-  width: auto; */
   object-fit: contain;
   object-position: center;
   height: 50vh;
@@ -54,4 +52,12 @@
   width: 5%;
   height: auto;
   border: 5px solid blue;
+}
+
+.carousel .thumbs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 20px;
 }

@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "antd";
-import { addToCart } from "../../redux/cartSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles.css";
-import { API } from "../../shared/utils";
+import { API, formatter } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
+import { useNavigate } from "react-router-dom";
 
 const Inventory = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    navigate("/shopping-cart");
-  };
 
   useEffect(() => {
     if (!products.length) {
@@ -41,18 +34,16 @@ const Inventory = () => {
                 alt={product.title}
               />
               <div className="priceWrapper">
-                <h2 className="product-price">$ {product.price}</h2>
+                <h2 className="product-price">
+                  {formatter.format(product.price)} / item
+                </h2>
+
                 <div className="addToCartBtn">
                   <button
-                    // onClick={() => handleAddToCart(product)}
+                    onClick={() => navigate(`/inventory/item/${product._id}`)}
                     className="secondary-button"
                   >
-                    <Link
-                      style={{ textDecoration: "none", color: "white" }}
-                      to={`/inventory/item/${product._id}`}
-                    >
-                      View
-                    </Link>
+                    View
                   </button>
                 </div>
               </div>

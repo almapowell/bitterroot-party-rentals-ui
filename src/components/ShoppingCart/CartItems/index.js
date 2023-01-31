@@ -5,6 +5,7 @@ import {
   getTotals,
   newCartValue,
 } from "../../../redux/cartSlice";
+import { formatter } from "../../../shared/utils";
 
 const CartItems = () => {
   const cart = useSelector((state) => state.cart);
@@ -15,7 +16,11 @@ const CartItems = () => {
   }, [cart, dispatch]);
 
   const handleNewCartValue = (newValue, product) => {
-    dispatch(newCartValue({ newValue, product }));
+    if (newValue) {
+      dispatch(newCartValue({ newValue, product }));
+    } else {
+      dispatch(newCartValue({ newValue: 1, product }));
+    }
   };
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
@@ -28,7 +33,7 @@ const CartItems = () => {
           cart.cartItems.map((cartItem) => (
             <div className="cart-item" key={cartItem.id}>
               <div className="cart-product">
-                <img src={cartItem.image} alt={cartItem.title} />
+                <img src={cartItem.images[0]} alt={cartItem.title} />
                 <div>
                   <h3>{cartItem.title}</h3>
                   <button onClick={() => handleRemoveFromCart(cartItem)}>
@@ -36,7 +41,9 @@ const CartItems = () => {
                   </button>
                 </div>
               </div>
-              <div className="cart-product-price">${cartItem.price}</div>
+              <div className="cart-product-price">
+                {formatter.format(cartItem.price)}
+              </div>
               <div className="cart-quantity">
                 <button
                   onClick={() =>
@@ -62,7 +69,7 @@ const CartItems = () => {
                 </button>
               </div>
               <div className="cart-product-total-price">
-                ${(cartItem.price * cartItem.quantity).toFixed(2)}
+                {formatter.format(cartItem.price * cartItem.quantity)}
               </div>
             </div>
           ))}

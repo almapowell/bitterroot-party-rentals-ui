@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import { API, quantityOptions } from "../../../shared/utils";
+import { API, formatter, quantityOptions } from "../../../shared/utils";
 import "./styles.css";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Select } from "antd";
-
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-});
+import { addToCart } from "../../../redux/cartSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const InventoryItem = () => {
   const [product, setProduct] = useState();
   const [options, setOptions] = useState([]);
   const [quantityValue, setQuantityValue] = useState(1);
   const params = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart({ product, quantityValue }));
+    navigate("/shopping-cart");
+  };
 
   const getProduct = async () => {
     await axios
@@ -44,9 +48,10 @@ const InventoryItem = () => {
       <div className="item-container">
         <div className="carousel-container">
           <Carousel>
-            {product.images.map((img) => (
-              <img height="100px" width="200px" src={img} />
-            ))}
+            {product &&
+              product.images.map((img, index) => (
+                <img src={img} alt={product.title + " image " + index} />
+              ))}
           </Carousel>
         </div>
         <div className="product-container">
@@ -87,7 +92,7 @@ const InventoryItem = () => {
                 <button
                   disabled={quantityValue === 0}
                   className="secondary-button"
-                  onClick={() => console.log(123)}
+                  onClick={() => handleAddToCart(product)}
                 >
                   Add to Cart
                 </button>

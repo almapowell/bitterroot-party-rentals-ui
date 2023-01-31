@@ -27,7 +27,7 @@ const CartFooter = () => {
             </div>
 
             <Link to="/finalize-quote">
-              <button className="primary-button">Next Step</button>
+              <button className="secondary-button">Next Step</button>
             </Link>
             <div className="continue-shopping">
               <Link to={"/inventory"}>

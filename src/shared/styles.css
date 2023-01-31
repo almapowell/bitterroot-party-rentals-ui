@@ -5,24 +5,22 @@
 }
 
 .primary-button {
-  padding: 10px 20px;
-  font-weight: 800;
-  letter-spacing: 1.15px;
-  font-size: 20px;
-  background-color: black;
-  color: #f9f9f9;
-  border: none;
+  white-space: nowrap;
+  padding: 5px 20px;
+  font-size: 18px;
+  background-color: white;
+  border: 1px solid black;
   outline: none;
-  cursor: pointer;
 }
 
 .primary-button:hover {
-  background-color: #343434;
+  background-color: #eeeeee;
+  cursor: pointer;
 }
 
 .secondary-button {
   border-radius: 2px;
-  padding: 10px 30px;
+  padding: 5px 20px;
   font-size: 18px;
   font-weight: 900;
   border: 1px solid var(--primary-color);
