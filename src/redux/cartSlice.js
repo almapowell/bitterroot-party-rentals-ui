@@ -15,11 +15,11 @@ const cartSlice = createSlice({
   reducers: {
     newCartValue(state, action) {
       const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.product.id
+        (item) => item._id === action.payload.product._id
       );
       if (action.payload.newValue < 1) {
         const nextCartItems = state.cartItems.filter(
-          (item) => item.id !== action.payload.product.id
+          (item) => item._id !== action.payload.product._id
         );
         state.cartItems = nextCartItems;
       } else {

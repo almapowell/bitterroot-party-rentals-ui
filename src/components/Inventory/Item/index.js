@@ -50,7 +50,9 @@ const InventoryItem = () => {
           <Carousel>
             {product &&
               product.images.map((img, index) => (
-                <img src={img} alt={product.title + " image " + index} />
+                <React.Fragment key={index}>
+                  <img src={img} alt={product.title + " image " + index} />
+                </React.Fragment>
               ))}
           </Carousel>
         </div>

@@ -12,6 +12,7 @@ const WhyChooseUs = () => {
             <section
               className="section"
               style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+              key={index}
             >
               {index % 2 !== 0 && window.innerWidth > 1000 && (
                 <div className="image">
