@@ -1,5 +1,4 @@
-import { ConsoleSqlOutlined } from "@ant-design/icons";
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
