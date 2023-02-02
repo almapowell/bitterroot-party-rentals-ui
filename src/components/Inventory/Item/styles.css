@@ -61,3 +61,27 @@
   padding: 0;
   gap: 20px;
 }
+
+@media screen and (max-width: 500px) {
+  .item-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .carousel-container {
+    width: 100%;
+  }
+
+  .product-container {
+    width: 100%;
+  }
+
+  .item-card {
+    width: 100%;
+  }
+
+  .cart-actions button {
+    width: 100%;
+  }
+}
