@@ -1,4 +1,5 @@
 const aws = require("aws-sdk");
+const moment = require("moment");
 const ses = new aws.SES({ region: "us-east-1" });
 
 exports.contactForm = async (req, res) => {
@@ -96,7 +97,7 @@ Customer Information: \n
   Deliver: ${delivery ? "Yes" : "No"}\n
   Referal: ${getReferal()}\n
   Notes: ${notes}\n
-  Date: ${date}\n
+  Date: ${moment(date).format("MMMM Do YYYY")}\n
 \n
 
 From: \n${emailFrom}`,
