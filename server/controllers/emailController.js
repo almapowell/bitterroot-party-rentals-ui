@@ -1,5 +1,4 @@
 const aws = require("aws-sdk");
-// const moment = require("moment");
 const ses = new aws.SES({ region: "us-east-1" });
 
 exports.contactForm = async (req, res) => {
