@@ -12,15 +12,18 @@ const Inventory = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(1111, { products });
     if (!products.length) {
+      console.log(2222, "calling the endpoint now");
+
       axios
         .get(API + "/api/inventory/all-inventory")
         .then((res) => {
-          console.log(123, res);
+          console.log(333, res);
           setProducts(res.data.inventory);
           setLoading(false);
         })
-        .catch((err) => console.log("We have a error!!", err));
+        .catch((err) => console.log(444, "We have a error!!", err));
     }
   }, []);
 
