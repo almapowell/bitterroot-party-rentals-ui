@@ -18,6 +18,7 @@ import FAQ from "./components/Footer/FAQ";
 import Gallery from "./components/Header/Gallery";
 import ContactModal from "./components/Footer/ContactModal";
 import InventoryItem from "./components/Inventory/Item";
+import ClearCart from "./components/ShoppingCart/ClearCart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -36,6 +37,7 @@ root.render(
             <Route path="/jordy" element={<PasswordCheck />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/clear-cart" element={<ClearCart />} />
 
             <Route path="/contact" element={<ContactModal />} />
             <Route path="/inventory" element={<Inventory />} />
