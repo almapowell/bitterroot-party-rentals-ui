@@ -32,9 +32,9 @@ const ShoppingCart = () => {
           </div>
 
           <CartItems />
-          <CartFooter /> */}
+          <CartFooter /> 
         </div>
-      )}
+      )}*/}
     </div>
   );
 };
