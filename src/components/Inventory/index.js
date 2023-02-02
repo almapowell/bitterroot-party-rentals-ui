@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "antd";
-import { Link } from "react-router-dom";
 import "./styles.css";
 import { API, formatter } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
@@ -14,10 +13,14 @@ const Inventory = () => {
 
   useEffect(() => {
     if (!products.length) {
-      axios.get(API + "/api/inventory/all-inventory").then(({ data }) => {
-        setProducts(data.inventory);
-        setLoading(false);
-      });
+      axios
+        .get(API + "/api/inventory/all-inventory")
+        .then((res) => {
+          console.log(123, res);
+          setProducts(res.data.inventory);
+          setLoading(false);
+        })
+        .catch((err) => console.log("We have a error!!", err));
     }
   }, []);
 
