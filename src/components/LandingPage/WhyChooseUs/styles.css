@@ -81,7 +81,8 @@
 
 @media (max-width: 1000px) {
   .section-container {
-    width: 100%;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .description {

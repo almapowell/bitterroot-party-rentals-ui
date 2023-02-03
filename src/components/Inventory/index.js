@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Card } from "antd";
 import "./styles.css";
-import { API, formatter } from "../../shared/utils";
+import { formatter } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Inventory = () => {
+  const inventory = useSelector((state) => state.inventory);
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(1111, { products });
-    if (!products.length) {
-      console.log(2222, "calling the endpoint now");
-
-      axios
-        .get(API + "/api/inventory/all-inventory")
-        .then((res) => {
-          console.log(333, res);
-          setProducts(res.data.inventory);
-          setLoading(false);
-        })
-        .catch((err) => console.log(444, "We have a error!!", err));
+    if (products.length === 0) {
+      setProducts(inventory);
+      setLoading(false);
     }
-  }, []);
+  }, [inventory]);
 
   return (
     <div className="category-container">

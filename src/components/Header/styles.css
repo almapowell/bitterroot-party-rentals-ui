@@ -135,7 +135,7 @@ ul {
     background: white;
     flex-direction: column;
     transform: translateX(100%);
-    transition: 0.5s ease-in;
+    transition: 0.3s ease-in;
     justify-content: center;
     z-index: 10;
     padding: 0;
