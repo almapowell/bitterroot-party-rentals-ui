@@ -77,13 +77,13 @@ ul {
   border-bottom: 1px solid transparent;
 }
 
-.nav__item svg {
-  fill: black;
-}
-
-.nav__link:hover {
+.nav__item:hover {
   text-decoration: none;
   color: grey;
+}
+
+.nav__item svg {
+  fill: black;
 }
 
 .activeLink {

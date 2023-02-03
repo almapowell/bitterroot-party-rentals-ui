@@ -1,6 +1,7 @@
 import React from "react";
 import { DatePicker, Space, Form, Input, Radio, Switch } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
+import moment from "moment";
 
 const VenueInformation = ({
   onDateChange,
@@ -42,6 +43,9 @@ const VenueInformation = ({
           onChange={onDateChange}
           value={state.dateValue}
           name="date"
+          disabledDate={(current) => {
+            return moment().add(-1, "days") >= current;
+          }}
         />
       </Form.Item>
 

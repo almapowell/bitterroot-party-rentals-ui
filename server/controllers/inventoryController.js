@@ -1,5 +1,24 @@
 const Inventory = require("../models/inventory.js");
 
+exports.updateDescription = async (req, res, next) => {
+  try {
+    const result = await Inventory.updateOne(
+      { _id: req.params.id },
+      { description: req.body.description }
+    );
+
+    res.status(200).json({
+      success: true,
+      result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      result: error,
+    });
+  }
+};
+
 exports.newInventory = async (req, res, next) => {
   try {
     const inventory = await Inventory.create(req.body);

@@ -7,7 +7,7 @@
   justify-content: space-evenly;
   align-items: center;
   margin-top: 5rem;
-  background: black;
+  background: var(--primary-color);
   flex-direction: column;
 }
 
@@ -37,7 +37,7 @@
 .socialIcons > span:hover > svg *,
 .socialIcons > span:hover {
   fill: #ccc;
-	transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .links {
@@ -56,9 +56,9 @@
 }
 
 .footerContent {
-    display: flex;
-    align-items: center;
-    gap: 150px;
+  display: flex;
+  align-items: center;
+  gap: 150px;
 }
 
 @media screen and (max-width: 768px) {

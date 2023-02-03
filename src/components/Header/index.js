@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Badge } from "antd";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -24,6 +24,7 @@ function Navbar() {
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
   const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setActiveLink(location.pathname);
@@ -44,6 +45,7 @@ function Navbar() {
     setActiveLink(path);
     setActive("nav__menu");
     setIcon("nav__toggler");
+    navigate(path);
   };
 
   const handleCloseNavMenu = () => {
@@ -92,9 +94,7 @@ function Navbar() {
             onClick={() => handleNavClick("/")}
             className={`nav__item ${activeLink === "/" && "activeLink"}`}
           >
-            <Link to="/" className="nav__link">
-              Home
-            </Link>
+            Home
           </li>
           <li
             onClick={() => handleNavClick("/inventory")}
@@ -102,17 +102,13 @@ function Navbar() {
               activeLink === "/inventory" && "activeLink"
             }`}
           >
-            <Link to="/inventory" className="nav__link">
-              Inventory
-            </Link>
+            Inventory
           </li>
           <li
             onClick={() => handleNavClick("/gallery")}
             className={`nav__item ${activeLink === "/gallery" && "activeLink"}`}
           >
-            <Link to="/gallery" className="nav__link">
-              Gallery
-            </Link>
+            Gallery
           </li>
           {windowWidth < 768 && showCartOnSmallScreens}
         </ul>

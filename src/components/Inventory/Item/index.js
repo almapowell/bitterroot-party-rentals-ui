@@ -66,16 +66,7 @@ const InventoryItem = () => {
                 </b>
                 per item
               </div>
-              <p style={{ fontSize: 16, padding: 10 }}>
-                Commercial-grade plastic folding chairs designed to be
-                lightweight but durable. This product is engineered and built
-                with premium materials that will withstand heavy duty use for
-                event, business and home usage. These folding chairs will nest
-                easily to stack 50 high from the floor and feature a textured
-                contoured plastic seat for the highest level of comfort and
-                security. With a variety of color options you can choose what
-                would best pair with your event needs.
-              </p>
+              <p style={{ fontSize: 16, padding: 10 }}>{product.description}</p>
 
               <div className="cart-actions">
                 <div className="selector-container">

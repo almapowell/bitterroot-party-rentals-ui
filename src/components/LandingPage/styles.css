@@ -1,3 +1,42 @@
+.content {
+  margin: 100px 20%;
+}
+
+.avatar svg {
+  width: 150px;
+  height: 150px;
+}
+
+.quotes svg {
+  height: 30px;
+}
+
+.text {
+  font-size: 2rem;
+  font-style: italic;
+  overflow: hidden;
+}
+
+.testimony {
+  height: auto;
+  background: white;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
+  display: flex;
+  gap: 50px;
+}
+
+.banner {
+  margin-top: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
 .form-container {
   font-size: 30px;
   display: flex;
@@ -70,6 +109,9 @@
 }
 
 @media (max-width: 786px) {
+  .content {
+    margin: 100px 10%;
+  }
   .second-line {
     line-height: 1;
   }

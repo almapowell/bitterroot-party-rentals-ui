@@ -12,9 +12,9 @@ function Gallery() {
   }, [imageRef]);
 
   return (
-    <div style={{ width: "80%", margin: "auto" }}>
+    <div style={{ width: "90%", margin: "auto" }}>
       <h2 className="gallery-title">Photo Gallery</h2>
-      <ImageList cols={cols} gap={20}>
+      <ImageList cols={cols} gap={30}>
         {itemsImages.map((item, index) => (
           <ImageListItem className="gallery-container" key={index}>
             <img
