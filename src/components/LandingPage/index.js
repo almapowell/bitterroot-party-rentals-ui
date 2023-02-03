@@ -29,7 +29,7 @@ const LandingPage = () => {
         <WhyChooseUs />
       </div>
       <div className="banner">
-        <span>#1 Event and Party Rental in the Bitterroot Valley</span>
+        <span>#1 Event and Party Rental Service in the Bitterroot Valley</span>
       </div>
 
       <div className="content testimony">
