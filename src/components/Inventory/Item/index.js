@@ -1,43 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import axios from "axios";
-import { API, formatter, quantityOptions } from "../../../shared/utils";
+import { formatter, quantityOptions } from "../../../shared/utils";
 import "./styles.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Select } from "antd";
 import { addToCart } from "../../../redux/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
 
 const InventoryItem = () => {
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState(null);
   const [options, setOptions] = useState([]);
   const [quantityValue, setQuantityValue] = useState(1);
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const inventory = useSelector((state) => state.inventory);
 
   const handleAddToCart = (product) => {
     dispatch(addToCart({ product, quantityValue }));
     navigate("/shopping-cart");
   };
 
-  const getProduct = async () => {
-    await axios
-      .get(API + `/api/inventory/inventory-item/${params.itemId}`)
-      .then(({ data }) => {
-        setLoading(false);
-        setProduct(data.item);
-      });
-  };
-
   useEffect(() => {
-    getProduct();
     setOptions(quantityOptions(100));
   }, []);
+
+  useEffect(() => {
+    if (inventory && !product) {
+      setProduct(inventory.find((item) => item._id === params.itemId));
+      setLoading(false);
+    }
+  }, [inventory]);
 
   return (
     <div

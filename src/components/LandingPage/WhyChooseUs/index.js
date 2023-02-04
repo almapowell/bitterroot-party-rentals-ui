@@ -12,7 +12,7 @@ const WhyChooseUs = () => {
       <div className="section-container">
         {reasons.map((r) => {
           return (
-            <div className="reason">
+            <div key={r.id} className="reason">
               <span>
                 <b>{r.title}</b>
               </span>
@@ -35,6 +35,7 @@ const itemsImages = [
 
 const reasons = [
   {
+    id: 1,
     icon: phone,
     title: "Great Customer Service",
     description:
@@ -42,6 +43,7 @@ const reasons = [
     img: itemsImages[0],
   },
   {
+    id: 2,
     icon: store,
     title: "Locally Owned Small Business",
     description:
@@ -49,6 +51,7 @@ const reasons = [
     img: itemsImages[1],
   },
   {
+    id: 3,
     icon: worker,
     title: "We Do The Work For You",
     description:
