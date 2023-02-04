@@ -22,7 +22,6 @@ a {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 10vh;
   min-height: 80px;
   background: white;
   margin-bottom: 30px;
@@ -31,12 +30,10 @@ a {
 }
 
 .logo {
-  font-family: var(--secondary-font-family);
-  font-size: 30px;
-}
-
-.logo:hover {
-  color: black;
+  height: 35vh;
+  margin-top: -7vh;
+  margin-bottom: -9vh;
+  max-height: 250px;
 }
 
 .nav__menu {
@@ -146,7 +143,9 @@ ul {
     justify-content: space-between;
   }
   .logo {
-    font-size: 20px;
+    margin-top: -5vh;
+    margin-bottom: -7vh;
+    height: 150px;
   }
 }
 

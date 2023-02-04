@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Badge } from "antd";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import logo from "./Logo.png";
 
 function Navbar() {
   const location = useLocation();
@@ -86,8 +87,8 @@ function Navbar() {
   return (
     <div>
       <nav className="nav">
-        <Link className="logo" to="/">
-          Bitterroot Party Rentals
+        <Link to="/">
+          <img className="logo" src={logo} alt="main-logo" />
         </Link>
         <ul className={active}>
           <li

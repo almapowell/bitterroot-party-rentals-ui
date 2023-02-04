@@ -2,6 +2,34 @@
   margin: 100px 20%;
 }
 
+.top-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.description {
+  width: 50%;
+  font-size: calc(12px + 1vw);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.description p {
+  margin-bottom: 50px;
+}
+
+.main-photo {
+  height: 80vh;
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .avatar svg {
   width: 150px;
   height: 150px;
@@ -27,75 +55,31 @@
   gap: 50px;
 }
 
-.banner {
-  margin-top: 50px;
-  background-color: var(--primary-color);
-  color: white;
-  font-size: 40px;
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-}
-
 .form-container {
   font-size: 30px;
   display: flex;
   justify-content: space-between;
 }
 
-.first-page {
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  height: 100vh;
-}
-
-.first-page img {
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  max-width: 100%;
-  height: 100%;
-}
-
-.first-line {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 25px;
-  font-weight: 700;
-  width: 100%;
-}
-
-.second-line {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  font-weight: 700;
-  width: 100%;
-  font-family: var(--secondary-font-family);
-}
-
 .shop-button {
+  transition: box-shadow 0.3s;
   padding: 10px 30px;
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 20px;
   font-weight: 700;
-  color: black;
-  background: transparent;
-  border: 1.5px solid black;
-  width: max-content;
+  color: white;
+  background-color: var(--primary-color);
+  /* background-color: var(--secondary-color); */
+  border: 1px solid white;
+  border-radius: 30px;
+  margin-top: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .shop-button:hover {
   cursor: pointer;
-  background: rgb(14, 17, 23, 0.07);
+  box-shadow: rgb(0 0 0 / 22%) 0px 5px 15px, rgb(0 0 0 / 14%) 0px 12px 22px;
+  /* background: var(--secondary-color-hover); */
+  /* background: var(--primary-color-hover); */
 }
 
 .masonry-image {
@@ -132,9 +116,5 @@
     height: auto;
     width: 100%;
     padding: 20px;
-  }
-
-  .banner {
-    font-size: 30px;
   }
 }

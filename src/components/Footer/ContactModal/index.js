@@ -53,7 +53,7 @@ const ContactModal = () => {
       <h2>Contact Us</h2>
       <div className="call">
         <span>Call Or Text:</span>
-        <strong>406-369-8129</strong>
+        <strong>406-369-8127</strong>
       </div>
       <Form
         {...layout}
