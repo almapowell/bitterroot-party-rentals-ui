@@ -22,7 +22,7 @@ exports.contactForm = async (req, res) => {
 const sesContact = (emailTo, emailFrom, message, name) => {
   const params = {
     Destination: {
-      ToAddresses: [emailTo],
+      ToAddresses: emailTo,
     },
     Message: {
       Body: {

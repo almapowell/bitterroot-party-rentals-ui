@@ -16,6 +16,7 @@ const App = () => {
       axios
         .get(API + "/api/inventory/all-inventory")
         .then((res) => {
+          console.log(4444, "Inventory is in!");
           setAlreadyRan(true);
           dispatch(setInventory(res.data.inventory));
         })

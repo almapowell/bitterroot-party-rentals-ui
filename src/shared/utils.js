@@ -1,7 +1,7 @@
-export const API =
-  "https://3y12d1go0i.execute-api.us-east-1.amazonaws.com/prod";
+// export const API =
+// "https://3y12d1go0i.execute-api.us-east-1.amazonaws.com/prod";
 
-// export const API = "http://localhost:8080";
+export const API = "http://localhost:8080";
 
 export const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
