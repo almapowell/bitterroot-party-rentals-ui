@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import { useNavigate } from "react-router";
 import Review from "./Review";
+import LandingPageContact from "./LandingPageContact";
 const itemsImages = [
   "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5348.JPG",
   "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG",
@@ -60,6 +61,7 @@ const LandingPage = () => {
       </div>
 
       <Review />
+      <LandingPageContact />
     </div>
   );
 };
