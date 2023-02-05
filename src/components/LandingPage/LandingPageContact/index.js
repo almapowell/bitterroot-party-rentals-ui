@@ -11,6 +11,16 @@ const LandingPageContact = () => (
   <div className="lp-container">
     <div className="form-wrapper">
       <h2 style={{ color: "white", margin: 0 }}>Contact Us</h2>
+      <p
+        style={{
+          color: "white",
+          fontSize: 20,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        Call or Text: <b style={{ marginLeft: 5 }}>406-369-8127</b>
+      </p>
       <Form
         name="basic"
         labelCol={{
@@ -80,7 +90,7 @@ const LandingPageContact = () => (
               background: "transparent",
               fontSize: 20,
               color: "white",
-              border: "1.5px solid white",
+              border: "1px solid white",
               height: "auto",
               borderRadius: 3,
             }}
