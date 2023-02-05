@@ -103,6 +103,14 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .main-photo {
+    height: auto;
+    min-height: auto;
+    width: 100%;
+  }
+}
+
 @media (max-width: 786px) {
   .second-line {
     line-height: 1;
@@ -117,5 +125,8 @@
     height: auto;
     width: 100%;
     padding: 20px;
+  }
+  .main-photo {
+    padding: 10px;
   }
 }
