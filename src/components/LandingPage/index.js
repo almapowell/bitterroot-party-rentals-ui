@@ -8,6 +8,8 @@ const itemsImages = [
   "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG",
   "https://bitterroot-party-rentals.s3.amazonaws.com/DSC00136.JPG",
 ];
+const mainPhoto =
+  "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5354.JPG";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ const LandingPage = () => {
         <img
           className="main-photo"
           alt="Buffet Stands For Rent"
-          src="https://cpartyrentals.com/wp-content/uploads/2021/11/ALI_6713.jpg"
+          src={mainPhoto}
         />
 
         <span className="description">
