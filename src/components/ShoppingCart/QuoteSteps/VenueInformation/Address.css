@@ -45,3 +45,10 @@
   display: flex;
   justify-content: flex-end;
 }
+
+@media screen and (max-width: 600px) {
+  .map-and-inputs {
+    flex-direction: column;
+    align-items: start;
+  }
+}
