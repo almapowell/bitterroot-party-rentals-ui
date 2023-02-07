@@ -35,8 +35,15 @@ const LandingPage = () => {
             and have a proven track record of success. Whether you are planning
             a wedding, birthdays, or company events, we can help.
           </p>
-          <p>Click 'Shop Rentals' to get started.</p>
-          <p>Give us a call or email today.</p>
+          <p>
+            Click <a href="/inventory">Shop Rentals</a> to get started.
+          </p>
+          <p
+            onClick={() => window.location.replace("/#contact")}
+            className="email-us"
+          >
+            Give us a call or email today.
+          </p>
         </span>
       </div>
 
@@ -61,7 +68,9 @@ const LandingPage = () => {
       </div>
 
       <Review />
-      <LandingPageContact />
+      <div id="contact">
+        <LandingPageContact />
+      </div>
     </div>
   );
 };

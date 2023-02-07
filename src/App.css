@@ -11,6 +11,7 @@
   color: black;
   font-size: calc(15px + 2vmin);
   font-family: var(--primary-font-family);
+  scroll-behavior: smooth;
 }
 
 :root {

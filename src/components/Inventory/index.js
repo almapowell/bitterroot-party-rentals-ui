@@ -21,8 +21,10 @@ const Inventory = () => {
 
   return (
     <div className="category-container">
-      <div className="pageTitle">Inventory</div>
-      {!isLoading ? (
+      <h2 className="gallery-title">Inventory</h2>
+      {!inventory ? (
+        <LoadingIndicator />
+      ) : (
         <div className="category-wrapper">
           {products.map((product, index) => (
             <Card key={index} title={product.title} className="card-container">
@@ -48,8 +50,6 @@ const Inventory = () => {
             </Card>
           ))}
         </div>
-      ) : (
-        <LoadingIndicator />
       )}
     </div>
   );

@@ -21,7 +21,7 @@
 
 .description {
   width: 50%;
-  font-size: calc(12px + 1vw);
+  font-size: calc(10px + 1vw);
   text-align: center;
   display: flex;
   align-items: center;
@@ -32,8 +32,12 @@
   margin-bottom: 50px;
 }
 
+.description a {
+  font-family: var(--secondary-font-family);
+}
+
 .main-photo {
-  height: 80vh;
+  height: 90vh;
   padding: 30px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -101,6 +105,16 @@
 
 .landing-page-img {
   height: 400px;
+}
+
+.email-us {
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.email-us:hover {
+  cursor: pointer;
+  color: grey;
 }
 
 @media (max-width: 1200px) {
