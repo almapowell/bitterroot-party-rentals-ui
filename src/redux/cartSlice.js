@@ -45,6 +45,13 @@ const cartSlice = createSlice({
         state.cartItems.push(tempProductItem);
       }
 
+      // Remove every instance of the older product
+      state.cartItems.forEach((item, index) => {
+        if (item.hasOwnProperty("id")) {
+          state.cartItems.splice(index, 1);
+        }
+      });
+
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     decreaseCart(state, action) {
