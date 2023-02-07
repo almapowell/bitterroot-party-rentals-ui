@@ -4,6 +4,7 @@ import "./styles.css";
 import CustomerInformation from "./CustomerInformation";
 import { Button, Steps } from "antd";
 import VenueInformation from "./VenueInformation";
+import Address from "./VenueInformation/Address";
 
 const QuoteSteps = () => {
   const [state, setState] = useState({
@@ -43,6 +44,13 @@ const QuoteSteps = () => {
     });
   };
 
+  const onAddressChange = (address) => {
+    setState({
+      ...state,
+      address,
+    });
+  };
+
   const onDateChange = (date, dateString) => {
     setState({
       ...state,
@@ -70,6 +78,10 @@ const QuoteSteps = () => {
       ),
     },
     {
+      title: "Venue Address",
+      content: <Address onAddressChange={onAddressChange} />,
+    },
+    {
       title: "Venue Information",
       content: (
         <VenueInformation
@@ -88,6 +100,22 @@ const QuoteSteps = () => {
     },
   ];
 
+  const determineDisabledNext = (currentStep) => {
+    switch (currentStep) {
+      case 0:
+        return !isCustomerInfoComplete();
+
+      case 1:
+        return !state.address;
+
+      case 2:
+        return !state.date;
+
+      default:
+        return false;
+    }
+  };
+
   return (
     <div className="steps-container">
       <Steps style={{ marginBottom: 70 }} current={current} items={steps} />
@@ -104,7 +132,7 @@ const QuoteSteps = () => {
         {current < steps.length - 1 && (
           <Button
             className=".nextBtn"
-            disabled={!isCustomerInfoComplete()}
+            disabled={determineDisabledNext(current)}
             type="primary"
             onClick={() => next()}
           >

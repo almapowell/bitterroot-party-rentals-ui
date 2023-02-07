@@ -2,6 +2,7 @@ import React from "react";
 import { DatePicker, Space, Form, Input, Radio, Switch } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import moment from "moment";
+import "./styles.css";
 
 const VenueInformation = ({
   onDateChange,
@@ -9,7 +10,6 @@ const VenueInformation = ({
   onDeliveryChange,
   onInputChange,
   state,
-  setState,
 }) => {
   return (
     <Form
@@ -21,18 +21,6 @@ const VenueInformation = ({
       }}
       layout="horizontal"
     >
-      <Form.Item
-        name="Venue Address"
-        rules={[{ required: true }]}
-        label="Venue Address"
-      >
-        <Input
-          value={state.address}
-          defaultValue={state.address}
-          name="address"
-          onChange={onInputChange}
-        />
-      </Form.Item>
       <Form.Item
         label="Event Date"
         rules={[{ required: true }]}
@@ -75,12 +63,7 @@ const VenueInformation = ({
           onChange={onReferalChange}
           value={state.referal}
         >
-          <Space
-            style={{
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
+          <Space className="referal-wrapper">
             <Radio value={1}>Word of Mouth</Radio>
             <Radio value={2}>Google</Radio>
             <Radio value={3}>Social Media</Radio>

@@ -7,6 +7,7 @@
     "@ant-design/icons": "^4.8.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@mapbox/search-js-react": "^1.0.0-beta.14",
     "@mui/material": "^5.10.14",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
