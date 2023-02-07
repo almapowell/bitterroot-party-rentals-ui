@@ -2,6 +2,15 @@
   margin: 100px 20%;
 }
 
+.main-title {
+  font-size: calc(22px + 1vw);
+  font-family: var(--secondary-font-family);
+}
+
+.lp-sub-text {
+  font-size: calc(12px + 1vw);
+}
+
 .top-content {
   display: flex;
   justify-content: center;
@@ -70,7 +79,7 @@
   color: white;
   background-color: var(--primary-color);
   border-radius: 30px;
-  margin-top: 30px;
+  margin-top: 40px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: none;
 }

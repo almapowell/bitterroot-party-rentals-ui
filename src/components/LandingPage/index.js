@@ -15,10 +15,8 @@ const LandingPage = () => {
   return (
     <div>
       <div className="top-content">
-        <h3>
-          <b>Bitterroot Party Rentals</b>
-        </h3>
-        <span>Weddings, Birthdays, and Events</span>
+        <h3 className="main-title">Bitterroot Party Rentals</h3>
+        <span className="lp-sub-text">Weddings, Birthdays, and Events</span>
         <button onClick={() => navigate("/inventory")} className="shop-button">
           Shop Rentals
         </button>
