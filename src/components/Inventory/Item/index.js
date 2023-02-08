@@ -5,10 +5,9 @@ import "./styles.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Select } from "antd";
-import { addToCart } from "../../../redux/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
+import ViewCartModal from "./ViewCartModal";
 
 const InventoryItem = () => {
   const [product, setProduct] = useState(null);
@@ -16,14 +15,8 @@ const InventoryItem = () => {
   const [quantityValue, setQuantityValue] = useState(1);
   const [loading, setLoading] = useState(true);
   const params = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const inventory = useSelector((state) => state.inventory);
 
-  const handleAddToCart = (product) => {
-    dispatch(addToCart({ product, quantityValue }));
-    navigate("/shopping-cart");
-  };
+  const inventory = useSelector((state) => state.inventory);
 
   useEffect(() => {
     setOptions(quantityOptions(100));
@@ -87,13 +80,11 @@ const InventoryItem = () => {
                   <span style={{ fontWeight: 600 }}>
                     {formatter.format(product.price * quantityValue)} total
                   </span>
-                  <button
-                    disabled={quantityValue === 0}
-                    className="secondary-button"
-                    onClick={() => handleAddToCart(product)}
-                  >
-                    Add to Cart
-                  </button>
+
+                  <ViewCartModal
+                    product={product}
+                    quantityValue={quantityValue}
+                  />
                 </div>
               </div>
             )}
