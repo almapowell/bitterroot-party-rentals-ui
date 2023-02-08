@@ -32,6 +32,10 @@ root.render(
             name="description"
             content="Bitterroot Party Rentals offer tents, tables, chairs, and outdoor party games for any occasion. Locally owned and operated, we offer exceptional service and have a proven track record of success. Whether you are planning a wedding, birthdays, or company events, we can help."
           />
+          <meta
+            name="keywords"
+            content="events, rentals, montana, bitterroot valley, ravalli county, party, parties"
+          />
           <title>Bitterroot Party Rentals</title>
           <link
             rel="canonical"
