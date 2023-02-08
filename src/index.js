@@ -19,12 +19,25 @@ import Gallery from "./components/Header/Gallery";
 import ContactModal from "./components/Footer/ContactModal";
 import InventoryItem from "./components/Inventory/Item";
 import ClearCart from "./components/ShoppingCart/ClearCart";
+import { Helmet } from "react-helmet";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <meta
+            name="description"
+            content="Bitterroot Party Rentals offer tents, tables, chairs, and outdoor party games for any occasion. Locally owned and operated, we offer exceptional service and have a proven track record of success. Whether you are planning a wedding, birthdays, or company events, we can help."
+          />
+          <title>Bitterroot Party Rentals</title>
+          <link
+            rel="canonical"
+            href="https://www.bitterrootpartyrentals.com/"
+          />
+        </Helmet>
         <div className="App">
           <Header />
 
