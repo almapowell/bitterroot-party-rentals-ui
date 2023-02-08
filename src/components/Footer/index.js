@@ -37,7 +37,7 @@ export default function Footer() {
 
       <div>
         <section className="footerSection" style={{ fontSize: 13 }}>
-          Copyright &#169; 2022 Bitterroot Party Rentals
+          Copyright &#169; 2023 Bitterroot Party Rentals
         </section>
       </div>
     </div>
