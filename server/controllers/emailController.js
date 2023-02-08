@@ -42,6 +42,7 @@ const sesContact = (emailTo, emailFrom, message, name) => {
 exports.requestForm = async (req, res) => {
   const { email, body, name } = req.body;
 
+  console.log({ email, body, name });
   sesRequest(
     ["almapowell28@gmail.com", "jordanopowell@gmail.com"],
     email,
@@ -74,7 +75,7 @@ const sesRequest = (emailTo, emailFrom, body, name) => {
       case 5:
         return "Other";
       default:
-        return "Couldn't find / Didn't answer";
+        return "Didn't answer";
     }
   };
 
@@ -96,7 +97,7 @@ Customer Information: \n
   Address: ${address}\n
   Deliver: ${delivery ? "Yes" : "No"}\n
   Referal: ${getReferal()}\n
-  Notes: ${notes}\n
+  ${notes ?? `Notes: ${notes}\n`}
   Date: ${moment(date).format("MMMM Do YYYY")}\n
 \n
 

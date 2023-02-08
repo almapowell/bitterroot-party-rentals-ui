@@ -17,12 +17,7 @@ function Gallery() {
       <ImageList cols={cols} gap={30}>
         {itemsImages.map((item, index) => (
           <ImageListItem className="gallery-container" key={index}>
-            <img
-              className="gallery-photo"
-              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.text}
-            />
+            <img className="gallery-photo" src={item.img} alt="image" />
           </ImageListItem>
         ))}
       </ImageList>
