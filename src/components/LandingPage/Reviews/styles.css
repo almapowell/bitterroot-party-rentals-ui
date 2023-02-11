@@ -1,0 +1,52 @@
+/* Review */
+.demo {
+  padding: 50px 0px;
+}
+
+.text {
+  font-size: 2rem;
+  font-style: italic;
+  overflow: hidden;
+}
+
+.testimony {
+  height: auto;
+  background: white;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
+  display: flex;
+  gap: 50px;
+  width: 800px;
+}
+
+.quotes svg {
+  height: 30px;
+}
+
+.avatar svg {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 786px) {
+  .testimony {
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    padding-bottom: 0px;
+  }
+
+  .avatar svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .quotes {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -60px;
+  }
+}
