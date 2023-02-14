@@ -20,6 +20,7 @@ import ContactForm from "./components/LandingPage/ContactForm";
 import InventoryItem from "./components/Inventory/Item";
 import ClearCart from "./components/ShoppingCart/ClearCart";
 import LeaveReview from "./components/Footer/LeaveReview";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import ReactGA from "react-ga4";
 
 ReactGA.initialize("G-E2M0LB7YTX");
@@ -29,27 +30,38 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <div className="App">
-          <Header />
+        <HelmetProvider>
+          <div className="App">
+            <Header />
+            <Helmet>
+              <meta
+                name="description"
+                content="Bitterroot Party Rentals offer tents, tables, chairs, and outdoor party games for a wedding, company event, or birthday party. Our local party company has you covered better than anyone in the Ravalli County."
+              />
+            </Helmet>
 
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/landing-page" element={<LandingPage />} />
-            <Route path="/shopping-cart" element={<ShoppingCart />} />
-            <Route path="/finalize-quote" element={<QuoteSteps />} />
-            <Route path="/jordy" element={<PasswordCheck />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/review" element={<LeaveReview />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/clear-cart" element={<ClearCart />} />
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/landing-page" element={<LandingPage />} />
+              <Route path="/shopping-cart" element={<ShoppingCart />} />
+              <Route path="/finalize-quote" element={<QuoteSteps />} />
+              <Route path="/jordy" element={<PasswordCheck />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/review" element={<LeaveReview />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/clear-cart" element={<ClearCart />} />
 
-            <Route path="/contact" element={<ContactForm />} />
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/inventory/item/:itemId" element={<InventoryItem />} />
-          </Routes>
-          <Footer />
-        </div>
+              <Route path="/contact" element={<ContactForm />} />
+              <Route path="/inventory" element={<Inventory />} />
+              <Route
+                path="/inventory/item/:itemId"
+                element={<InventoryItem />}
+              />
+            </Routes>
+            <Footer />
+          </div>
+        </HelmetProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
