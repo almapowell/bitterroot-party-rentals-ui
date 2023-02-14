@@ -46,7 +46,10 @@ export default function Address({ onAddressChange }) {
               />
             </AddressAutofill>
             {!showFormExpanded && (
-              <div onClick={() => setShowFormExpanded(true)}>
+              <div
+                className="enter-address"
+                onClick={() => setShowFormExpanded(true)}
+              >
                 Enter an address manually
               </div>
             )}

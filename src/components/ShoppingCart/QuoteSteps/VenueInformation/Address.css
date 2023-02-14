@@ -46,6 +46,10 @@
   justify-content: flex-end;
 }
 
+.enter-address {
+  font-size: calc(8px + 1vw);
+}
+
 @media screen and (max-width: 600px) {
   .map-and-inputs {
     flex-direction: column;

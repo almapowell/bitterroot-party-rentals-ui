@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { useNavigate } from "react-router";
-import Review from "./Review";
+import Reviews from "./Reviews";
 import ContactForm from "./ContactForm";
 const itemsImages = [
   "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5348.JPG",
@@ -67,7 +67,8 @@ const LandingPage = () => {
         })}
       </div>
 
-      <Review />
+      <Reviews />
+
       <div id="contact">
         <ContactForm />
       </div>

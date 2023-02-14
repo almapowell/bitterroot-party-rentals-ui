@@ -118,7 +118,9 @@ const QuoteSteps = () => {
 
   return (
     <div className="steps-container">
-      <Steps style={{ marginBottom: 70 }} current={current} items={steps} />
+      <div className="steps-header">
+        <Steps current={current} items={steps} />
+      </div>
 
       <div className="steps-content">{steps[current].content}</div>
       <div className="steps-action">

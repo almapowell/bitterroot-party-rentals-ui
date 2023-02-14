@@ -44,31 +44,6 @@
   min-height: 400px;
 }
 
-.avatar svg {
-  width: 150px;
-  height: 150px;
-}
-
-.quotes svg {
-  height: 30px;
-}
-
-.text {
-  font-size: 2rem;
-  font-style: italic;
-  overflow: hidden;
-}
-
-.testimony {
-  height: auto;
-  background: white;
-  padding: 40px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 3px;
-  display: flex;
-  gap: 50px;
-}
-
 .form-container {
   font-size: 30px;
   display: flex;
@@ -77,7 +52,7 @@
 
 .shop-button {
   transition: box-shadow 0.3s;
-  padding: 10px 30px;
+  padding: 15px 45px;
   font-size: 20px;
   font-weight: 700;
   color: white;
@@ -108,7 +83,7 @@
 }
 
 .email-us {
-  font-size: 24px;
+  font-size: calc(8px + 1vw);
   text-decoration: underline;
 }
 
@@ -134,11 +109,6 @@
 @media (max-width: 786px) {
   .second-line {
     line-height: 1;
-  }
-
-  .testimony {
-    flex-direction: column;
-    gap: 20px;
   }
 
   .landing-page-img {
