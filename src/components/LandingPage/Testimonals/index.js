@@ -10,6 +10,7 @@ const Testimonials = () => {
 
   const getTestimonials = async () => {
     await axios.get(API + "/api/reviews/reviews").then(({ data }) => {
+      console.log(data);
       setTestimonials(data.reviews);
     });
   };
