@@ -20,7 +20,6 @@ import ContactForm from "./components/LandingPage/ContactForm";
 import InventoryItem from "./components/Inventory/Item";
 import ClearCart from "./components/ShoppingCart/ClearCart";
 import LeaveReview from "./components/Footer/LeaveReview";
-import { HelmetProvider } from "react-helmet-async";
 import ReactGA from "react-ga4";
 
 ReactGA.initialize("G-E2M0LB7YTX");
@@ -28,35 +27,30 @@ ReactGA.initialize("G-E2M0LB7YTX");
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <Provider store={store}>
-        <BrowserRouter>
-          <div className="App">
-            <Header />
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
 
-            <Routes>
-              <Route path="/" element={<App />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/landing-page" element={<LandingPage />} />
-              <Route path="/shopping-cart" element={<ShoppingCart />} />
-              <Route path="/finalize-quote" element={<QuoteSteps />} />
-              <Route path="/jordy" element={<PasswordCheck />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/review" element={<LeaveReview />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/clear-cart" element={<ClearCart />} />
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/landing-page" element={<LandingPage />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
+            <Route path="/finalize-quote" element={<QuoteSteps />} />
+            <Route path="/jordy" element={<PasswordCheck />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/review" element={<LeaveReview />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/clear-cart" element={<ClearCart />} />
 
-              <Route path="/contact" element={<ContactForm />} />
-              <Route path="/inventory" element={<Inventory />} />
-              <Route
-                path="/inventory/item/:itemId"
-                element={<InventoryItem />}
-              />
-            </Routes>
-            <Footer />
-          </div>
-        </BrowserRouter>
-      </Provider>
-    </HelmetProvider>
+            <Route path="/contact" element={<ContactForm />} />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/inventory/item/:itemId" element={<InventoryItem />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

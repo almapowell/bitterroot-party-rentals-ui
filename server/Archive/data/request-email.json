@@ -1,0 +1,28 @@
+{
+  "email": "megan.powell127@gmail.com",
+  "body": {
+    "cartItems": [
+      {
+        "id": 7,
+        "image": "grd_1_.jpg",
+        "price": "400.00",
+        "quantity": 2,
+        "title": "30' x 40' Tent"
+      }
+    ],
+    "customerInformation": {
+      "first": "Megan",
+      "last": "Powell",
+      "email": "megan.powell127@gmail.com",
+      "phone": "8018548545",
+      "address": "3773 Howard Hughes Pkwy STE 500S",
+      "date": "2023-01-30",
+      "dateValue": "2023-01-30T22:49:30.766Z",
+      "delivery": true,
+      "notes": "Notes",
+      "referal": 4
+    },
+    "status": "Pending"
+  },
+  "name": "MeganPowell"
+}
