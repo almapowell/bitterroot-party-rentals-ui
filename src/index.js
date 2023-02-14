@@ -21,6 +21,9 @@ import InventoryItem from "./components/Inventory/Item";
 import ClearCart from "./components/ShoppingCart/ClearCart";
 import LeaveReview from "./components/Footer/LeaveReview";
 import { HelmetProvider } from "react-helmet-async";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-E2M0LB7YTX");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
