@@ -1,27 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { Button, Form, Input, notification, Radio } from "antd";
-import ReactStars from "react-rating-stars-component";
-
+import React, { useState } from "react";
+import { Button, Form, Input, notification, Radio, Rate } from "antd";
+import axios from "axios";
 import "./styles.css";
+import { API } from "../../../shared/utils";
+import { useNavigate } from "react-router";
 
 const LeaveReview = () => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [starsGiven, setStarsGiven] = useState(0);
+  const [gender, setGender] = useState("female");
+  const navigate = useNavigate();
 
-  const handleSubmit = ({ review }) => {
-    console.log("thank you", review);
+  const handleSubmit = async ({ review }) => {
+    const testimony = {
+      name: review.name,
+      testimony: review.comments,
+      gender,
+      stars: starsGiven,
+    };
+
+    await axios.post(API + "/api/reviews/review", testimony).then(() => {
+      navigate("/");
+      successfulNotification();
+    });
+
+    console.log({ testimony });
   };
 
-  const ratingChanged = (newRating) => {
-    console.log(newRating);
-    setStarsGiven(newRating);
+  const setNewRate = (newRate) => {
+    setStarsGiven(newRate);
+    setIsDisabled(false);
   };
 
-  useEffect(() => {
-    if (starsGiven) {
-      setIsDisabled(false);
-    }
-  }, [starsGiven]);
+  const successfulNotification = () => {
+    notification["success"]({
+      message: "Thank you!",
+      description: `We greatly appreciate your feedback.`,
+    });
+  };
 
   return (
     <div>
@@ -82,8 +98,14 @@ const LeaveReview = () => {
           name={["gender", "comments"]}
         >
           <Radio.Group
-            onChange={(e) => console.log(e.target.value)}
-            defaultValue="female"
+            onChange={(e) => {
+              if (gender === "male") {
+                setGender("female");
+              } else {
+                setGender("male");
+              }
+            }}
+            defaultValue={gender}
           >
             <Radio.Button value="male">Male</Radio.Button>
             <Radio.Button value="female">Female</Radio.Button>
@@ -98,11 +120,10 @@ const LeaveReview = () => {
           }
           name={["stars", "comments"]}
         >
-          <ReactStars
-            count={5}
-            onChange={ratingChanged}
-            size={24}
-            activeColor="#ffd700"
+          <Rate
+            className="star-style"
+            onChange={setNewRate}
+            value={starsGiven}
           />
         </Form.Item>
 

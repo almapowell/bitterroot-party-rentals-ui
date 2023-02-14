@@ -3,6 +3,7 @@ const inventoryRoutes = require("./routes/inventoryRoutes");
 const productRoutes = require("./routes/productRoutes");
 const requestRoutes = require("./routes/requestRoutes");
 const emailRoutes = require("./routes/emailRoutes");
+const reviewsRoutes = require("./routes/reviewsRoutes");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -32,6 +33,7 @@ app.use("/api/inventory", inventoryRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/request", requestRoutes);
 app.use("/api/email", emailRoutes);
+app.use("/api/reviews", reviewsRoutes);
 
 if (process.env.DEVELOPMENT) {
   const PORT = 8080;

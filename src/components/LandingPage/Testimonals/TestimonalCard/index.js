@@ -1,21 +1,24 @@
 import React from "react";
 import { female, male } from "../avatars";
+import { Rate } from "antd";
 import "../styles.css";
 
-const Review = ({ review }) => {
-  const { text, name, gender } = review;
+const TestimonalCard = ({ review }) => {
+  const { testimony, name, gender, stars } = review;
 
   return (
     <div className="testimony">
       <div className="avatar">{gender === "girl" ? female : male}</div>
       <span className="text">
-        {text}
+        {testimony}
         <br />
         <br />
-        <b>- {name}</b>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <b>- {name}</b>
+          <Rate disabled defaultValue={stars} />
+        </div>
       </span>
       <div>
-        <span></span>
         <div className="quotes">
           <svg
             clipRule="evenodd"
@@ -36,4 +39,4 @@ const Review = ({ review }) => {
   );
 };
 
-export default Review;
+export default TestimonalCard;
