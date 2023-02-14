@@ -3,6 +3,8 @@ import "./styles.css";
 import { useNavigate } from "react-router";
 import Testimonials from "./Testimonals";
 import ContactForm from "./ContactForm";
+import { Helmet } from "react-helmet-async";
+
 const itemsImages = [
   "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5348.JPG",
   "https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG",
@@ -16,6 +18,13 @@ const LandingPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta
+          name="description"
+          content="Bitterroot Party Rentals offer tents, tables, chairs, and outdoor party games for a wedding, company event, or birthday party. Our local party company has you covered better than anyone in the Ravalli County."
+        />
+      </Helmet>
+
       <div className="top-content">
         <h3 className="main-title">Bitterroot Party Rentals</h3>
         <span className="lp-sub-text">Weddings, Birthdays, and Events</span>
