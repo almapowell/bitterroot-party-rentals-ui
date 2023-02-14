@@ -4,34 +4,34 @@ import "./styles.css";
 import { formatter, API } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 const Inventory = () => {
-  const inventory = useSelector((state) => state.inventory);
   const [products, setProducts] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const getInventory = async () => {
+    console.log("getting inventory");
     await axios
       .get(API + "/api/inventory/all-inventory")
       .then((res) => {
-        console.log(res.data);
-        // dispatch(setInventory(res.data.inventory));
+        console.log("set the inventory here", res);
+        setProducts(res.data.inventory);
       })
       .catch((err) => console.log(444, "We have a error!!", err));
   };
 
   useEffect(() => {
-    getInventory();
+    if (!products.length) {
+      getInventory();
+    }
   }, []);
 
   return (
     <div className="category-container">
       <h2 className="gallery-title">Inventory</h2>
-      {!inventory ? (
+      {!products.length ? (
         <LoadingIndicator />
       ) : (
         <div className="category-wrapper">
