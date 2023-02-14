@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,13 +7,16 @@ import QuoteTable from "../../../../shared/QuoteTable";
 import CustomerSummary from "../../../../shared/CustomerSummary";
 import { notification } from "antd";
 import { API } from "../../../../shared/utils";
+import "./styles.css";
 
 const ReviewQuote = ({ state }) => {
+  const [savingQuote, setSavingQuote] = useState(false);
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submitReview = async (cartItems, state) => {
+    setSavingQuote(true);
     const rentalRequest = {
       cartItems,
       customerInformation: state,
@@ -43,6 +46,10 @@ const ReviewQuote = ({ state }) => {
     });
   };
 
+  const fetchData = () => {
+    setSavingQuote(true);
+  };
+
   return (
     <>
       <h2>Quote Summary</h2>
@@ -52,16 +59,12 @@ const ReviewQuote = ({ state }) => {
       <CustomerSummary info={state} />
 
       <div className="primary-button-wrapper">
-        <div
-          style={{
-            width: 300,
-          }}
-        >
+        <div>
           <button
             onClick={() => submitReview(cartItems, state)}
-            className="primary-button"
+            className={`button ${savingQuote && "button--loading"}`}
           >
-            Submit Quote Request
+            <span className="button__text">Submit Quote Request</span>
           </button>
         </div>
       </div>

@@ -1,0 +1,57 @@
+.button {
+  position: relative;
+  padding: 8px 40px;
+  background-color: #f5f5f5;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  padding: 15px 45px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+}
+
+.button--loading:active {
+  background-color: #f5f5f5;
+}
+
+.button__text {
+  transition: all 0.2s;
+  font-size: calc(10px + 1vw);
+  font-weight: bold;
+}
+
+.button--loading .button__text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid transparent;
+  border-top-color: #f5f5f5;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
