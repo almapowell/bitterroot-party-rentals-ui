@@ -32,6 +32,7 @@ export default function Footer() {
           </h5>
           <Link to="/faq">FAQ</Link>
           <Link to="/contact">Contact Us</Link>
+          <Link to="/review">Leave a Review</Link>
         </section>
       </div>
 

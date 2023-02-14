@@ -4,15 +4,12 @@ import axios from "axios";
 import { API } from "../../../shared/utils";
 import { useNavigate } from "react-router-dom";
 
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
-const LandingPageContact = () => {
+const ContactForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async ({ user }) => {
-    console.log(user);
     await axios.post(API + "/api/email/contact-form", user).then(({ data }) => {
+      console.log({ user, data });
       if (data === "success") {
         successfulNotification();
         navigate("/");
@@ -67,7 +64,6 @@ const LandingPageContact = () => {
           }}
           layout="vertical"
           onFinish={handleSubmit}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
@@ -135,4 +131,4 @@ const LandingPageContact = () => {
     </div>
   );
 };
-export default LandingPageContact;
+export default ContactForm;
