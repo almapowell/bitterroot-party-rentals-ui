@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import TestimonalCard from "./TestimonalCard";
 import "./styles.css";
-import { HorizontalTicker } from "react-infinite-ticker";
 import axios from "axios";
-import { API } from "../../../shared/utils";
+import { API, leftArrow, quoteIcon, rightArrow } from "../../../shared/utils";
+import { female, male } from "./avatars";
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([]);
+  const [people, setPeople] = useState([]);
+  const [index, setIndex] = useState(0);
 
   const getTestimonials = async () => {
     await axios.get(API + "/api/reviews/reviews").then(({ data }) => {
-      console.log(data);
-      setTestimonials(data.reviews);
+      setPeople(data.reviews);
     });
   };
 
@@ -19,16 +18,67 @@ const Testimonials = () => {
     getTestimonials();
   }, []);
 
+  useEffect(() => {
+    const lastIndex = people.length - 1;
+    if (index < 0) {
+      setIndex(lastIndex);
+    }
+    if (index > lastIndex) {
+      setIndex(0);
+    }
+  }, [index, people]);
+
+  // autoslide, clearInterval = een cleanup functie noodzakelijk bij interval
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1);
+    }, 6000);
+    return () => clearInterval(slider);
+  }, [index]);
+
   return (
-    <div className="demo">
-      <HorizontalTicker style={{ border: "2px solid red" }} duration={150000}>
-        {testimonials.map((review) => (
-          <div key={review._id} style={{ margin: "50px 25px" }}>
-            <TestimonalCard review={review} />
-          </div>
-        ))}
-      </HorizontalTicker>
-    </div>
+    <section className="section">
+      <div className="title">
+        <h2 className="review-title">
+          <span className="review-slash">/</span>reviews
+        </h2>
+      </div>
+      {people.length && (
+        <div className="section-center">
+          {people.map((person, personIndex) => {
+            const { id, gender, name, title, testimony } = person;
+            let position = "nextSlide";
+            if (personIndex === index) {
+              position = "activeSlide";
+            }
+            if (
+              personIndex === index - 1 ||
+              (index === 0 && personIndex === people.length - 1)
+            ) {
+              position = "lastSlide";
+            }
+            return (
+              <article key={id} className={position}>
+                <div className="avatar">
+                  {gender === "female" ? female : male}
+                </div>
+                <p className="quote-name">{name}</p>
+                <p className="title">{title}</p>
+                <p className="text">{testimony}</p>
+                <br />
+                {quoteIcon}
+              </article>
+            );
+          })}
+          <button className="prev" onClick={() => setIndex(index - 1)}>
+            {leftArrow}
+          </button>
+          <button className="next" onClick={() => setIndex(index + 1)}>
+            {rightArrow}
+          </button>
+        </div>
+      )}
+    </section>
   );
 };
 

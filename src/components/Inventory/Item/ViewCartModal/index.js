@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Modal } from "antd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,7 +30,7 @@ const ViewCartModal = ({ product, quantityValue }) => {
   };
 
   return (
-    <>
+    <React.Fragment key={product.id}>
       <button
         disabled={quantityValue === 0}
         className="secondary-button"
@@ -43,7 +44,7 @@ const ViewCartModal = ({ product, quantityValue }) => {
 
       <Modal
         open={open}
-        title={`Added ${product.title} to cart`}
+        title="Added to cart!"
         onCancel={handleCancel}
         footer={[
           <Button onClick={(e) => redirect(e, "/inventory")}>
@@ -56,6 +57,7 @@ const ViewCartModal = ({ product, quantityValue }) => {
       >
         {cartItems.map((item) => (
           <div
+            key={item._id}
             style={{
               display: "flex",
               gap: "30px",
@@ -72,7 +74,7 @@ const ViewCartModal = ({ product, quantityValue }) => {
           </div>
         ))}
       </Modal>
-    </>
+    </React.Fragment>
   );
 };
 export default ViewCartModal;

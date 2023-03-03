@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { formatter, quantityOptions } from "../../../shared/utils";
+import { API, formatter, quantityOptions } from "../../../shared/utils";
 import "./styles.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Select } from "antd";
-import { useSelector } from "react-redux";
 import LoadingIndicator from "../../../shared/LoadingIndicator";
 import ViewCartModal from "./ViewCartModal";
+import axios from "axios";
 
 const InventoryItem = () => {
   const [product, setProduct] = useState(null);
@@ -16,18 +16,24 @@ const InventoryItem = () => {
   const [loading, setLoading] = useState(true);
   const params = useParams();
 
-  const inventory = useSelector((state) => state.inventory);
+  const getProductById = async (id) => {
+    await axios.get(API + "/api/inventory/inventory-item/" + id).then((res) => {
+      setProduct(res.data.item);
+      setLoading(false);
+    });
+  };
 
   useEffect(() => {
-    setOptions(quantityOptions(100));
+    setOptions(
+      quantityOptions(params.itemId === "63d9284a209d4368bbaab333" ? 200 : 100)
+    );
   }, []);
 
   useEffect(() => {
-    if (inventory && !product) {
-      setProduct(inventory.find((item) => item._id === params.itemId));
-      setLoading(false);
+    if (!product) {
+      getProductById(params.itemId);
     }
-  }, [inventory]);
+  }, [product]);
 
   return (
     <div

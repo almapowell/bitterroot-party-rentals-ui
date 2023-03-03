@@ -6,7 +6,7 @@ exports.contactForm = async (req, res) => {
   const { email, message, name } = req.body;
 
   sesContact(
-    ["almapowell28@gmail.com", "jordanopowell@gmail.com"],
+    ["almapowell28@gmail.com", "bitterrootpartyrentals@gmail.com"],
     email,
     message,
     name
@@ -34,7 +34,7 @@ const sesContact = (emailTo, emailFrom, message, name) => {
         Data: `Contact Form`,
       },
     },
-    Source: "jordanopowell@gmail.com",
+    Source: "bitterrootpartyrentals@gmail.com",
   };
   return ses.sendEmail(params).promise();
 };
@@ -44,7 +44,7 @@ exports.requestForm = async (req, res) => {
 
   console.log({ email, body, name });
   sesRequest(
-    ["almapowell28@gmail.com", "jordanopowell@gmail.com"],
+    ["almapowell28@gmail.com", "bitterrootpartyrentals@gmail.com"],
     email,
     body,
     name
@@ -105,10 +105,10 @@ From: \n${emailFrom}`,
         },
       },
       Subject: {
-        Data: `REQUEST HAS BEEN MADE`,
+        Data: `A Request Has Been Made!!`,
       },
     },
-    Source: "jordanopowell@gmail.com",
+    Source: "bitterrootpartyrentals@gmail.com",
   };
   return ses.sendEmail(params).promise();
 };

@@ -4,7 +4,6 @@ import "./styles.css";
 import { formatter, API } from "../../shared/utils";
 import LoadingIndicator from "../../shared/LoadingIndicator";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import axios from "axios";
 
 const Inventory = () => {
@@ -12,12 +11,10 @@ const Inventory = () => {
   const navigate = useNavigate();
 
   const getInventory = async () => {
-    console.log("getting inventory");
     await axios
       .get(API + "/api/inventory/all-inventory")
-      .then((res) => {
-        console.log("set the inventory here", res);
-        setProducts(res.data.inventory);
+      .then(({ data }) => {
+        setProducts(data.inventory);
       })
       .catch((err) => console.log(444, "We have a error!!", err));
   };

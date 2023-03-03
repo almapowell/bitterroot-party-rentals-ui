@@ -1,81 +1,78 @@
-.content {
-  margin: 100px 20%;
+.vertical-image {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("https://i.pinimg.com/564x/0b/b7/df/0bb7df72141d85c1edb0fbdc7056d55b.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.horizontal-image {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shop-rentals-btn {
+  padding: 10px 30px;
+  font-size: 16px;
+  text-transform: none;
+  max-width: 200px;
 }
 
 .main-title {
-  font-size: calc(22px + 1vw);
+  font-size: calc(35px + 1vw);
   font-family: var(--secondary-font-family);
-}
-
-.lp-sub-text {
-  font-size: calc(12px + 1vw);
+  color: black;
 }
 
 .top-content {
+  width: 50%;
+  margin: auto;
+  margin-left: 5vw;
+  margin-top: 8vh;
+}
+
+.hero-text {
+  width: 50%;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
 }
 
 .description {
-  width: 50%;
-  font-size: calc(10px + 1vw);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.description p {
-  margin-bottom: 50px;
-}
-
-.description a {
-  font-family: var(--secondary-font-family);
+  font-size: calc(7px + 1vw);
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  font-weight: bold;
+  color: black;
 }
 
 .main-photo {
-  height: 90vh;
-  padding: 30px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  min-height: 400px;
+  height: 70vh;
+  max-height: 600px;
+  margin: auto;
 }
 
 .form-container {
   font-size: 30px;
   display: flex;
   justify-content: space-between;
-}
-
-.shop-button {
-  transition: box-shadow 0.3s;
-  padding: 15px 45px;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-  background-color: var(--primary-color);
-  border-radius: 30px;
-  margin-top: 40px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: none;
-}
-
-.shop-button:hover {
-  cursor: pointer;
-  box-shadow: rgb(0 0 0 / 22%) 0px 5px 15px, rgb(0 0 0 / 14%) 0px 12px 22px;
-}
-
-.masonry-image {
-  font-size: 14px;
-}
-
-.reminder {
-  display: flex;
-  justify-content: center;
-  font-size: 25px;
 }
 
 .landing-page-img {
@@ -118,5 +115,12 @@
   }
   .main-photo {
     padding: 10px;
+  }
+  .main-title {
+    font-size: calc(25px + 1vw);
+  }
+
+  .shop-rentals-btn {
+    padding: 5px 20px;
   }
 }

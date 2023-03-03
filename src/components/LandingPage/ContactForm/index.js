@@ -6,12 +6,18 @@ import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
   const navigate = useNavigate();
+  const [form] = Form.useForm();
 
   const handleSubmit = async ({ user }) => {
     await axios.post(API + "/api/email/contact-form", user).then(({ data }) => {
-      console.log({ user, data });
       if (data === "success") {
         successfulNotification();
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+        form.resetFields();
         navigate("/");
       } else {
         failedNotification();
@@ -48,6 +54,7 @@ const ContactForm = () => {
           Call or Text: <b style={{ marginLeft: 5 }}>406-369-8127</b>
         </p>
         <Form
+          form={form}
           name="basic"
           labelCol={{
             span: 8,
