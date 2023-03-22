@@ -55,24 +55,29 @@ const ViewCartModal = ({ product, quantityValue }) => {
           </Button>,
         ]}
       >
-        {cartItems.map((item) => (
-          <div
-            key={item._id}
-            style={{
-              display: "flex",
-              gap: "30px",
-              borderBottom: "1px solid lightgrey",
-              marginBottom: 30,
-            }}
-          >
-            <img height={100} src={item.images[0]} alt="Mini cart item image" />
-            <div>
-              <p>{item.title}</p>
-              <p style={{ fontSize: 12 }}>Quantity: {item.quantity}</p>
-              <p>{formatter.format(item.price * item.quantity)}</p>
+        {cartItems &&
+          cartItems.map((item) => (
+            <div
+              key={item._id}
+              style={{
+                display: "flex",
+                gap: "30px",
+                borderBottom: "1px solid lightgrey",
+                marginBottom: 30,
+              }}
+            >
+              <img
+                height={100}
+                src={item.images[0]}
+                alt="Mini cart item image"
+              />
+              <div>
+                <p>{item.title}</p>
+                <p style={{ fontSize: 12 }}>Quantity: {item.quantity}</p>
+                <p>{formatter.format(item.price * item.quantity)}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </Modal>
     </React.Fragment>
   );

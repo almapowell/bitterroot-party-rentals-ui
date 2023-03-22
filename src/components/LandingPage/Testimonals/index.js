@@ -46,7 +46,7 @@ const Testimonials = () => {
       {people.length && (
         <div className="section-center">
           {people.map((person, personIndex) => {
-            const { id, gender, name, title, testimony } = person;
+            const { gender, name, title, testimony } = person;
             let position = "nextSlide";
             if (personIndex === index) {
               position = "activeSlide";
@@ -58,7 +58,7 @@ const Testimonials = () => {
               position = "lastSlide";
             }
             return (
-              <article key={id} className={position}>
+              <article key={personIndex} className={position}>
                 <div className="avatar">
                   {gender === "female" ? female : male}
                 </div>
