@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Accepted from "./Accepted";
+import Archived from "./Archived";
 import Completed from "./Completed";
 import Dashboard from "./Dashboard";
 import Modifications from "./Modifications";
@@ -23,6 +24,8 @@ const Admin = () => {
         return <Accepted />;
       case "completed":
         return <Completed />;
+      case "archived":
+        return <Archived />;
       case "modifications":
         return <Modifications />;
       default:
@@ -56,6 +59,12 @@ const Admin = () => {
           onClick={() => updateNav("completed")}
         >
           Completed
+        </button>
+        <button
+          className={navigationPage === "archived" ? "active" : "btn"}
+          onClick={() => updateNav("archived")}
+        >
+          Archived
         </button>
         <button
           className={navigationPage === "modifications" ? "active" : "btn"}

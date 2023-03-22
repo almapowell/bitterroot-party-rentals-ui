@@ -1,3 +1,4 @@
+const Archives = require("../models/archives.js");
 const Request = require("../models/request.js");
 
 // Create new request => /api/request/create-new

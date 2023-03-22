@@ -10,7 +10,21 @@ const Accepted = () => {
   const [acceptedRequests, setAcceptedRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [requestToEdit, setRequestToEdit] = useState(null);
 
+  const showModal = (request) => {
+    setRequestToEdit(request);
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    cancelReservation(requestToEdit);
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setRequestToEdit(null);
+    setIsModalOpen(false);
+  };
   const { confirm } = Modal;
 
   function showConfirm(id) {
@@ -42,9 +56,10 @@ const Accepted = () => {
       });
   };
 
-  const handleCancel = async (id) => {
+  const cancelReservation = async (request) => {
+    await axios.post(API + "/api/archives/create", request);
     await axios
-      .delete(API + `/api/request/delete-rental-request/${id}`)
+      .delete(API + `/api/request/delete-rental-request/${request._id}`)
       .then(() => {
         getAcceptedRequests();
       });
@@ -59,8 +74,6 @@ const Accepted = () => {
   useEffect(() => {
     getAcceptedRequests();
   }, []);
-
-  console.log(111, "pending requests:", acceptedRequests);
 
   return (
     <div>
@@ -89,7 +102,7 @@ const Accepted = () => {
               <QuoteTable cartItems={request.cartItems} />
             </div>
             <div className="btn-container">
-              <button onClick={() => handleCancel(request._id)}>
+              <button onClick={() => showModal(request)}>
                 Cancel Reservation
               </button>
               <button onClick={() => showConfirm(request._id)}>
@@ -99,6 +112,15 @@ const Accepted = () => {
           </div>
         ))
       )}
+
+      <Modal
+        title="Are you sure??"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>This request will be archived.</p>
+      </Modal>
     </div>
   );
 };

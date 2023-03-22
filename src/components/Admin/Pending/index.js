@@ -12,6 +12,21 @@ const Pending = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [requestToEdit, setRequestToEdit] = useState(null);
+
+  const showModal = (request) => {
+    setRequestToEdit(request);
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    handleDeny(requestToEdit);
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setRequestToEdit(null);
+    setIsModalOpen(false);
+  };
 
   const { confirm } = Modal;
 
@@ -36,9 +51,10 @@ const Pending = () => {
       });
   };
 
-  const handleDeny = async (id) => {
+  const handleDeny = async (request) => {
+    await axios.post(API + "/api/archives/create", request);
     await axios
-      .delete(API + `/api/request/delete-rental-request/${id}`)
+      .delete(API + `/api/request/delete-rental-request/${request._id}`)
       .then(() => {
         getPendingRequests();
       });
@@ -99,12 +115,21 @@ const Pending = () => {
               <QuoteTable cartItems={request.cartItems} />
             </div>
             <div className="btn-container">
-              <button onClick={() => handleDeny(request._id)}>Deny</button>
+              <button onClick={() => showModal(request)}>Deny</button>
               <button onClick={() => showConfirm(request)}>Confirm</button>
             </div>
           </div>
         ))
       )}
+
+      <Modal
+        title="Are you sure??"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>This will completely remove this pending rental request.</p>
+      </Modal>
     </div>
   );
 };

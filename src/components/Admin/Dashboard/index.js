@@ -40,6 +40,7 @@ const Dashboard = () => {
   const [pendings, setPendings] = useState(0);
   const [accepted, setAccepted] = useState(0);
   const [completed, setCompleted] = useState(0);
+  const [archived, setArchived] = useState(0);
 
   const getAllRequests = async () => {
     await axios.get(API + "/api/request/get-all-requests").then(({ data }) => {
@@ -91,11 +92,18 @@ const Dashboard = () => {
       });
   };
 
+  const getArchived = async () => {
+    await axios.get(API + "/api/archives/get-all-archives").then(({ data }) => {
+      setArchived(data.count);
+    });
+  };
+
   useEffect(() => {
     getPending();
     getAccepted();
     getCompleted();
     getAllRequests();
+    getArchived();
   }, []);
 
   return (
@@ -113,6 +121,9 @@ const Dashboard = () => {
           </span>
           <span>
             Completed: <b style={{ marginLeft: 10 }}>{completed}</b>
+          </span>
+          <span>
+            Archived: <b style={{ marginLeft: 10 }}>{archived}</b>
           </span>
         </div>
       </div>
