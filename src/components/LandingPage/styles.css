@@ -1,8 +1,5 @@
 .vertical-image {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(0, 0, 0, 0.1)
-    ),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("https://i.pinimg.com/564x/0b/b7/df/0bb7df72141d85c1edb0fbdc7056d55b.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -15,10 +12,7 @@
 }
 
 .horizontal-image {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(0, 0, 0, 0.1)
-    ),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("https://bitterroot-party-rentals.s3.amazonaws.com/IMG_5362.JPG");
   background-position: center;
   background-repeat: no-repeat;
@@ -40,7 +34,7 @@
 .main-title {
   font-size: calc(35px + 1vw);
   font-family: var(--secondary-font-family);
-  color: black;
+  color: white;
 }
 
 .top-content {
@@ -60,7 +54,7 @@
   margin-top: 0.5em;
   margin-bottom: 1.5em;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 
 .main-photo {
