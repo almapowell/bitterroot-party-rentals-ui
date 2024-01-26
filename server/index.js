@@ -2,7 +2,7 @@ require("dotenv").config();
 const inventoryRoutes = require("./routes/inventoryRoutes");
 const productRoutes = require("./routes/productRoutes");
 const requestRoutes = require("./routes/requestRoutes");
-const emailRoutes = require("./routes/emailRoutes");
+// const emailRoutes = require("./routes/emailRoutes");
 const reviewsRoutes = require("./routes/reviewsRoutes");
 const archiveRoutes = require("./routes/archiveRoutes");
 const express = require("express");
@@ -13,6 +13,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+console.log(1111111, process.env.URI, process.env.STREAM_ID)
 
 // -------- Connect to Database -------- //
 async function connectDB() {
@@ -33,7 +35,7 @@ app.get("/api", (req, res) => {
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/request", requestRoutes);
-app.use("/api/email", emailRoutes);
+// app.use("/api/email", emailRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/archives", archiveRoutes);
 
